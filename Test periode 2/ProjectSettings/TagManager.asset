@@ -8,6 +8,8 @@ TagManager:
   - TrashSmall
   - TrashMedium
   - TrashLarge
+  - Upgrade
+  - Door
   layers:
   - Default
   - TransparentFX

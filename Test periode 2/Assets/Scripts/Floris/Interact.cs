@@ -14,12 +14,14 @@ public class Interact : MonoBehaviour
     public GameObject hand;
     
     public Vector3 carPos;
+    public Transform posEnter;
+    public Transform posExit;
 
     public bool inCar;
     public MeshRenderer pInvis;
     public MeshRenderer sInvis;
 
-    public Pay pay;
+   
 
 
 
@@ -35,6 +37,8 @@ public class Interact : MonoBehaviour
     {
        enterCar();
        exitCar();
+       openDoor();
+       exitDoor();
         
         
       
@@ -80,16 +84,27 @@ public class Interact : MonoBehaviour
             }
         }
     }
-    public void pickUp()
+    
+    public void openDoor()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Physics.Raycast(gameObject.transform.position, transform.forward, out hitt, 5f))
+          if(hitt.transform.name == "Door")
+          {
+                player.transform.position = posEnter.position;
+          }  
+            
+          
+            
+        }
+    }
+    public void exitDoor()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (hitt.transform.name == "Door")
             {
-                if(hitt.rigidbody.name == "Boosters")
-                {
-                    pay.inBasket();
-                }
+                player.transform.position = posExit.position;
             }
         }
     }

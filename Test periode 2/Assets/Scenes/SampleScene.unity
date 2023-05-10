@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 102096986}
   m_Layer: 0
   m_Name: Boosters
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &124974216
 GameObject:
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 124974218}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,10 +534,11 @@ MonoBehaviour:
   mt: {fileID: 378874250}
   hand: {fileID: 0}
   carPos: {x: 0, y: 0, z: 0}
+  posEnter: {fileID: 0}
+  posExit: {fileID: 0}
   inCar: 0
   pInvis: {fileID: 0}
   sInvis: {fileID: 0}
-  pay: {fileID: 0}
 --- !u!1 &309588557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1351,7 @@ GameObject:
   - component: {fileID: 628664427}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1664,11 +1665,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940950951}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045, y: 0.242, z: 0.492}
+  m_LocalPosition: {x: 0.058998108, y: -0.098, z: 0.40425825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1204909248}
+  m_Father: {fileID: 1987365950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &940950953
@@ -1684,17 +1685,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrachtwagen: {fileID: 378874245}
-  player: {fileID: 309588557}
+  player: {fileID: 1204909244}
   stoel: {fileID: 439091646}
   pCam: {fileID: 330585545}
   vCam: {fileID: 879880168}
   mt: {fileID: 378874250}
   hand: {fileID: 1482523585}
   carPos: {x: 0, y: 0, z: 0}
+  posEnter: {fileID: 957842564}
+  posExit: {fileID: 951973080}
   inCar: 0
   pInvis: {fileID: 0}
   sInvis: {fileID: 0}
-  pay: {fileID: 0}
+--- !u!1 &951973079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 951973080}
+  m_Layer: 0
+  m_Name: leave shop pos (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &951973080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951973079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.751, y: 0.101014, z: -6.448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &957842563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957842564}
+  m_Layer: 0
+  m_Name: Enter shop pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957842564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957842563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.286, y: 0.101014, z: -6.448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178588157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1870,8 @@ GameObject:
   - component: {fileID: 1204909245}
   - component: {fileID: 1204909249}
   - component: {fileID: 1204909250}
+  - component: {fileID: 1204909252}
+  - component: {fileID: 1204909251}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -1889,7 +1955,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 940950952}
   - {fileID: 1987365950}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1926,6 +1991,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1204909251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204909244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac4da6ea602c3e419bb6c4398e9f26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bItem: {fileID: 102096980}
+  totalPrice: 0
+  item: {fileID: 102096981}
+  pMoney: {fileID: 1204909252}
+  mt: {fileID: 378874250}
+--- !u!114 &1204909252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204909244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c928870457442f64d824ec9f5359ad3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  geld: 99999
 --- !u!1 &1252851902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,9 +2291,10 @@ Transform:
   m_LocalPosition: {x: -0.013999939, y: 0.6700001, z: 0.08874178}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 940950952}
   m_Father: {fileID: 1204909248}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1987365951
 MonoBehaviour:
