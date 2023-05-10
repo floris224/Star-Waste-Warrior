@@ -20,13 +20,9 @@ public class PickupPricker : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            pricker.SetBool("leftclick", true);
-            
+            pricker.SetTrigger("click");
         }
-        else
-        {
-            pricker.SetBool("leftclick", false);
-        }
+  
     }
     public void OnTriggerEnter(Collider grabpoint)
     {

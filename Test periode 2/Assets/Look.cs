@@ -10,6 +10,10 @@ public class Look : MonoBehaviour
     public GameObject playerBody;
     float rotY;
 
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;   
+    }
     void Update()
     {
         //defineren welke as wat doet
