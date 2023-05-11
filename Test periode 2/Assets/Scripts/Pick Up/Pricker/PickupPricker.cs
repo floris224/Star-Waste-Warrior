@@ -18,22 +18,27 @@ public class PickupPricker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             pricker.SetTrigger("click");
         }
-  
     }
-    public void OnTriggerEnter(Collider grabpoint)
+    public void OnTriggerStay(Collider grabpoint)
     {
         if (grabpoint.CompareTag("TrashSmall"))
         {
             Debug.Log("Werkt");
-            trash = grabpoint.gameObject;
-            trashcollider = trash.GetComponent<Collider>();
-            trashcollider.enabled = false;
-            trash.transform.position = end.transform.position;
-            trash.transform.SetParent(end.transform, true);
+            if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Prikker"))
+            {
+                
+                trash = grabpoint.gameObject;
+                trashcollider = trash.GetComponent<Collider>();
+                trashcollider.enabled = false;
+                trash.transform.position = end.transform.position;
+                trash.GetComponent<Rigidbody>().freezeRotation = true;
+                trash.transform.rotation = end.transform.rotation;
+                trash.transform.SetParent(end.transform, true);
+            }
         }
     }
 }
