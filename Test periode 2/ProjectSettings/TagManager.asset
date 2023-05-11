@@ -10,6 +10,9 @@ TagManager:
   - TrashLarge
   - Upgrade
   - Door
+  - UpgradeBooster
+  - UpgradeRope
+  - DoorEnter
   layers:
   - Default
   - TransparentFX

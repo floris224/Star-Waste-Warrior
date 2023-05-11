@@ -4,42 +4,87 @@ using UnityEngine;
 
 public class Pay : MonoBehaviour
 {
+    public GameObject booster1;
+    public GameObject booster2;
 
+    public GameObject rItem;
     public GameObject bItem;
     public float totalPrice = 0f;
-    public Booster item;
+    public ItemPrice ropePrice;
+    public ItemPrice boosterPrice;
     public Money pMoney;
     public RaycastHit hit;
     public MT mt;
+    public Movement movement;
     // Start is called before the first frame update
+    public void Start()
+    {
+        
+    }
     public void Update()
     {
+       
+       
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(Physics.Raycast(transform.position,transform.forward, out hit, 3f))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 3f))
             {
-                if(hit.rigidbody.tag == "Upgrade")
+                if (hit.rigidbody.CompareTag("UpgradeBooster"))
                 {
-                    if (pMoney.geld < item.price)
-                    {
-                        Debug.Log("niet genoeg");
-                    }
-                    else
-                    {
-                        pMoney.geld -= item.price;
-                        bItem.SetActive(false);
-                        Debug.Log("totaal kost = " + totalPrice);
-                        mt.moveSpeed = 20f;
-
-                    }
+                    UpgradeBooster();
+                }
+                else if ( hit.rigidbody.CompareTag("UpgradeRope"))
+                {
+                    RopeUpgrade();
 
                 }
-                
             }
+
         }
+
+    }
+
+    public void UpgradeBooster()
+    {
+         if (pMoney.geld < boosterPrice.price)
+         {
+                Debug.Log("niet genoeg");
+         }
+         else
+         {
+                pMoney.geld -= boosterPrice.price;
+
+                bItem.SetActive(false);
+                Debug.Log("totaal kost = " + boosterPrice.price);
+                mt.moveSpeed = 20f;
+                booster1.SetActive(true);
+                booster2.SetActive(true);
+
+         }
+            
+        
+    }
+    public void RopeUpgrade()
+    {
+       
+      
+         if (pMoney.geld < ropePrice.price)
+         {
+          Debug.Log("niet genoeg");
+         }
+         else
+         {
+           pMoney.geld -= ropePrice.price;
+           rItem.SetActive(false);
+           Debug.Log("totaal kost = " + ropePrice.price);
+           movement.maxDís = 10f;
+
+         }
+
+                
+
             
     }
-        
 }
 
     

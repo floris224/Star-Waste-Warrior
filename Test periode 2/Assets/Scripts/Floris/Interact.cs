@@ -35,15 +35,15 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       enterCar();
-       exitCar();
-       openDoor();
-       exitDoor();
+       EnterCar();
+       ExitCar();
+       OpenDoor();
+       ExitDoor();
         
         
       
     }
-    public void enterCar()
+    public void EnterCar()
     {
         if (Input.GetKey(KeyCode.E))
         {
@@ -67,7 +67,7 @@ public class Interact : MonoBehaviour
 
         }
     }
-    public void exitCar()
+    public void ExitCar()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -85,11 +85,11 @@ public class Interact : MonoBehaviour
         }
     }
     
-    public void openDoor()
+    public void OpenDoor()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-          if(hitt.transform.name == "Door")
+          if(hitt.transform.name == "DoorEnter")
           {
                 player.transform.position = posEnter.position;
           }  
@@ -98,7 +98,7 @@ public class Interact : MonoBehaviour
             
         }
     }
-    public void exitDoor()
+    public void ExitDoor()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
