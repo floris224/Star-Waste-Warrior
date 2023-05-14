@@ -13,6 +13,7 @@ TagManager:
   - UpgradeBooster
   - UpgradeRope
   - DoorEnter
+  - VuilniswagenCapaciteit
   layers:
   - Default
   - TransparentFX
