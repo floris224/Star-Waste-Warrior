@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -15,6 +16,8 @@ public class Movement : MonoBehaviour
     public float strenght = 10f;
     public float impuls;
     public float fallBack = 0f;
+    public float maxC;
+    public float minC; 
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +43,19 @@ public class Movement : MonoBehaviour
         }
         else if (disV < maxDís)
         {
-            Vector3 direction = (vrachtwagen.position - transform.position).normalized;
-            rb.AddForce(direction * fallBack);
+            
             Vector3 rotation = new Vector3(0f, hor * turnSpeed, 0f * Time.deltaTime);
             rb.AddTorque(rotation);
 
             float angle = vert * turnSpeed;
-            Quaternion rotationUpDown = Quaternion.Euler(angle, 0, 0);
+            Quaternion rotationUpDown = Quaternion.Euler(-angle, 0, 0);
             player.transform.localRotation *= rotationUpDown;
+
+           /* float clampedAngle = Mathf.Clamp(player.transform.localRotation.eulerAngles.x, minC, maxC);
+            player.transform.localRotation = Quaternion.Euler(clampedAngle, player.transform.localRotation.eulerAngles.y, player.transform.localRotation.eulerAngles.z);*/
+
+            // frans idee rotation naar 0 dan movement 
+
 
             if (Input.GetKeyDown(KeyCode.Q))
             {

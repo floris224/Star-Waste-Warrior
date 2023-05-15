@@ -89,7 +89,7 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-          if(hitt.transform.name == "DoorEnter")
+          if(hitt.transform.tag == "DoorEnter")
           {
                 player.transform.position = posEnter.position;
           }  
@@ -102,7 +102,7 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (hitt.transform.name == "Door")
+            if (hitt.transform.tag == "Door")
             {
                 player.transform.position = posExit.position;
             }

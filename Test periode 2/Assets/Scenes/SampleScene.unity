@@ -932,7 +932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &309588558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!136 &309588559
 CapsuleCollider:
@@ -980,10 +980,12 @@ MonoBehaviour:
   rb: {fileID: 309588558}
   speed: 2
   turnSpeed: 0.11
-  "maxD\xEDs": 5
+  "maxD\xEDs": 8
   strenght: -1.07
   impuls: 5
   fallBack: 0
+  maxC: 45
+  minC: -45
 --- !u!23 &309588561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2467,7 +2469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1204909245
 CapsuleCollider:
   m_ObjectHideFlags: 0
