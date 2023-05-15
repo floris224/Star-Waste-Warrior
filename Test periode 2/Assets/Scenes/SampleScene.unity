@@ -2376,6 +2376,86 @@ Transform:
   m_Father: {fileID: 378874246}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1001 &916159215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1681100222}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4805503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.454422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.459198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7f7e68c5bb68694cb6d69cd74a84f6b, type: 2}
+    - target: {fileID: 919132149155446097, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+        type: 3}
+      propertyPath: m_Name
+      value: Space garbage truck Trailer level 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5d8a5a98ca6d8b4a9085745e7340e56, type: 3}
+--- !u!4 &916159216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,
+    type: 3}
+  m_PrefabInstance: {fileID: 916159215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &940950951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,6 +2765,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &1151523594
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1681100222}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4805503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.454422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.459198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd3d675fc77e9841a5d22195ce242c0, type: 2}
+    - target: {fileID: 919132149155446097, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_Name
+      value: Space garbage truck engines
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 111fba7bd5ec54b4683c888081961542, type: 3}
+--- !u!4 &1151523595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 111fba7bd5ec54b4683c888081961542,
+    type: 3}
+  m_PrefabInstance: {fileID: 1151523594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1178588157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3190,86 @@ Transform:
   m_Father: {fileID: 1322038445}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1507427330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1681100222}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4805503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.454422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.459198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 729224db0e2b6354eb6c7541dbdde12a, type: 2}
+    - target: {fileID: 919132149155446097, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_Name
+      value: Space garbage truck Cockpit level 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58430de59e2c6ec41a2cd4b65d43e217, type: 3}
+--- !u!4 &1507427331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+    type: 3}
+  m_PrefabInstance: {fileID: 1507427330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517395327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3522,123 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d87e2f8451045429fb623e61d01926, type: 3}
+--- !u!1 &1681100221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681100222}
+  m_Layer: 0
+  m_Name: Car
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681100222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681100221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.142, y: -3.68, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 916159216}
+  - {fileID: 1885740048}
+  - {fileID: 1703570729}
+  - {fileID: 1151523595}
+  - {fileID: 2011577264}
+  - {fileID: 1507427331}
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1703570728
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1681100222}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4805503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.454422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.459198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8effcfcac8be784d83c09c67e5d98db, type: 2}
+    - target: {fileID: 919132149155446097, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_Name
+      value: Space garbage truck interieur level 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a50a911f16110640ad9e4f8b6a9b371, type: 3}
+--- !u!4 &1703570729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+    type: 3}
+  m_PrefabInstance: {fileID: 1703570728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1728847759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3379,6 +3736,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728847759}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1885740047
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1681100222}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4805503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.454422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.459198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c0e38f4c6da76e4b8c863f564f665cc, type: 2}
+    - target: {fileID: 919132149155446097, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_Name
+      value: Space garbage truck Ramen level 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8668067edd391340b1d8e2a01cbb334, type: 3}
+--- !u!4 &1885740048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e8668067edd391340b1d8e2a01cbb334,
+    type: 3}
+  m_PrefabInstance: {fileID: 1885740047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1889143359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,6 +4128,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed08061b9f8298646a3292ccc1fca76e, type: 3}
+--- !u!1001 &2011577263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1681100222}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.4805503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.454422
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.459198
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34cb99822a53cba43a0f204149c5cfda, type: 2}
+    - target: {fileID: 919132149155446097, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Space garbage truck deuren level 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65661783824c14244a10037832e05f5a, type: 3}
+--- !u!4 &2011577264 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65661783824c14244a10037832e05f5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2011577263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019632380
 GameObject:
   m_ObjectHideFlags: 0
