@@ -22,7 +22,7 @@ public class MT : MonoBehaviour
     }
     public void movement()
     {
-        float hor = Input.GetAxis("Horizontal");
+        float hor = -Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
 
         Vector3 movement = transform.forward * hor * moveSpeed * Time.deltaTime;

@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     public GameObject player;
     public Transform vrachtwagen;
     public Rigidbody rb;
-    public float speed = 10;
     public float turnSpeed = 10;
     public float maxDís = 10f;
 
@@ -45,9 +44,9 @@ public class Movement : MonoBehaviour
         {
             
             Vector3 rotation = new Vector3(0f, hor * turnSpeed, 0f * Time.deltaTime);
-            rb.AddTorque(rotation);
+            rb.AddTorque(rotation );
 
-            float angle = vert * turnSpeed;
+            float angle = vert * turnSpeed * 5f;
             Quaternion rotationUpDown = Quaternion.Euler(-angle, 0, 0);
             player.transform.localRotation *= rotationUpDown;
 
@@ -57,7 +56,7 @@ public class Movement : MonoBehaviour
             // frans idee rotation naar 0 dan movement 
 
 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKey(KeyCode.Space))
             {
                 Vector3 movement = transform.forward * impuls * Time.deltaTime;
                 rb.AddForce(movement, ForceMode.Impulse);

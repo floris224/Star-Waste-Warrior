@@ -12,14 +12,16 @@ public class Interact : MonoBehaviour
     public Camera vCam;
     public MT mt;
     public GameObject hand;
+    public GameObject prikker;
     
     public Vector3 carPos;
     public Transform posEnter;
     public Transform posExit;
 
     public bool inCar;
-    public MeshRenderer pInvis;
-    public MeshRenderer sInvis;
+    private MeshRenderer pInvis;
+    private MeshRenderer sInvis;
+    private MeshRenderer prikkerInvis;
 
    
 
@@ -30,6 +32,7 @@ public class Interact : MonoBehaviour
     {
        pInvis = player.GetComponent<MeshRenderer>();
        sInvis = stoel.GetComponent<MeshRenderer>();
+       prikkerInvis = prikker.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -51,6 +54,7 @@ public class Interact : MonoBehaviour
             {
                 if (hitt.transform.tag == ("Car"))
                 {
+                    prikkerInvis.enabled = false;
                     vCam.enabled = true;
                     pCam.enabled = false;
                     pInvis.enabled = false;
@@ -74,8 +78,9 @@ public class Interact : MonoBehaviour
             if(inCar == true)
             {
                 player.transform.position = carPos + new Vector3(2, 0, 0);
-                pInvis.enabled = true;
-                sInvis.enabled = true;
+                //pInvis.enabled = true;
+                //sInvis.enabled = true;
+                prikkerInvis.enabled = true;
                 mt.enabled = false;
                 pCam.enabled = true;
                 vCam.enabled = false;

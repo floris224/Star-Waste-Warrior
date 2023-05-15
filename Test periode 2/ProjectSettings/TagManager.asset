@@ -14,6 +14,7 @@ TagManager:
   - UpgradeRope
   - DoorEnter
   - VuilniswagenCapaciteit
+  - Gravity
   layers:
   - Default
   - TransparentFX
