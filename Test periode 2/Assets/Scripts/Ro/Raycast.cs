@@ -18,7 +18,7 @@ public class Raycast : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 5))
         {
             
-            if (hit.transform.tag == "VuilniswagenCapaciteit")
+            if (hit.collider.tag == "VuilniswagenCapaciteit")
             {
                 // Show ui press e
                 if (Input.GetKeyDown("e"))

@@ -49,7 +49,7 @@ public class Interact : MonoBehaviour
         {
             if (Physics.Raycast(gameObject.transform.position, transform.forward, out hitt, 5f))
             {
-                if (hitt.rigidbody.CompareTag("Car"))
+                if (hitt.transform.tag == ("Car"))
                 {
                     vCam.enabled = true;
                     pCam.enabled = false;
