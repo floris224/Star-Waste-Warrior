@@ -7,7 +7,7 @@ public class Interact : MonoBehaviour
     public GameObject vrachtwagen;
     public GameObject player;
     public GameObject stoel;
-    public RaycastHit hitt;
+    public RaycastHit hit;
     public Camera pCam;
     public Camera vCam;
     public MT mt;
@@ -50,9 +50,9 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            if (Physics.Raycast(gameObject.transform.position, transform.forward, out hitt, 5f))
+            if (Physics.Raycast(gameObject.transform.position, transform.forward, out hit, 5f))
             {
-                if (hitt.transform.tag == ("Car"))
+                if (hit.transform.tag == ("Car"))
                 {
                     prikkerInvis.enabled = false;
                     vCam.enabled = true;
@@ -60,7 +60,7 @@ public class Interact : MonoBehaviour
                     pInvis.enabled = false;
                     sInvis.enabled = false;
                     mt.enabled = true;
-                    carPos = hitt.rigidbody.transform.position;
+                    carPos = hit.rigidbody.transform.position;
                     inCar = true;
                 }
 
@@ -94,7 +94,7 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-          if(hitt.transform.tag == "DoorEnter")
+          if(hit.transform.tag == "DoorEnter")
           {
                 player.transform.position = posEnter.position;
           }  
@@ -107,7 +107,7 @@ public class Interact : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (hitt.transform.tag == "Door")
+            if (hit.transform.tag == "Door")
             {
                 player.transform.position = posExit.position;
             }
