@@ -38,15 +38,15 @@ public class Interact : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       EnterCar();
-       ExitCar();
+       EnterCarSpace();
+       ExitCarSpace();
        OpenDoor();
        ExitDoor();
         
         
       
     }
-    public void EnterCar()
+    public void EnterCarSpace()
     {
         if (Input.GetKey(KeyCode.E))
         {
@@ -71,20 +71,20 @@ public class Interact : MonoBehaviour
 
         }
     }
-    public void ExitCar()
+    public void ExitCarSpace()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(inCar == true)
             {
                 player.transform.position = carPos + new Vector3(2, 0, 0);
-                //pInvis.enabled = true;
-                //sInvis.enabled = true;
+                pInvis.enabled = true;
+                sInvis.enabled = true;
                 prikkerInvis.enabled = true;
                 mt.enabled = false;
                 pCam.enabled = true;
                 vCam.enabled = false;
-                inCar =false;
+                inCar = false;
                 Debug.Log("test");
             }
         }

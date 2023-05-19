@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Pay : MonoBehaviour
 {
-    public GameObject booster1;
-    public GameObject booster2;
 
     public GameObject rItem;
     public GameObject bItem;
@@ -57,8 +55,8 @@ public class Pay : MonoBehaviour
                 bItem.SetActive(false);
                 Debug.Log("totaal kost = " + boosterPrice.price);
                 mt.moveSpeed = 20f;
-                booster1.SetActive(true);
-                booster2.SetActive(true);
+                
+                
 
          }
             

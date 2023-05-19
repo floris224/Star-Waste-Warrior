@@ -15,8 +15,7 @@ public class Movement : MonoBehaviour
     public float strenght = 10f;
     public float impuls;
     public float fallBack = 0f;
-    public float maxC;
-    public float minC; 
+   
 
     // Start is called before the first frame update
     void Start()
@@ -50,9 +49,7 @@ public class Movement : MonoBehaviour
             Quaternion rotationUpDown = Quaternion.Euler(-angle, 0, 0);
             player.transform.localRotation *= rotationUpDown;
 
-           /* float clampedAngle = Mathf.Clamp(player.transform.localRotation.eulerAngles.x, minC, maxC);
-            player.transform.localRotation = Quaternion.Euler(clampedAngle, player.transform.localRotation.eulerAngles.y, player.transform.localRotation.eulerAngles.z);*/
-
+           
             // frans idee rotation naar 0 dan movement 
 
 

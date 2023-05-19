@@ -24,11 +24,14 @@ public class MT : MonoBehaviour
     {
         float hor = -Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
-
-        Vector3 movement = transform.forward * hor * moveSpeed * Time.deltaTime;
+        
+        // movement car
+        Vector3 movement = transform.forward * vert * moveSpeed * Time.deltaTime;
         rb.AddForce(movement);
-
-        Vector3 rotate = transform.right * vert * moveSpeed * Time.deltaTime;
-        rb.AddForce(rotate);
+        
+        // rotation car
+        float rotation = hor * moveSpeed * Time.deltaTime;
+        Vector3 torque = new Vector3(0, rotation, 0);
+        rb.AddTorque(torque);
     }
 }
