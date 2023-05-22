@@ -15,6 +15,7 @@ TagManager:
   - DoorEnter
   - VuilniswagenCapaciteit
   - Gravity
+  - Enemy
   layers:
   - Default
   - TransparentFX

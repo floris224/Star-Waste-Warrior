@@ -11,6 +11,8 @@ public class PickupPricker : MonoBehaviour
     public Collider trashcollider;
     public bool inprikker;
     public int capaciteit;
+    private float timeStampAttack, timeStampHit;
+    public float attackCooldown, hitcooldown;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,11 @@ public class PickupPricker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0) && (Time.time > timeStampAttack))
+        {
+            pricker.SetTrigger("leftclick");
+            timeStampAttack = Time.time + attackCooldown;
+        }
         if (Input.GetMouseButtonDown(1))
         {
             if (inprikker == false)
@@ -46,6 +53,15 @@ public class PickupPricker : MonoBehaviour
     }
     public void OnTriggerStay(Collider grabpoint)
     {
+        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("PrikkerSwipe"))
+        {
+            if (grabpoint.CompareTag("Enemy") && (Time.time > timeStampHit))
+            {
+                grabpoint.gameObject.GetComponent<Alien>().health -= 20;
+                timeStampHit = Time.time + hitcooldown;
+                Debug.Log("Enemy hit");
+            }
+        }
         if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Prikker"))
         {
             if (inprikker == false)
