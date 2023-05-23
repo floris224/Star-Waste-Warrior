@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
     public float strenght = 10f;
     public float impuls;
     public float fallBack = 0f;
-   
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,10 @@ public class Movement : MonoBehaviour
     {
         float hor = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
-      
+        
+        float turnY = Input.GetAxis("Mouse Y");
+        float turnX = Input.GetAxis("Mouse X");
+       
         float disV = Vector3.Distance(transform.position, vrachtwagen.position);
         if (disV > maxDís)
         {
@@ -45,10 +48,8 @@ public class Movement : MonoBehaviour
             Vector3 rotation = new Vector3(0f, hor * turnSpeed, 0f * Time.deltaTime);
             rb.AddTorque(rotation );
 
-            float angle = vert * turnSpeed * 5f;
-            Quaternion rotationUpDown = Quaternion.Euler(-angle, 0, 0);
-            player.transform.localRotation *= rotationUpDown;
-
+            transform.localRotation = Quaternion.Euler(-turnY, turnX, 0);
+            
            
             // frans idee rotation naar 0 dan movement 
 
