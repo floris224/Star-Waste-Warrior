@@ -9,6 +9,9 @@ public class Trash : MonoBehaviour
     public GameObject alien;
     public float spawnrange;
     public GameObject player;
+    public float distance;
+    public GameObject rumblingSFX;
+    public bool sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +22,20 @@ public class Trash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        distance = Vector3.Distance(player.transform.position, transform.position);
         if (random <= 100) 
         {
-            if (Vector3.Distance(player.transform.position, transform.position) <= spawnrange)
+            if (sound == false)
+            {
+                Instantiate(rumblingSFX, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+                sound = true;
+            }
+            
+            if (distance <= spawnrange)
             {
                 Debug.Log("Spawn Alien");
                 Instantiate(alien, gameObject.transform.position, gameObject.transform.rotation);
+                Destroy(GetComponent<Transform>().GetChild(1).gameObject);
                 random = 101;
             }
         }

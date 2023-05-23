@@ -8,11 +8,12 @@ public class Alien : MonoBehaviour
     public GameObject player;
     public int ahealth;
     public int damage;
-    public float followRange;
+    public float maxFollowRange, minFollowRange;
     public float attackRange;
     public float speed;
     private float timeStamp;
     public float attackCooldown;
+    public float distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +24,15 @@ public class Alien : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        distance = Vector3.Distance(player.transform.position, transform.position);
         if (ahealth <= 0)
         {
             ahealth = 0;
             Die();
         }
 
-        if (Vector3.Distance(player.transform.position, transform.position) <= followRange)
+        
+        if (distance  <= maxFollowRange && distance > minFollowRange)
         {
             print("I see you");
             Chase();
@@ -46,8 +48,8 @@ public class Alien : MonoBehaviour
     {
 
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
-        if (Vector3.Distance(player.transform.position, transform.position) <= attackRange)
-        {
+        if (distance <= attackRange)
+        { 
             Attack();
         }
     }

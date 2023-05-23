@@ -156,6 +156,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0015, y: 0.0015, z: 0.002}
   m_Center: {x: 0, y: 0, z: 0.0003}
+--- !u!114 &1285082808793980166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253742034941191883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd8347a348e3b54da531d618c1475e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random: 0
+  alien: {fileID: 3673980160439089983, guid: 516a45e9d8d7cf64984e759d649d9a3b, type: 3}
+  spawnrange: 3
+  player: {fileID: 2780903981518211223, guid: f3d24982f1198514e94d152d501246fd, type: 3}
+  distance: 0
+  rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
+    type: 3}
+  sound: 0
 --- !u!4 &7518448158326592021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfaee16040194444b95ed9bcebcf9393,
@@ -197,3 +217,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0015, y: 0.0015, z: 0.0023}
   m_Center: {x: 0, y: 0, z: 0.0003}
+--- !u!114 &1187463212088254156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819138540948592958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd8347a348e3b54da531d618c1475e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random: 0
+  alien: {fileID: 3673980160439089983, guid: 516a45e9d8d7cf64984e759d649d9a3b, type: 3}
+  spawnrange: 3
+  player: {fileID: 2780903981518211223, guid: f3d24982f1198514e94d152d501246fd, type: 3}
+  distance: 0
+  rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
+    type: 3}
+  sound: 0
