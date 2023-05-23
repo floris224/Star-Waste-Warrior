@@ -21,6 +21,10 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
     }
+    public void Getdamage()
+    {
+        health -= 20;
+    }
     void Death()
     {
         Debug.Log("You're Death");

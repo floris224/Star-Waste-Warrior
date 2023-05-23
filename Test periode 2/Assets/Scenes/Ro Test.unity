@@ -1460,10 +1460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666a273c000eb844989385024fe7cd78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerhp: {fileID: 210705794}
-  health: 100
-  damage: 20
   player: {fileID: 210705790}
+  ahealth: 100
+  damage: 20
   followRange: 7
   attackRange: 1
   speed: 1

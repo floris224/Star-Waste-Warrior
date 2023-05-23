@@ -57,7 +57,7 @@ public class PickupPricker : MonoBehaviour
         {
             if (grabpoint.CompareTag("Enemy") && (Time.time > timeStampHit))
             {
-                grabpoint.gameObject.GetComponent<Alien>().health -= 20;
+                grabpoint.gameObject.GetComponent<Alien>().ahealth -= 20;
                 timeStampHit = Time.time + hitcooldown;
                 Debug.Log("Enemy hit");
             }

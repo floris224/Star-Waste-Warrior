@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Alien : MonoBehaviour
 {
-    public PlayerHealth playerhp;
-    public int health;
+    public GameObject player;
+    public int ahealth;
     public int damage;
-    public Transform player;
     public float followRange;
     public float attackRange;
     public float speed;
@@ -17,19 +17,22 @@ public class Alien : MonoBehaviour
     void Start()
     {
         speed *= 0.001f;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        
+        if (ahealth <= 0)
         {
-            health = 0;
+            ahealth = 0;
             Die();
         }
 
-        if (Vector3.Distance(player.position, transform.position) <= followRange)
+        if (Vector3.Distance(player.transform.position, transform.position) <= followRange)
         {
+            print("I see you");
             Chase();
         }
         else
@@ -41,8 +44,9 @@ public class Alien : MonoBehaviour
 
     void Chase()
     {
+
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
-        if (Vector3.Distance(player.position, transform.position) <= attackRange)
+        if (Vector3.Distance(player.transform.position, transform.position) <= attackRange)
         {
             Attack();
         }
@@ -51,7 +55,7 @@ public class Alien : MonoBehaviour
     {
         if (Time.time > timeStamp)
         {
-            playerhp.health -= 20;
+            player.GetComponent<PlayerHealth>().Getdamage();
             timeStamp = Time.time + attackCooldown;
         }
             
