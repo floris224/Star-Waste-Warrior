@@ -6,61 +6,65 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public GameObject player;
-    public Transform vrachtwagen;
-    public Rigidbody rb;
-    public float turnSpeed = 10;
-    public float maxDís = 10f;
+    public float forwardSpeed = 25f, strafeSpeed = 5f;
+    private float activeForwardSpeed, activeStrafeSpeed;
+    private float forwardsAccel = 2.5f, strafeAccel = 2f;
+    public Vector2 lookInput, screenCenter, mouseDis;
+    public float lookRotSpeed;
+    public Vector3 rotationPosStart;
+    public Vector3 reset;
+    public float maxRotSpeed;
 
-    public float strenght = 10f;
-    public float impuls;
-    public float fallBack = 0f;
-    
+    private float inputTimer;
+    public const float inputResetTime = 6f;
 
     // Start is called before the first frame update
     void Start()
     {
-      
-       rb = GetComponent<Rigidbody>();
+        screenCenter.x = Screen.width * 0.5f;
+        screenCenter.y = Screen.height * 0.5f;
     }
-   
+
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float hor = Input.GetAxis("Horizontal");
-        float vert = Input.GetAxis("Vertical");
-        
-        float turnY = Input.GetAxis("Mouse Y");
-        float turnX = Input.GetAxis("Mouse X");
-       
-        float disV = Vector3.Distance(transform.position, vrachtwagen.position);
-        if (disV > maxDís)
+        lookInput.x = Input.mousePosition.x;
+        lookInput.y = Input.mousePosition.y;
+
+        mouseDis.x = (lookInput.x - screenCenter.x) / screenCenter.x;
+        mouseDis.y = (lookInput.y - screenCenter.y) / screenCenter.y;
+
+        transform.Rotate(-mouseDis.y * lookRotSpeed * Time.deltaTime, mouseDis.x * lookRotSpeed * Time.deltaTime, 0f, Space.Self);
+
+        float targetForwardSpeed = Input.GetAxisRaw("Vertical") * forwardSpeed * forwardsAccel;
+        float targetStrafeSpeed = Input.GetAxisRaw("Horizontal") * strafeSpeed * strafeAccel;
+
+        activeForwardSpeed = Mathf.Lerp(activeForwardSpeed, targetForwardSpeed, Time.deltaTime);
+        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, targetStrafeSpeed, Time.deltaTime);
+
+        transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
+        transform.position += transform.right * activeStrafeSpeed * Time.deltaTime;
+
+        if (Mathf.Abs(targetForwardSpeed) < 0.01f && Mathf.Abs(targetStrafeSpeed) < 0.01f)
         {
-            Vector3 direction = (transform.position - vrachtwagen.position).normalized;
-            rb.AddForce(direction * strenght);
-            
-
-               
-        }
-        else if (disV < maxDís)
-        {
-            
-            Vector3 rotation = new Vector3(0f, hor * turnSpeed, 0f * Time.deltaTime);
-            rb.AddTorque(rotation );
-
-            transform.localRotation = Quaternion.Euler(-turnY, turnX, 0);
-            
-           
-            // frans idee rotation naar 0 dan movement 
-
-
-            if (Input.GetKey(KeyCode.Space))
+            inputTimer += Time.deltaTime;
+            if (inputTimer >= inputResetTime)
             {
-                Vector3 movement = transform.forward * impuls * Time.deltaTime;
-                rb.AddForce(movement, ForceMode.Impulse);
-                Debug.Log("test");
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, maxRotSpeed);
+                if (transform.rotation == Quaternion.Euler(1, 0, 1))
+                {
+                    inputTimer = 0f;
+                }
+
             }
         }
-        
-    }   
+        else
+        {
+            inputTimer = 0f;
+        }
+
+    }
+
+
 }
+

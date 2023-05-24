@@ -75,7 +75,7 @@ public class Pay : MonoBehaviour
            pMoney.geld -= ropePrice.price;
            rItem.SetActive(false);
            Debug.Log("totaal kost = " + ropePrice.price);
-           movement.maxDís = 10f;
+            //movement.maxDís = 10f;
 
          }
 
