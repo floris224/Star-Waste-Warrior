@@ -35,7 +35,7 @@ public class Trash : MonoBehaviour
             {
                 Debug.Log("Spawn Alien");
                 Instantiate(alien, gameObject.transform.position, gameObject.transform.rotation);
-                Destroy(GetComponent<Transform>().GetChild(1).gameObject);
+                Destroy(gameObject.transform.Find("Rumbling(Clone)").gameObject);
                 random = 101;
             }
         }
