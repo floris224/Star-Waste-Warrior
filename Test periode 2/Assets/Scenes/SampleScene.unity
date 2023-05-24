@@ -1118,14 +1118,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c45fe7608f128d41a29c7976f834b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 309588557}
-  vrachtwagen: {fileID: 1681100222}
-  rb: {fileID: 309588558}
-  turnSpeed: 0.11
-  "maxD\xEDs": 3
-  strenght: -2
-  impuls: 0.15
-  fallBack: 0
+  forwardSpeed: 2
+  strafeSpeed: 2
+  lookInput: {x: 0, y: 0}
+  screenCenter: {x: 0, y: 0}
+  mouseDis: {x: 0, y: 0}
+  lookRotSpeed: 1
+  rotationPosStart: {x: 0, y: 0, z: 0}
+  reset: {x: 0, y: 0, z: 0}
+  maxRotSpeed: 0.1
 --- !u!23 &309588561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4674,7 +4675,7 @@ GameObject:
   - component: {fileID: 1590902309}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
