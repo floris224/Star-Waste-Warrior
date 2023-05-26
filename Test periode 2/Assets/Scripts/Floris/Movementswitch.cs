@@ -8,7 +8,7 @@ public class Movementswitch : MonoBehaviour
     public GameObject player1, player2, empty, charac;
     public bool ingrav;
     public MeshRenderer character;
-    public Movement movement;
+    //public Movement movement;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class Movementswitch : MonoBehaviour
     {
         if (ingrav == true)
         {
-            movement.enabled = false;
+            //movement.enabled = false;
             player.isTrigger = true;
             player1.transform.position = player2.transform.position;
             player1.transform.rotation = player2.transform.rotation;
@@ -28,7 +28,7 @@ public class Movementswitch : MonoBehaviour
         }
         else
         {
-            movement.enabled = true;
+            //movement.enabled = true;
             player.isTrigger = false;
             player2.transform.position = player1.transform.position;
             player1.GetComponent<Rigidbody>().freezeRotation = false;

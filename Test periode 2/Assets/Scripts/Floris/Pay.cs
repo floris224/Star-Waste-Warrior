@@ -12,8 +12,8 @@ public class Pay : MonoBehaviour
     public ItemPrice boosterPrice;
     public Money pMoney;
     public RaycastHit hit;
-    public MT mt;
-    public Movement movement;
+   // public MT mt;
+   // public Movement movement;
     // Start is called before the first frame update
     public void Start()
     {
@@ -54,7 +54,7 @@ public class Pay : MonoBehaviour
 
                 bItem.SetActive(false);
                 Debug.Log("totaal kost = " + boosterPrice.price);
-                mt.moveSpeed = 20f;
+               // mt.moveSpeed = 20f;
                 
                 
 

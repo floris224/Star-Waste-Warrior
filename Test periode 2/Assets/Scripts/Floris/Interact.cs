@@ -10,7 +10,7 @@ public class Interact : MonoBehaviour
     public RaycastHit hit;
     public Camera pCam;
     public Camera vCam;
-    public MT mt;
+    //public MT mt;
     public GameObject hand;
     public GameObject prikker;
     
@@ -48,7 +48,7 @@ public class Interact : MonoBehaviour
     }
     public void EnterCarSpace()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.F))
         {
             if (Physics.Raycast(gameObject.transform.position, transform.forward, out hit, 5f))
             {
@@ -59,7 +59,7 @@ public class Interact : MonoBehaviour
                     pCam.enabled = false;
                     pInvis.enabled = false;
                     sInvis.enabled = false;
-                    mt.enabled = true;
+                    //mt.enabled = true;
                     carPos = hit.rigidbody.transform.position;
                     inCar = true;
                 }
@@ -73,7 +73,7 @@ public class Interact : MonoBehaviour
     }
     public void ExitCarSpace()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if(inCar == true)
             {
@@ -81,7 +81,7 @@ public class Interact : MonoBehaviour
                 pInvis.enabled = true;
                 sInvis.enabled = true;
                 prikkerInvis.enabled = true;
-                mt.enabled = false;
+                //mt.enabled = false;
                 pCam.enabled = true;
                 vCam.enabled = false;
                 inCar = false;
@@ -92,7 +92,7 @@ public class Interact : MonoBehaviour
     
     public void OpenDoor()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
           if(hit.transform.tag == "DoorEnter")
           {
@@ -105,7 +105,7 @@ public class Interact : MonoBehaviour
     }
     public void ExitDoor()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (hit.transform.tag == "Door")
             {
