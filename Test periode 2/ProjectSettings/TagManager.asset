@@ -16,6 +16,7 @@ TagManager:
   - VuilniswagenCapaciteit
   - Gravity
   - Enemy
+  - SpaceShip
   layers:
   - Default
   - TransparentFX

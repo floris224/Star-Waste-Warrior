@@ -37,15 +37,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Shoot"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""c91b57c5-168e-4046-b730-d1f9479eb8db"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Rotation"",
                     ""type"": ""Value"",
                     ""id"": ""70d49a21-f3c6-47a9-8501-db8df93778a1"",
@@ -65,17 +56,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""32a4a11a-8f8e-48c3-8753-75d74fb93cfb"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""1D Axis"",
                     ""id"": ""fbc18ba1-8661-4cac-aef6-f8c1b9420e9e"",
@@ -390,7 +370,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         // SpaceShip
         m_SpaceShip = asset.FindActionMap("SpaceShip", throwIfNotFound: true);
         m_SpaceShip_Move = m_SpaceShip.FindAction("Move", throwIfNotFound: true);
-        m_SpaceShip_Shoot = m_SpaceShip.FindAction("Shoot", throwIfNotFound: true);
         m_SpaceShip_Rotation = m_SpaceShip.FindAction("Rotation", throwIfNotFound: true);
         m_SpaceShip_UpDown = m_SpaceShip.FindAction("UpDown", throwIfNotFound: true);
         // PlayerSpace
@@ -462,7 +441,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_SpaceShip;
     private List<ISpaceShipActions> m_SpaceShipActionsCallbackInterfaces = new List<ISpaceShipActions>();
     private readonly InputAction m_SpaceShip_Move;
-    private readonly InputAction m_SpaceShip_Shoot;
     private readonly InputAction m_SpaceShip_Rotation;
     private readonly InputAction m_SpaceShip_UpDown;
     public struct SpaceShipActions
@@ -470,7 +448,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         private @DefaultActionMap m_Wrapper;
         public SpaceShipActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_SpaceShip_Move;
-        public InputAction @Shoot => m_Wrapper.m_SpaceShip_Shoot;
         public InputAction @Rotation => m_Wrapper.m_SpaceShip_Rotation;
         public InputAction @UpDown => m_Wrapper.m_SpaceShip_UpDown;
         public InputActionMap Get() { return m_Wrapper.m_SpaceShip; }
@@ -485,9 +462,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
             @Rotation.started += instance.OnRotation;
             @Rotation.performed += instance.OnRotation;
             @Rotation.canceled += instance.OnRotation;
@@ -501,9 +475,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
             @Rotation.started -= instance.OnRotation;
             @Rotation.performed -= instance.OnRotation;
             @Rotation.canceled -= instance.OnRotation;
@@ -608,7 +579,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     public interface ISpaceShipActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnUpDown(InputAction.CallbackContext context);
     }

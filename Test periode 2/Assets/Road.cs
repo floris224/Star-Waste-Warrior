@@ -40,7 +40,7 @@ public class Road : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Spaceship"))
+        if (other.gameObject.CompareTag("SpaceShip"))
         {
 
             spaceship.GetComponent<SpaceShip>().enabled = false;

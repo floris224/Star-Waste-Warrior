@@ -12,7 +12,7 @@ public class SpaceShip : MonoBehaviour
     public Rigidbody rb;
     public float thrust;
     public float rotationSpeed;
-    private Quaternion targetRotation;
+    
     public float rotationSmoothness = 10f;
 
 
@@ -64,9 +64,6 @@ public class SpaceShip : MonoBehaviour
             float rotate = Rotation();
             float rotationAmount = rotate * rotationSpeed * Time.deltaTime;
             transform.Rotate(Vector3.up, rotationAmount);
-
-
-
         }
 
 
