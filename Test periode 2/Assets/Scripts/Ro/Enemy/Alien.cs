@@ -34,7 +34,7 @@ public class Alien : MonoBehaviour
         
         if (distance  <= maxFollowRange && distance > minFollowRange)
         {
-            print("I see you");
+            Debug.Log("I see you");
             Chase();
         }
         else
