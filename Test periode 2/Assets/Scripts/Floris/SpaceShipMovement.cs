@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SpaceShip : MonoBehaviour
+public class SpaceShipMovement : MonoBehaviour
 {
     private DefaultActionMap actionMap;
     private InputAction move;
@@ -24,6 +24,7 @@ public class SpaceShip : MonoBehaviour
 
     public void OnEnable()
     {
+        
         move = actionMap.SpaceShip.Move;
         rotation = actionMap.SpaceShip.Rotation;
         upDown = actionMap.SpaceShip.UpDown;
