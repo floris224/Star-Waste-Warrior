@@ -25,52 +25,94 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""SpaceShip"",
-            ""id"": ""599e87c5-a4b8-4901-966e-b033ba2971a7"",
+            ""id"": ""3003b26f-6454-4b79-b6fa-89d31a8cd383"",
             ""actions"": [
                 {
-                    ""name"": ""Roll"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""831c297b-8a91-4e43-97ef-5c73d0dc424b"",
+                    ""id"": ""6641e320-32f8-4481-91d5-af7b09fbcef3"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""Shoot"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""260ed7bc-a267-437a-a8f7-9292ab8b7c45"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""c91b57c5-168e-4046-b730-d1f9479eb8db"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LookMovement"",
+                    ""name"": ""Rotation"",
                     ""type"": ""Value"",
-                    ""id"": ""7485f55b-2de5-43fe-aefb-eab526e4360f"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""70d49a21-f3c6-47a9-8501-db8df93778a1"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UpDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""50708869-a284-495c-a01f-070515e8968a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""da583a19-7ae0-4f54-a5df-941c7c533193"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""32a4a11a-8f8e-48c3-8753-75d74fb93cfb"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""LookMovement"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""d85182d8-bf22-40c5-8ac4-c2b2102aceb7"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""fbc18ba1-8661-4cac-aef6-f8c1b9420e9e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5ba2d27f-b17a-4e00-bdc7-e960e571642b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""77982f44-8d05-4601-9420-896a22516961"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""fad1f5e9-9595-4d3c-b63a-f027d51f0fa7"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -79,8 +121,8 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""9ba2dd96-b2e9-4f4e-818b-3515c5af14d8"",
+                    ""name"": ""negative"",
+                    ""id"": ""44cde94f-2ac1-40b4-bee3-f8a3cf31ad1b"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -90,8 +132,8 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""790f6863-591b-4c1c-a8ef-e3cee214987f"",
+                    ""name"": ""positive"",
+                    ""id"": ""7e637db6-b2c1-49b5-9962-96b650d79f5a"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -101,57 +143,35 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""bf140665-e916-451a-b7d5-2f9e3c511ee6"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""f7e0f1e3-ac73-43f4-9715-49c040ad85b7"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""1D Axis"",
-                    ""id"": ""ab05fffb-f169-4f50-8869-1d5f1b72d01a"",
+                    ""id"": ""8569f07c-99de-4f67-8cbd-8660d171cce6"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Roll"",
+                    ""action"": ""UpDown"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""062356af-cb54-45c5-bfc4-fb19643335f0"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""49f1bf38-138e-4965-ad18-292bba835690"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Roll"",
+                    ""action"": ""UpDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""582a541d-cac6-4052-b86a-8d895c78091d"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""2777e5c1-5686-40ca-8755-c0a70482ee8f"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Roll"",
+                    ""action"": ""UpDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -165,6 +185,24 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""name"": ""Roll"",
                     ""type"": ""PassThrough"",
                     ""id"": ""57833ef5-aeb7-4dbe-89df-802080f19f07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""164529eb-d221-4e97-a718-bf5001576d70"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""d916f6ee-429c-4006-9d34-a0f8b79a7479"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -299,6 +337,50 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbafebfa-56a3-4a1b-bbf3-980a2bac09a1"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""d8e9330a-c87b-4b93-bcb0-5a2243f6c5c1"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c84d9c5f-5809-48f7-b201-3287c5247f91"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""94716132-7206-4295-9122-e2b5a45ee43f"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -307,12 +389,15 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
 }");
         // SpaceShip
         m_SpaceShip = asset.FindActionMap("SpaceShip", throwIfNotFound: true);
-        m_SpaceShip_Roll = m_SpaceShip.FindAction("Roll", throwIfNotFound: true);
         m_SpaceShip_Move = m_SpaceShip.FindAction("Move", throwIfNotFound: true);
-        m_SpaceShip_LookMovement = m_SpaceShip.FindAction("LookMovement", throwIfNotFound: true);
+        m_SpaceShip_Shoot = m_SpaceShip.FindAction("Shoot", throwIfNotFound: true);
+        m_SpaceShip_Rotation = m_SpaceShip.FindAction("Rotation", throwIfNotFound: true);
+        m_SpaceShip_UpDown = m_SpaceShip.FindAction("UpDown", throwIfNotFound: true);
         // PlayerSpace
         m_PlayerSpace = asset.FindActionMap("PlayerSpace", throwIfNotFound: true);
         m_PlayerSpace_Roll = m_PlayerSpace.FindAction("Roll", throwIfNotFound: true);
+        m_PlayerSpace_Shoot = m_PlayerSpace.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerSpace_UpDown = m_PlayerSpace.FindAction("UpDown", throwIfNotFound: true);
         m_PlayerSpace_LookMovement = m_PlayerSpace.FindAction("LookMovement", throwIfNotFound: true);
         m_PlayerSpace_Move = m_PlayerSpace.FindAction("Move", throwIfNotFound: true);
     }
@@ -376,16 +461,18 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     // SpaceShip
     private readonly InputActionMap m_SpaceShip;
     private List<ISpaceShipActions> m_SpaceShipActionsCallbackInterfaces = new List<ISpaceShipActions>();
-    private readonly InputAction m_SpaceShip_Roll;
     private readonly InputAction m_SpaceShip_Move;
-    private readonly InputAction m_SpaceShip_LookMovement;
+    private readonly InputAction m_SpaceShip_Shoot;
+    private readonly InputAction m_SpaceShip_Rotation;
+    private readonly InputAction m_SpaceShip_UpDown;
     public struct SpaceShipActions
     {
         private @DefaultActionMap m_Wrapper;
         public SpaceShipActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Roll => m_Wrapper.m_SpaceShip_Roll;
         public InputAction @Move => m_Wrapper.m_SpaceShip_Move;
-        public InputAction @LookMovement => m_Wrapper.m_SpaceShip_LookMovement;
+        public InputAction @Shoot => m_Wrapper.m_SpaceShip_Shoot;
+        public InputAction @Rotation => m_Wrapper.m_SpaceShip_Rotation;
+        public InputAction @UpDown => m_Wrapper.m_SpaceShip_UpDown;
         public InputActionMap Get() { return m_Wrapper.m_SpaceShip; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -395,28 +482,34 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_SpaceShipActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_SpaceShipActionsCallbackInterfaces.Add(instance);
-            @Roll.started += instance.OnRoll;
-            @Roll.performed += instance.OnRoll;
-            @Roll.canceled += instance.OnRoll;
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @LookMovement.started += instance.OnLookMovement;
-            @LookMovement.performed += instance.OnLookMovement;
-            @LookMovement.canceled += instance.OnLookMovement;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Rotation.started += instance.OnRotation;
+            @Rotation.performed += instance.OnRotation;
+            @Rotation.canceled += instance.OnRotation;
+            @UpDown.started += instance.OnUpDown;
+            @UpDown.performed += instance.OnUpDown;
+            @UpDown.canceled += instance.OnUpDown;
         }
 
         private void UnregisterCallbacks(ISpaceShipActions instance)
         {
-            @Roll.started -= instance.OnRoll;
-            @Roll.performed -= instance.OnRoll;
-            @Roll.canceled -= instance.OnRoll;
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @LookMovement.started -= instance.OnLookMovement;
-            @LookMovement.performed -= instance.OnLookMovement;
-            @LookMovement.canceled -= instance.OnLookMovement;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Rotation.started -= instance.OnRotation;
+            @Rotation.performed -= instance.OnRotation;
+            @Rotation.canceled -= instance.OnRotation;
+            @UpDown.started -= instance.OnUpDown;
+            @UpDown.performed -= instance.OnUpDown;
+            @UpDown.canceled -= instance.OnUpDown;
         }
 
         public void RemoveCallbacks(ISpaceShipActions instance)
@@ -439,6 +532,8 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerSpace;
     private List<IPlayerSpaceActions> m_PlayerSpaceActionsCallbackInterfaces = new List<IPlayerSpaceActions>();
     private readonly InputAction m_PlayerSpace_Roll;
+    private readonly InputAction m_PlayerSpace_Shoot;
+    private readonly InputAction m_PlayerSpace_UpDown;
     private readonly InputAction m_PlayerSpace_LookMovement;
     private readonly InputAction m_PlayerSpace_Move;
     public struct PlayerSpaceActions
@@ -446,6 +541,8 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         private @DefaultActionMap m_Wrapper;
         public PlayerSpaceActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Roll => m_Wrapper.m_PlayerSpace_Roll;
+        public InputAction @Shoot => m_Wrapper.m_PlayerSpace_Shoot;
+        public InputAction @UpDown => m_Wrapper.m_PlayerSpace_UpDown;
         public InputAction @LookMovement => m_Wrapper.m_PlayerSpace_LookMovement;
         public InputAction @Move => m_Wrapper.m_PlayerSpace_Move;
         public InputActionMap Get() { return m_Wrapper.m_PlayerSpace; }
@@ -460,6 +557,12 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Roll.started += instance.OnRoll;
             @Roll.performed += instance.OnRoll;
             @Roll.canceled += instance.OnRoll;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @UpDown.started += instance.OnUpDown;
+            @UpDown.performed += instance.OnUpDown;
+            @UpDown.canceled += instance.OnUpDown;
             @LookMovement.started += instance.OnLookMovement;
             @LookMovement.performed += instance.OnLookMovement;
             @LookMovement.canceled += instance.OnLookMovement;
@@ -473,6 +576,12 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Roll.started -= instance.OnRoll;
             @Roll.performed -= instance.OnRoll;
             @Roll.canceled -= instance.OnRoll;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @UpDown.started -= instance.OnUpDown;
+            @UpDown.performed -= instance.OnUpDown;
+            @UpDown.canceled -= instance.OnUpDown;
             @LookMovement.started -= instance.OnLookMovement;
             @LookMovement.performed -= instance.OnLookMovement;
             @LookMovement.canceled -= instance.OnLookMovement;
@@ -498,13 +607,16 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     public PlayerSpaceActions @PlayerSpace => new PlayerSpaceActions(this);
     public interface ISpaceShipActions
     {
-        void OnRoll(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnLookMovement(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
+        void OnUpDown(InputAction.CallbackContext context);
     }
     public interface IPlayerSpaceActions
     {
         void OnRoll(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnUpDown(InputAction.CallbackContext context);
         void OnLookMovement(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
     }

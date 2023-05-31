@@ -5,139 +5,88 @@ using UnityEngine.InputSystem;
 
 public class SpaceShip : MonoBehaviour
 {
-    public Rigidbody rb;
-
-    public float vechileStrenght;
-    public float rollTourge;
-    public float rotationXSensetivity;
-    public float rotationYSensetivity;
-
-
-
-    private DefaultActionMap defaultActionMap;
-    private InputAction roll;
+    private DefaultActionMap actionMap;
     private InputAction move;
-    private InputAction mousePosition;
+    private InputAction rotation;
+    private InputAction upDown;
+    public Rigidbody rb;
+    public float thrust;
+    public float rotationSpeed;
+    private Quaternion targetRotation;
+    public float rotationSmoothness = 10f;
 
 
-    public GameObject smallSquare;
-    public bool cursorOverSquare = false;
-
-    private void Awake()
+    public void Awake()
     {
-        defaultActionMap = new DefaultActionMap();
+        actionMap = new DefaultActionMap();
+        rb = GetComponent<Rigidbody>();
     }
-    private void OnEnable()
+
+    public void OnEnable()
     {
-        roll = defaultActionMap.SpaceShip.Roll;
-        move = defaultActionMap.SpaceShip.Move;
-        mousePosition = defaultActionMap.SpaceShip.LookMovement;
-        mousePosition.Enable();
+        move = actionMap.SpaceShip.Move;
+        rotation = actionMap.SpaceShip.Rotation;
+        upDown = actionMap.SpaceShip.UpDown;
+        upDown.Enable();
+        rotation.Enable();
         move.Enable();
-        roll.Enable();
 
     }
-
-    private void OnDisable()
+    public void OnDisable()
     {
-        roll.Disable();
+        upDown.Disable();
         move.Disable();
-        mousePosition.Disable();
-
+        rotation.Disable();
     }
-
-
+    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
+
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        MovementManagerShip();
-
-
+        MovementShipManager();
     }
-    public void MovementManagerShip()
+
+    public void MovementShipManager()
     {
-        if (cursorOverSquare)
+        // move forwards backwards
+
+        float movement = Move();
+        Vector3 moveForce = new Vector3(0, 0, -movement);
+        rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
+
+        if (Mathf.Approximately(movement, 0f) == false)
         {
-            rb.angularVelocity = Vector3.Lerp(rb.angularVelocity, Vector3.zero, Time.deltaTime);
-            Vector2 moveValue = Move();
-            Vector3 moveForce = new Vector3(moveValue.x, 0, moveValue.y);
-            rb.AddRelativeForce(vechileStrenght * moveForce * Time.deltaTime);
-        }
-        else
-        {
-            //Barrel Rol
-            float roll = Roll();
-            Vector3 rollForce = new Vector3(0, 0, -roll);
-            rb.AddRelativeTorque(rollForce * rollTourge * Time.deltaTime);
+            //rotation
+            float rotate = Rotation();
+            float rotationAmount = rotate * rotationSpeed * Time.deltaTime;
+            transform.Rotate(Vector3.up, rotationAmount);
 
-            //movement
-            Vector2 moveValue = Move();
-            Vector3 moveForce = new Vector3(moveValue.x, 0, moveValue.y);
-            rb.AddRelativeForce(vechileStrenght * moveForce * Time.deltaTime);
-
-            //Rotation
-            Vector2 mousePosition = LookMovement();
-            float screenHalfWidth = Screen.width / 2;
-            float screenHalfHeight = Screen.height / 2;
-            Vector2 cursorScreenMiddle = new Vector2(-(screenHalfWidth - mousePosition.x), -(screenHalfHeight - mousePosition.y));
-            float rotationX = Mathf.Clamp(cursorScreenMiddle.x / screenHalfWidth, -1, 1);
-            float rotationY = Mathf.Clamp(cursorScreenMiddle.y / screenHalfHeight, -1, 1);
-            Vector2 rotation = new Vector2(rotationX, rotationY);
-
-
-            Vector3 rotationXForce = new Vector3(-rotation.y, 0, 0);
-            rb.AddRelativeTorque(rotationXSensetivity * rotationXForce * Time.deltaTime);
-
-            Vector3 rotationYforce = new Vector3(0, rotation.x, 0);
-            rb.AddRelativeTorque(rotationYSensetivity * rotationYforce * Time.deltaTime);
-            Debug.Log("" + rotationX);
-            Debug.Log("" + rotationY);
 
 
         }
 
 
+        //Up Down
+        float upDown = UpDown();
+        Vector3 UpDownStrenght = new Vector3(0, -upDown, 0);
+        rb.AddForce(UpDownStrenght * thrust * Time.deltaTime);
+    }
+    public float UpDown()
+    {
+        return upDown.ReadValue<float>();
     }
 
-    public float Roll()
+    public float Rotation()
     {
-        return roll.ReadValue<float>();
+        return rotation.ReadValue<float>();
     }
 
-    public Vector2 Move()
+    public float Move()
     {
-        return move.ReadValue<Vector2>();
-    }
-
-    public Vector2 LookMovement()
-    {
-        return mousePosition.ReadValue<Vector2>();
-    }
-
-
-
-    private void Update()
-    {
-        if (smallSquare != null)
-        {
-            RectTransform rectTransform = smallSquare.GetComponent<RectTransform>();
-            Vector2 squarePosition = rectTransform.position;
-            Vector2 cursorPosition = Mouse.current.position.ReadValue();
-
-            if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, cursorPosition))
-            {
-                cursorOverSquare = true;
-            }
-            else
-            {
-                cursorOverSquare = false;
-            }
-        }
+        return move.ReadValue<float>();
     }
 }
