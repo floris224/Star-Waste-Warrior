@@ -37,6 +37,10 @@ public class Alien : MonoBehaviour
             Debug.Log("I see you");
             Chase();
         }
+        if (distance <= attackRange)
+        {
+            Attack();
+        }
         else
         {
             // walk around idle
@@ -48,10 +52,7 @@ public class Alien : MonoBehaviour
     {
 
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed);
-        if (distance <= attackRange)
-        { 
-            Attack();
-        }
+        
     }
     void Attack()
     {
