@@ -17,6 +17,7 @@ TagManager:
   - Gravity
   - Enemy
   - SpaceShip
+  - ShopKeeper
   layers:
   - Default
   - TransparentFX
