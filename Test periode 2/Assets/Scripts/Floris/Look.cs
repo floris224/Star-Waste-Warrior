@@ -44,26 +44,15 @@ public class Look : MonoBehaviour
 
     void Update()
     {
-        float move = Move();
-        rb.AddForce(new Vector3)
+        Vector2 moveValue = Move();
+        rb.AddForce(new Vector3(moveValue.x, 0, moveValue.y));
 
-        /*
-                // defineren van de vector3 over welke as hij zal moeten draaien
-                dir = new Vector3(0, mouseX, 0);
-                playerBody.transform.Rotate(dir * mousSens * Time.deltaTime);
 
-               // defineren over welke as de camera moet draaien & het clampen van de rotatie.
-                rotY += mouseY * mousSens * Time.deltaTime;
-                rotY = Mathf.Clamp(rotY, -90, 90);
-                Vector3 e = transform.eulerAngles;
-                e.x = -rotY;
-                transform.eulerAngles = e;
-               */
     }
     private void FixedUpdate()
     {
-        float moveValue = Move();
-        rb.AddForce(new Vector3(moveValue.x))
+        
+        
     }
 
     private float Interact()
@@ -74,8 +63,8 @@ public class Look : MonoBehaviour
     {
         return rotate.ReadValue<Vector2>();
     }
-    private Vector3 Move()
+    private Vector2 Move()
     {
-        return move.ReadValue<Vector3>();
+        return move.ReadValue<Vector2>();
     }
 }
