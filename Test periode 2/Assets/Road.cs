@@ -49,8 +49,7 @@ public class Road : MonoBehaviour
             isMoving = false;
         }
         
-        Debug.Log("" + spaceship.transform.position);
-        Debug.Log("" + spaceshipGoToPosition.transform.position);
+       
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.Burst;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Look : MonoBehaviour
@@ -8,7 +9,10 @@ public class Look : MonoBehaviour
     public float mousSens;
     public Vector3 dir;
     public GameObject playerBody;
-    public float speed;
+    
+    public float rotationX;
+    public float rotationSensX;
+    public float rotationSensY;
     private Rigidbody rb;
     private DefaultActionMap actionMap;
     private InputAction interact;
@@ -17,44 +21,53 @@ public class Look : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;   
+
     }
     public void Awake()
     {
         actionMap = new DefaultActionMap();
-        rb = GetComponent<Rigidbody>();
+        rb = playerBody.GetComponent<Rigidbody>();
     }
 
     public void OnDisable()
     {
         interact.Disable();
         rotate.Disable();
-        move.Disable();
+        
     }
     public void OnEnable()
     {
         interact = actionMap.PlayerInForcefield.Interact;
-        move = actionMap.PlayerInForcefield.Move;
         rotate = actionMap.PlayerInForcefield.FirstPlayerCam;
         
         interact.Enable();
         rotate.Enable();
-        move.Enable();
+       
     }
 
     void Update()
     {
-        Vector2 moveValue = Move();
-        Vector3 movement = (new Vector3(moveValue.x, 0, moveValue.y));
-        rb.velocity = movement * Time.deltaTime;
 
-       
+        Vector2 cursorPosition = Rotate();
+        float rotationX = cursorPosition.x * mousSens * rotationSensX * Time.deltaTime;
+        float rotationY = cursorPosition.y * mousSens * rotationSensY * Time.deltaTime;
+
+        // Rotate the player body around the Y-axis
+        playerBody.transform.Rotate(Vector3.up * rotationX);
+
+        // Rotate the camera around the X-axis
+        Vector3 cameraRotation = gameObject.transform.rotation.eulerAngles;
+        float newCameraRotationX = cameraRotation.x - rotationY;
+        newCameraRotationX = Mathf.Clamp(newCameraRotationX, 0f, 90f);
+        gameObject.transform.rotation = Quaternion.Euler(newCameraRotationX, cameraRotation.y, cameraRotation.z);
+
+
+
+
+
+
     }
-    private void FixedUpdate()
-    {
-        
-        
-    }
+
 
     private float Interact()
     {
@@ -64,8 +77,5 @@ public class Look : MonoBehaviour
     {
         return rotate.ReadValue<Vector2>();
     }
-    private Vector2 Move()
-    {
-        return move.ReadValue<Vector2>();
-    }
+
 }

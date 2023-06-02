@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 14690675}
   - component: {fileID: 14690674}
   - component: {fileID: 14690673}
+  - component: {fileID: 14690676}
   m_Layer: 0
   m_Name: PlayerGravCamera
   m_TagString: Untagged
@@ -241,6 +242,24 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &14690676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14690671}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f67086b4d5417349a5978f878cf5d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousSens: 40
+  dir: {x: 0, y: 0, z: 0}
+  playerBody: {fileID: 1657892871}
+  rotationX: 0
+  rotationSensX: 20
+  rotationSensY: 20
 --- !u!1 &30646554
 GameObject:
   m_ObjectHideFlags: 0
@@ -8248,7 +8267,7 @@ GameObject:
   - component: {fileID: 1657892876}
   - component: {fileID: 1657892875}
   - component: {fileID: 1657892874}
-  - component: {fileID: 1657892873}
+  - component: {fileID: 1657892878}
   m_Layer: 0
   m_Name: PlayerInGrav
   m_TagString: Untagged
@@ -8264,7 +8283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657892871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40.129997, y: -1.1389999, z: -27.460999}
+  m_LocalPosition: {x: -40.129997, y: -1.235, z: -27.460999}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8272,21 +8291,6 @@ Transform:
   m_Father: {fileID: 1590902309}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1657892873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657892871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f67086b4d5417349a5978f878cf5d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mousSens: 50
-  dir: {x: 0, y: 0, z: 0}
-  playerBody: {fileID: 1657892871}
 --- !u!54 &1657892874
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8367,6 +8371,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657892871}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1657892878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657892871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6472fe84c9331ba4591c480e347a7503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1 &1658648628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 58430de59e2c6ec41a2cd4b65d43e217,
