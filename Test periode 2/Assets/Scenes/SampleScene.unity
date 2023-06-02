@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14690671}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f67086b4d5417349a5978f878cf5d15, type: 3}
   m_Name: 
@@ -257,9 +257,9 @@ MonoBehaviour:
   mousSens: 40
   dir: {x: 0, y: 0, z: 0}
   playerBody: {fileID: 1657892871}
-  rotationX: 0
-  rotationSensX: 20
-  rotationSensY: 20
+  rotationX: 10
+  rotationSensX: 4
+  rotationSensY: 4
 --- !u!1 &30646554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,7 +2049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &400029433
 Transform:
   m_ObjectHideFlags: 0
@@ -5927,9 +5927,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceshipGoToPosition: {fileID: 327743777}
-  spaceship: {fileID: 1681100221}
+  spaceship: {fileID: 400029432}
   timer: 0
-  moveToWardsSpeed: 40
+  moveToWardsSpeed: 2
   _ship: {fileID: 400029434}
   pp: []
 --- !u!65 &1103752971
@@ -8274,7 +8274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1657892872
 Transform:
   m_ObjectHideFlags: 0
@@ -8305,7 +8305,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!136 &1657892875
 CapsuleCollider:
@@ -8575,7 +8575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1681100222
 Transform:
   m_ObjectHideFlags: 0

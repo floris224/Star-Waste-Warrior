@@ -37,17 +37,17 @@ public class Road : MonoBehaviour
         if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)
         {
             timer += Time.deltaTime;
+            if (timer >= 4f)
+            {
 
+                spaceship.GetComponent<SpaceShipMovement>().enabled = true;
+                timer -= timer;
+                isMoving = false;
+            }
         }
 
 
-        if (timer >= 4f)
-        {
-
-            spaceship.GetComponent<SpaceShipMovement>().enabled = true;
-            timer -= timer;
-            isMoving = false;
-        }
+       
         
        
     }

@@ -15,9 +15,8 @@ public class Look : MonoBehaviour
     public float rotationSensY;
     private Rigidbody rb;
     private DefaultActionMap actionMap;
-    private InputAction interact;
     private InputAction rotate;
-    private InputAction move;
+    
 
     void Start()
     {
@@ -31,16 +30,15 @@ public class Look : MonoBehaviour
 
     public void OnDisable()
     {
-        interact.Disable();
+     
         rotate.Disable();
         
     }
     public void OnEnable()
     {
-        interact = actionMap.PlayerInForcefield.Interact;
+   
         rotate = actionMap.PlayerInForcefield.FirstPlayerCam;
-        
-        interact.Enable();
+      
         rotate.Enable();
        
     }
@@ -48,31 +46,29 @@ public class Look : MonoBehaviour
     void Update()
     {
 
-        Vector2 cursorPosition = Rotate();
-        float rotationX = cursorPosition.x * mousSens * rotationSensX * Time.deltaTime;
-        float rotationY = cursorPosition.y * mousSens * rotationSensY * Time.deltaTime;
+        Vector2 rotateInput = Rotate();  // Assuming this method returns the desired rotation values
 
-        // Rotate the player body around the Y-axis
-        playerBody.transform.Rotate(Vector3.up * rotationX);
+        float screenWidthHalf = Screen.width / 2f;
+        float screenHeightHalf = Screen.height / 2f;
+        Vector2 cursorPositionFromCenter = new Vector2(-(screenWidthHalf - rotateInput.x), -(screenHeightHalf - rotateInput.y));
 
-        // Rotate the camera around the X-axis
-        Vector3 cameraRotation = gameObject.transform.rotation.eulerAngles;
-        float newCameraRotationX = cameraRotation.x - rotationY;
-        newCameraRotationX = Mathf.Clamp(newCameraRotationX, 0f, 90f);
-        gameObject.transform.rotation = Quaternion.Euler(newCameraRotationX, cameraRotation.y, cameraRotation.z);
+        float rotationX = Mathf.Clamp(cursorPositionFromCenter.x / screenWidthHalf, -1f, 1f);
+        float rotationY = Mathf.Clamp(cursorPositionFromCenter.y / screenHeightHalf, -1f, 1f);
 
+        Vector2 rotation = new Vector2(rotationX, rotationY);
+        
+        Vector3 rotationXForce = new Vector3(-rotation.y, 0f, 0f);
+        rb.AddRelativeTorque(rotationXForce * rotationSensX * Time.deltaTime);
 
-
-
+        Vector3 rotationYForce = new Vector3(0f, rotation.x, 0f);
+        rb.AddTorque(rotationYForce * rotationSensY * Time.deltaTime);
 
 
     }
 
 
-    private float Interact()
-    {
-        return interact.ReadValue<float>();
-    }
+   
+   
     private Vector2 Rotate()
     {
         return rotate.ReadValue<Vector2>();
