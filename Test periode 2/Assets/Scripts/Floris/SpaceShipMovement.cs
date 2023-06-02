@@ -63,8 +63,9 @@ public class SpaceShipMovement : MonoBehaviour
         {
             //rotation
             float rotate = Rotation();
-            float rotationAmount = rotate * rotationSpeed * Time.deltaTime;
-            transform.Rotate(Vector3.up, rotationAmount);
+            Vector3 rotateStrenght = new Vector3(0, rotate, 0);
+            rb.AddTorque(rotateStrenght * rotationSpeed * Time.deltaTime);
+            
         }
 
 
