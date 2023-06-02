@@ -171,7 +171,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Attack"",
                     ""type"": ""PassThrough"",
                     ""id"": ""164529eb-d221-4e97-a718-bf5001576d70"",
                     ""expectedControlType"": ""Button"",
@@ -314,7 +314,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -476,7 +476,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         // PlayerSpace
         m_PlayerSpace = asset.FindActionMap("PlayerSpace", throwIfNotFound: true);
         m_PlayerSpace_Roll = m_PlayerSpace.FindAction("Roll", throwIfNotFound: true);
-        m_PlayerSpace_Shoot = m_PlayerSpace.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerSpace_Attack = m_PlayerSpace.FindAction("Attack", throwIfNotFound: true);
         m_PlayerSpace_UpDown = m_PlayerSpace.FindAction("UpDown", throwIfNotFound: true);
         m_PlayerSpace_LookMovement = m_PlayerSpace.FindAction("LookMovement", throwIfNotFound: true);
         m_PlayerSpace_Move = m_PlayerSpace.FindAction("Move", throwIfNotFound: true);
@@ -609,7 +609,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerSpace;
     private List<IPlayerSpaceActions> m_PlayerSpaceActionsCallbackInterfaces = new List<IPlayerSpaceActions>();
     private readonly InputAction m_PlayerSpace_Roll;
-    private readonly InputAction m_PlayerSpace_Shoot;
+    private readonly InputAction m_PlayerSpace_Attack;
     private readonly InputAction m_PlayerSpace_UpDown;
     private readonly InputAction m_PlayerSpace_LookMovement;
     private readonly InputAction m_PlayerSpace_Move;
@@ -618,7 +618,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         private @DefaultActionMap m_Wrapper;
         public PlayerSpaceActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Roll => m_Wrapper.m_PlayerSpace_Roll;
-        public InputAction @Shoot => m_Wrapper.m_PlayerSpace_Shoot;
+        public InputAction @Attack => m_Wrapper.m_PlayerSpace_Attack;
         public InputAction @UpDown => m_Wrapper.m_PlayerSpace_UpDown;
         public InputAction @LookMovement => m_Wrapper.m_PlayerSpace_LookMovement;
         public InputAction @Move => m_Wrapper.m_PlayerSpace_Move;
@@ -634,9 +634,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Roll.started += instance.OnRoll;
             @Roll.performed += instance.OnRoll;
             @Roll.canceled += instance.OnRoll;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
             @UpDown.started += instance.OnUpDown;
             @UpDown.performed += instance.OnUpDown;
             @UpDown.canceled += instance.OnUpDown;
@@ -653,9 +653,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Roll.started -= instance.OnRoll;
             @Roll.performed -= instance.OnRoll;
             @Roll.canceled -= instance.OnRoll;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
             @UpDown.started -= instance.OnUpDown;
             @UpDown.performed -= instance.OnUpDown;
             @UpDown.canceled -= instance.OnUpDown;
@@ -753,7 +753,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     public interface IPlayerSpaceActions
     {
         void OnRoll(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
         void OnUpDown(InputAction.CallbackContext context);
         void OnLookMovement(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);

@@ -8,7 +8,7 @@ public class Look : MonoBehaviour
     public float mousSens;
     public Vector3 dir;
     public GameObject playerBody;
-    float rotY;
+    public float speed;
     private Rigidbody rb;
     private DefaultActionMap actionMap;
     private InputAction interact;
@@ -45,9 +45,10 @@ public class Look : MonoBehaviour
     void Update()
     {
         Vector2 moveValue = Move();
-        rb.AddForce(new Vector3(moveValue.x, 0, moveValue.y));
+        Vector3 movement = (new Vector3(moveValue.x, 0, moveValue.y));
+        rb.velocity = movement * Time.deltaTime;
 
-
+       
     }
     private void FixedUpdate()
     {

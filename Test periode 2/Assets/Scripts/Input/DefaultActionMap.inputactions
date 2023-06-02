@@ -149,7 +149,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Attack",
                     "type": "PassThrough",
                     "id": "164529eb-d221-4e97-a718-bf5001576d70",
                     "expectedControlType": "Button",
@@ -292,7 +292,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
