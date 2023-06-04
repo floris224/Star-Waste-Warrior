@@ -85,8 +85,8 @@ public class SpaceMovement : MonoBehaviour
         rb.AddRelativeTorque(rollForce * rollTorque * Time.deltaTime);
 
         Vector2 moveValue = Move();
-        Vector3 moveForce = new Vector3(-moveValue.x, 0f, -moveValue.y);
-        rb.AddForce(moveForce * thrust * Time.deltaTime);
+        Vector3 moveForce = new Vector3(-moveValue.x, 0f, moveValue.y);
+        rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
 
         float upDown = UpDown();
         Vector3 UpDownStrenght = new Vector3(0, -upDown, 0);

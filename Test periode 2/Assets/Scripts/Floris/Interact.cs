@@ -1,116 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
-    public GameObject vrachtwagen;
-    public GameObject player;
-    public GameObject stoel;
+    private DefaultActionMap actionMap;
+    private InputAction enter;
     public RaycastHit hit;
-    public Camera pCam;
-    public Camera vCam;
-    //public MT mt;
-    public GameObject hand;
-    public GameObject prikker;
+    public GameObject playerInSpace;
+    public Camera spaceShipCam;
+    public GameObject spaceShip;
     
-    public Vector3 carPos;
-    public Transform posEnter;
-    public Transform posExit;
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        actionMap = new DefaultActionMap();
+        
+    }
+    private void OnEnable()
+    {
+        enter = actionMap.PlayerSpace.Interact;
+        enter.Enable();
 
-    public bool inCar;
-    private MeshRenderer pInvis;
-    private MeshRenderer sInvis;
-    private MeshRenderer prikkerInvis;
-
+    }
+    private void OnDisable()
+    {
+        enter.Disable();
+    }
    
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       pInvis = player.GetComponent<MeshRenderer>();
-       sInvis = stoel.GetComponent<MeshRenderer>();
-       prikkerInvis = prikker.GetComponent<MeshRenderer>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-       EnterCarSpace();
-       ExitCarSpace();
-       OpenDoor();
-       ExitDoor();
-        
-        
-      
-    }
-    public void EnterCarSpace()
-    {
-        if (Input.GetKey(KeyCode.F))
+        if (enter.triggered)
         {
-            if (Physics.Raycast(gameObject.transform.position, transform.forward, out hit, 5f))
+            if(Physics.Raycast(transform.position, transform.forward, out hit, 5f))
             {
-                if (hit.transform.tag == ("Car"))
+                if (hit.rigidbody.CompareTag("SpaceShip"))
                 {
-                    prikkerInvis.enabled = false;
-                    vCam.enabled = true;
-                    pCam.enabled = false;
-                    pInvis.enabled = false;
-                    sInvis.enabled = false;
-                    //mt.enabled = true;
-                    carPos = hit.rigidbody.transform.position;
-                    inCar = true;
+                    spaceShip.GetComponent<Rigidbody>().isKinematic = false;
+                    for (int i = 0; i < transform.childCount; i++)
+                    {
+                        gameObject.GetComponent<SpaceMovement>().enabled = false;
+                        playerInSpace.SetActive(false);
+                        transform.GetChild(i).gameObject.SetActive(false);
+                        spaceShipCam.enabled = true;
+                        spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
+                        spaceShip.GetComponent<InteractSpaceShip>().enabled =true;
+                    }
                 }
-
                 
-
             }
-
-
         }
     }
-    public void ExitCarSpace()
+
+    private float interacting()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if(inCar == true)
-            {
-                player.transform.position = carPos + new Vector3(2, 0, 0);
-                pInvis.enabled = true;
-                sInvis.enabled = true;
-                prikkerInvis.enabled = true;
-                //mt.enabled = false;
-                pCam.enabled = true;
-                vCam.enabled = false;
-                inCar = false;
-                Debug.Log("test");
-            }
-        }
+        return enter.ReadValue<float>();
     }
     
-    public void OpenDoor()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-          if(hit.transform.tag == "DoorEnter")
-          {
-                player.transform.position = posEnter.position;
-          }  
-            
-          
-            
-        }
-    }
-    public void ExitDoor()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (hit.transform.tag == "Door")
-            {
-                player.transform.position = posExit.position;
-            }
-        }
-    }
+
+    
 }

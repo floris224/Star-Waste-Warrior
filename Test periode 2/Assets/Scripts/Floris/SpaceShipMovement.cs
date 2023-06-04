@@ -9,10 +9,12 @@ public class SpaceShipMovement : MonoBehaviour
     private InputAction move;
     private InputAction rotation;
     private InputAction upDown;
+    private InputAction interact;
     public Rigidbody rb;
     public float thrust;
     public float rotationSpeed;
-    
+    public GameObject playerSpace;
+    public GameObject playerInGrav;
     public float rotationSmoothness = 10f;
 
 
@@ -24,10 +26,11 @@ public class SpaceShipMovement : MonoBehaviour
 
     public void OnEnable()
     {
-        
+        interact = actionMap.SpaceShip.Interact;
         move = actionMap.SpaceShip.Move;
         rotation = actionMap.SpaceShip.Rotation;
         upDown = actionMap.SpaceShip.UpDown;
+        interact.Enable();
         upDown.Enable();
         rotation.Enable();
         move.Enable();
@@ -35,6 +38,7 @@ public class SpaceShipMovement : MonoBehaviour
     }
     public void OnDisable()
     {
+        interact.Disable();
         upDown.Disable();
         move.Disable();
         rotation.Disable();
@@ -74,6 +78,14 @@ public class SpaceShipMovement : MonoBehaviour
         Vector3 UpDownStrenght = new Vector3(0, -upDown, 0);
         rb.AddForce(UpDownStrenght * thrust * Time.deltaTime);
     }
+    public void ExitEnter()
+    {
+        if (interact.triggered)
+        {
+            playerSpace.SetActive(true);
+            
+        }
+    }
     public float UpDown()
     {
         return upDown.ReadValue<float>();
@@ -87,5 +99,9 @@ public class SpaceShipMovement : MonoBehaviour
     public float Move()
     {
         return move.ReadValue<float>();
+    }
+    public float Interact()
+    {
+        return interact.ReadValue<float>();
     }
 }

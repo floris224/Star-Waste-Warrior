@@ -37,6 +37,15 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""64a3b97e-176b-4511-a058-11a28a6f04cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Rotation"",
                     ""type"": ""Value"",
                     ""id"": ""70d49a21-f3c6-47a9-8501-db8df93778a1"",
@@ -154,6 +163,17 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""UpDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91830091-d883-49f3-9840-0b35d76162c6"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -165,6 +185,15 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""name"": ""Roll"",
                     ""type"": ""PassThrough"",
                     ""id"": ""57833ef5-aeb7-4dbe-89df-802080f19f07"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""232f443e-50db-4f45-9860-31e655ae689c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -350,6 +379,17 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""UpDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6af33515-e807-47bf-900d-aa64a878e328"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -471,11 +511,13 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         // SpaceShip
         m_SpaceShip = asset.FindActionMap("SpaceShip", throwIfNotFound: true);
         m_SpaceShip_Move = m_SpaceShip.FindAction("Move", throwIfNotFound: true);
+        m_SpaceShip_Interact = m_SpaceShip.FindAction("Interact", throwIfNotFound: true);
         m_SpaceShip_Rotation = m_SpaceShip.FindAction("Rotation", throwIfNotFound: true);
         m_SpaceShip_UpDown = m_SpaceShip.FindAction("UpDown", throwIfNotFound: true);
         // PlayerSpace
         m_PlayerSpace = asset.FindActionMap("PlayerSpace", throwIfNotFound: true);
         m_PlayerSpace_Roll = m_PlayerSpace.FindAction("Roll", throwIfNotFound: true);
+        m_PlayerSpace_Interact = m_PlayerSpace.FindAction("Interact", throwIfNotFound: true);
         m_PlayerSpace_Attack = m_PlayerSpace.FindAction("Attack", throwIfNotFound: true);
         m_PlayerSpace_UpDown = m_PlayerSpace.FindAction("UpDown", throwIfNotFound: true);
         m_PlayerSpace_LookMovement = m_PlayerSpace.FindAction("LookMovement", throwIfNotFound: true);
@@ -547,6 +589,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_SpaceShip;
     private List<ISpaceShipActions> m_SpaceShipActionsCallbackInterfaces = new List<ISpaceShipActions>();
     private readonly InputAction m_SpaceShip_Move;
+    private readonly InputAction m_SpaceShip_Interact;
     private readonly InputAction m_SpaceShip_Rotation;
     private readonly InputAction m_SpaceShip_UpDown;
     public struct SpaceShipActions
@@ -554,6 +597,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         private @DefaultActionMap m_Wrapper;
         public SpaceShipActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_SpaceShip_Move;
+        public InputAction @Interact => m_Wrapper.m_SpaceShip_Interact;
         public InputAction @Rotation => m_Wrapper.m_SpaceShip_Rotation;
         public InputAction @UpDown => m_Wrapper.m_SpaceShip_UpDown;
         public InputActionMap Get() { return m_Wrapper.m_SpaceShip; }
@@ -568,6 +612,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Rotation.started += instance.OnRotation;
             @Rotation.performed += instance.OnRotation;
             @Rotation.canceled += instance.OnRotation;
@@ -581,6 +628,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Rotation.started -= instance.OnRotation;
             @Rotation.performed -= instance.OnRotation;
             @Rotation.canceled -= instance.OnRotation;
@@ -609,6 +659,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerSpace;
     private List<IPlayerSpaceActions> m_PlayerSpaceActionsCallbackInterfaces = new List<IPlayerSpaceActions>();
     private readonly InputAction m_PlayerSpace_Roll;
+    private readonly InputAction m_PlayerSpace_Interact;
     private readonly InputAction m_PlayerSpace_Attack;
     private readonly InputAction m_PlayerSpace_UpDown;
     private readonly InputAction m_PlayerSpace_LookMovement;
@@ -618,6 +669,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         private @DefaultActionMap m_Wrapper;
         public PlayerSpaceActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Roll => m_Wrapper.m_PlayerSpace_Roll;
+        public InputAction @Interact => m_Wrapper.m_PlayerSpace_Interact;
         public InputAction @Attack => m_Wrapper.m_PlayerSpace_Attack;
         public InputAction @UpDown => m_Wrapper.m_PlayerSpace_UpDown;
         public InputAction @LookMovement => m_Wrapper.m_PlayerSpace_LookMovement;
@@ -634,6 +686,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Roll.started += instance.OnRoll;
             @Roll.performed += instance.OnRoll;
             @Roll.canceled += instance.OnRoll;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
@@ -653,6 +708,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Roll.started -= instance.OnRoll;
             @Roll.performed -= instance.OnRoll;
             @Roll.canceled -= instance.OnRoll;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
@@ -747,12 +805,14 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     public interface ISpaceShipActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
         void OnUpDown(InputAction.CallbackContext context);
     }
     public interface IPlayerSpaceActions
     {
         void OnRoll(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnUpDown(InputAction.CallbackContext context);
         void OnLookMovement(InputAction.CallbackContext context);

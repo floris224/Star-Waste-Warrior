@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Road : MonoBehaviour
 {
@@ -11,11 +12,28 @@ public class Road : MonoBehaviour
     public float timer;
     public float moveToWardsSpeed;
     public SpaceShipMovement _ship;
+    public GameObject playerInGrav;
 
-    public float[] pp;
+    private DefaultActionMap actionmap;
+    private InputAction interact;
 
+    public Camera camInGrav;
+    public Camera camSpaceShip;
 
-    
+    private void Awake()
+    {
+        actionmap= new DefaultActionMap(); 
+    }
+    private void OnDisable()
+    {
+        actionmap.Disable();
+    }
+    private void OnEnable()
+    {
+        interact = actionmap.PlayerSpace.Interact;
+        interact.Enable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +54,14 @@ public class Road : MonoBehaviour
 
         if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)
         {
-            timer += Time.deltaTime;
-            if (timer >= 4f)
+            if (interact.triggered)
             {
-
-                spaceship.GetComponent<SpaceShipMovement>().enabled = true;
-                timer -= timer;
-                isMoving = false;
+                playerInGrav.SetActive(true);
+                spaceship.GetComponent<SpaceShipMovement>().enabled = false;
+                playerInGrav.GetComponent<MovementinGrav>().enabled = true;
+                camSpaceShip.GetComponent<Camera>().enabled = false;
+                camInGrav.GetComponent <Camera>().enabled = true;
+               
             }
         }
 
@@ -58,11 +77,15 @@ public class Road : MonoBehaviour
         {
 
             other.GetComponent<SpaceShipMovement>().enabled = false;
-
+            spaceship.GetComponent<InteractSpaceShip>().enabled = false;
 
             isMoving = true;
             Debug.Log("" + other.transform.name);
         }
 
+    }
+    float InteractInput()
+    {
+        return interact.ReadValue<float>();
     }
 }

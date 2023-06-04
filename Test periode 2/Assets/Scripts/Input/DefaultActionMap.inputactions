@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "64a3b97e-176b-4511-a058-11a28a6f04cf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Rotation",
                     "type": "Value",
                     "id": "70d49a21-f3c6-47a9-8501-db8df93778a1",
@@ -132,6 +141,17 @@
                     "action": "UpDown",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "91830091-d883-49f3-9840-0b35d76162c6",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -143,6 +163,15 @@
                     "name": "Roll",
                     "type": "PassThrough",
                     "id": "57833ef5-aeb7-4dbe-89df-802080f19f07",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "232f443e-50db-4f45-9860-31e655ae689c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -328,6 +357,17 @@
                     "action": "UpDown",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6af33515-e807-47bf-900d-aa64a878e328",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
