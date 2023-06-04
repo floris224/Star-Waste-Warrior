@@ -18,6 +18,8 @@ TagManager:
   - Enemy
   - SpaceShip
   - ShopKeeper
+  - QuestNPC
+  - QuestItem
   layers:
   - Default
   - TransparentFX
