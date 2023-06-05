@@ -429,7 +429,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8b29e39c-47dd-4d9f-b807-c821de344d0c"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -440,7 +440,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""742cfa70-e2fd-4d87-8c0f-aa8d04c0e85e"",
-                    ""path"": ""<Mouse>/position"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

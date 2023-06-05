@@ -1,25 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using Unity.Burst;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class Look : MonoBehaviour
+
+public class CamRotation : MonoBehaviour
 {
     public float mousSens, mouseY, mouseX;
     public Vector3 dir;
     public GameObject playerBody;
     float rotY;
-
-
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-
-    }
-
-
-    void Update()
+    public void Update()
     {
         //defineren welke as wat doet
         mouseX = Input.GetAxis("Mouse X");
@@ -36,5 +27,4 @@ public class Look : MonoBehaviour
         e.x = -rotY;
         transform.eulerAngles = e;
     }
-
 }

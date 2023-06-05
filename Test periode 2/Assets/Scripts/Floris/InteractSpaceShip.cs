@@ -40,7 +40,6 @@ public class InteractSpaceShip : MonoBehaviour
             for (int i = 0; i < playerSpace.transform.childCount; i++)
             {
                 playerSpace.GetComponent<SpaceMovement>().enabled = true;
-                transform.GetChild(i).gameObject.SetActive(false);
                 playerSpace.transform.GetChild(i).gameObject.SetActive(true);
                 camSpaceShip.GetComponent<Camera>().enabled = false;
                
