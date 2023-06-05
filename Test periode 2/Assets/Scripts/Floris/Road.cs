@@ -26,7 +26,7 @@ public class Road : MonoBehaviour
     }
     private void OnDisable()
     {
-        actionmap.Disable();
+        interact.Disable();
     }
     private void OnEnable()
     {

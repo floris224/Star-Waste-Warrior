@@ -9,7 +9,7 @@ public class MovementinGrav : MonoBehaviour
     private DefaultActionMap actionMap;
     private InputAction move;
     private InputAction mouseAction;
-    
+    public Transform camRotation;
     void Awake()
     {
         actionMap = new DefaultActionMap();
@@ -19,15 +19,11 @@ public class MovementinGrav : MonoBehaviour
     void OnEnable()
     {
         move = actionMap.PlayerInForcefield.Move;
-        mouseAction = actionMap.PlayerInForcefield.FirstPlayerCam;
-
-        mouseAction.Enable();
         move.Enable();
     }
 
     void OnDisable()
     {
-        mouseAction.Disable();
         move.Disable();
     }
 
@@ -36,11 +32,12 @@ public class MovementinGrav : MonoBehaviour
     {
         // movement
         Vector2 moveValue = Move();
-        Vector3 movement = new Vector3(-moveValue.x, 0f, -moveValue.y);
+        Vector3 forward = camRotation.forward;
+        Vector3 right = camRotation.right;
+        forward.y = 0f;
+        right.y = 0f;
+        Vector3 movement = (right.normalized * moveValue.x + forward.normalized * moveValue.y);
         rb.velocity = movement * speed * Time.deltaTime;
-
-
-        
     }
 
 

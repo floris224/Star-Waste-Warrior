@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +22,8 @@ public class InteractInGrav : MonoBehaviour
     }
     private void OnEnable()
     {
-        enter = actionMap.PlayerInForcefield.Interact;
+        InputAction interact = actionMap.PlayerInForcefield.Interact;
+        enter = interact;
         enter.Enable();
 
     }
@@ -35,13 +37,21 @@ public class InteractInGrav : MonoBehaviour
     {
         if (enter.triggered)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 5f) && hit.rigidbody.CompareTag("SpaceShip"))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 5f))
             {
-                playerInGrav.SetActive(false);
-                playerInGrav.GetComponent<MovementinGrav>().enabled = false;
-                spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
-                spaceShipCam.enabled = true;
-                playerInGravCam.enabled = false; 
+                if( hit.transform.name == "SpaceShip")
+                {
+                    spaceShipCam.GetComponent<Camera>().enabled = true;
+                    playerInGravCam.GetComponent<Camera>().enabled = false;
+                    playerInGrav.SetActive(false);
+                    playerInGrav.GetComponent<MovementinGrav>().enabled = false;
+                    spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
+
+
+
+                }
+               
+               
                 
                 
 
