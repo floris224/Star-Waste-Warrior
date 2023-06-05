@@ -23,7 +23,7 @@ public class Trash : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);
-        if (random <= 5) 
+        if (random <= 25) 
         {
             if (sound == false)
             {
