@@ -38,7 +38,6 @@ public class Road : MonoBehaviour
     void Start()
     {
         isMoving = false;
-        timer = 0;
         
     }
 
@@ -48,8 +47,16 @@ public class Road : MonoBehaviour
         
         if (isMoving)
         {
+            
             float step = moveToWardsSpeed * Time.deltaTime;
             spaceship.transform.position = Vector3.MoveTowards(spaceship.transform.position, spaceshipGoToPosition.transform.position, step);
+
+          
+            Quaternion targetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
+
+            
+            spaceship.transform.rotation = Quaternion.Slerp(spaceship.transform.rotation, targetRotation, step);
+
         }
 
         if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)
