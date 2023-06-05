@@ -84,10 +84,12 @@ public class Alien : MonoBehaviour
     void Die()
     {
         Debug.Log("Alien Defeated");
-        transform.gameObject.SetActive(false);
-        SetAlienChaseFalse();
+        music.numberOfAliensChasing -= 1;
         // Play Alien death SFX
         // Play Alien death particle
+        Destroy(gameObject);
+        
+       
     }
     public void SetAlienChaseFalse()
     {

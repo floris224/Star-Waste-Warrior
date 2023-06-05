@@ -20,6 +20,7 @@ TagManager:
   - ShopKeeper
   - QuestNPC
   - QuestItem
+  - Music
   layers:
   - Default
   - TransparentFX

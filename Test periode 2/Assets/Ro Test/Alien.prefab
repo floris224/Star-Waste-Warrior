@@ -104,6 +104,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waterbeer + amimaties
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d38a515463f9c041b5ef1f69f278ad6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d38a515463f9c041b5ef1f69f278ad6, type: 3}
 --- !u!4 &6010563649616785744 stripped
@@ -180,8 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2780903981518211223, guid: f3d24982f1198514e94d152d501246fd, type: 3}
-  ahealth: 100
-  damage: 20
+  ahealth: 1
+  damage: 100
   maxFollowRange: 7
   minFollowRange: 1
   attackRange: 1
@@ -189,3 +194,5 @@ MonoBehaviour:
   attackCooldown: 3
   distance: 0
   alien: {fileID: 5057500708624966461}
+  music: {fileID: 0}
+  isThisAlienChasing: 0
