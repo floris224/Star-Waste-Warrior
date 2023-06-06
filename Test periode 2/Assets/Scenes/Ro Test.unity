@@ -572,6 +572,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2780903981518211223, guid: f3d24982f1198514e94d152d501246fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3247315047595452675, guid: f3d24982f1198514e94d152d501246fd,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -590,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 4624026236921781949, guid: f3d24982f1198514e94d152d501246fd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.054
+      value: 0.361
       objectReference: {fileID: 0}
     - target: {fileID: 4951352259112061863, guid: f3d24982f1198514e94d152d501246fd,
         type: 3}
@@ -909,6 +914,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 288504064}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &414244043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4951352259112061863, guid: f3d24982f1198514e94d152d501246fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 288504064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414244031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250462049d7d6074486285dd8f7b2872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &504219028
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +990,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.57
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2585,9 +2602,10 @@ GameObject:
   - component: {fileID: 1859137728}
   - component: {fileID: 1859137727}
   - component: {fileID: 1859137729}
+  - component: {fileID: 1859137730}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: VuilniswagenCapaciteit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2669,8 +2687,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eb55684909fb045ac6b0c98ea857e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prickercap: {fileID: 0}
+  prickercap: {fileID: 414244043}
   capaciteit: 0
+--- !u!65 &1859137730
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859137725}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1962725376
 PrefabInstance:
   m_ObjectHideFlags: 0

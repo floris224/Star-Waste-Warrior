@@ -78,12 +78,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   random: 0
   alien: {fileID: 3673980160439089983, guid: 516a45e9d8d7cf64984e759d649d9a3b, type: 3}
-  spawnrange: 3
-  rumblingrange: 0
-  player: {fileID: 2780903981518211223, guid: f3d24982f1198514e94d152d501246fd, type: 3}
+  spawnrange: 5
+  player: {fileID: 0}
   distance: 0
   rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
     type: 3}
+  sound: 0
 --- !u!1001 &6944569089664460467
 PrefabInstance:
   m_ObjectHideFlags: 0

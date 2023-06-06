@@ -271,6 +271,7 @@ MonoBehaviour:
   minFollowRange: 1
   attackRange: 1
   speed: 0.8
+  lookSpeed: 4
   attackCooldown: 3
   targetCooldown: 3
   distance: 0
@@ -282,5 +283,6 @@ MonoBehaviour:
   gt2: {fileID: 0}
   gt3: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  looktarget: {x: 0, y: 0, z: 0}
   random: 0
   resetTarget: 0

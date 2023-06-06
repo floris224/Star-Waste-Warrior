@@ -60,7 +60,7 @@ public class Alien : MonoBehaviour
                 {
                     target = gt3.transform.position;
                 }
-                else
+                if (random > 60)
                 {
                     target = player.transform.position;
                 }

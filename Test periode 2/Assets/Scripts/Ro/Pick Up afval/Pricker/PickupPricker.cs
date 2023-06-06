@@ -23,6 +23,11 @@ public class PickupPricker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inprikker == true)
+        {
+            trash.transform.position = end.transform.position;
+            trash.transform.rotation = end.transform.rotation;
+        }
         if (Input.GetMouseButtonDown(0) && (Time.time > timeStampAttack))
         {
             pricker.SetTrigger("leftclick");
@@ -75,9 +80,7 @@ public class PickupPricker : MonoBehaviour
                     trash = grabpoint.gameObject;
                     trashcollider = trash.GetComponent<Collider>();
                     trashcollider.enabled = false;
-                    trash.transform.position = end.transform.position;
                     trash.GetComponent<Rigidbody>().freezeRotation = true;
-                    trash.transform.rotation = end.transform.rotation;
                     trash.transform.SetParent(end.transform, true);
                 }
             }

@@ -22,7 +22,7 @@ public class VuilniswagenCapaciteit : MonoBehaviour
     {
         capaciteit += prickercap.capaciteit;
         prickercap.capaciteit = 0;
-        Debug.Log("Je hebt " + capaciteit + " vuilnis in je vuilniswagen en je vuilniszak is leeg" + prickercap.capaciteit);
+        Debug.Log("Je hebt " + capaciteit + " vuilnis in je vuilniswagen en je vuilniszak is leeg " + prickercap.capaciteit);
         if (capaciteit >= 10)
         {
             capaciteit = 10;
