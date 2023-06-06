@@ -11,9 +11,12 @@ public class MenuManager : MonoBehaviour
     private DefaultActionMap actionMap;
     private InputAction interact;
     private RaycastHit hit;
-  
+    public Camera camInGrav;
 
-    
+
+
+
+
     void Awake()
     {
         actionMap = new DefaultActionMap();
@@ -36,11 +39,15 @@ public class MenuManager : MonoBehaviour
     {
         if (interact.triggered)
         {
-            if(Physics.Raycast(transform.position, transform.forward, out hit, 2f))
+            if(Physics.Raycast(camInGrav.transform.position, camInGrav.transform.forward, out hit, 2f))
             {
-                if(hit.rigidbody.tag == "ShopKeeper")
+                if(hit.transform.tag == "ShopKeeper")
                 {
+                    
                     panelShopMenu.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    interactInput();
+
                 }
             }
         }

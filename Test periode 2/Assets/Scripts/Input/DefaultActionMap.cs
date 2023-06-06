@@ -234,6 +234,15 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Boost"",
+                    ""type"": ""Button"",
+                    ""id"": ""878cb1b8-5e72-4a86-8fee-1fcbe1877dbb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -390,6 +399,17 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31f4f6d6-c0ea-43c0-ab8e-2f8e8c114cba"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -522,6 +542,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         m_PlayerSpace_UpDown = m_PlayerSpace.FindAction("UpDown", throwIfNotFound: true);
         m_PlayerSpace_LookMovement = m_PlayerSpace.FindAction("LookMovement", throwIfNotFound: true);
         m_PlayerSpace_Move = m_PlayerSpace.FindAction("Move", throwIfNotFound: true);
+        m_PlayerSpace_Boost = m_PlayerSpace.FindAction("Boost", throwIfNotFound: true);
         // PlayerInForcefield
         m_PlayerInForcefield = asset.FindActionMap("PlayerInForcefield", throwIfNotFound: true);
         m_PlayerInForcefield_Move = m_PlayerInForcefield.FindAction("Move", throwIfNotFound: true);
@@ -664,6 +685,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerSpace_UpDown;
     private readonly InputAction m_PlayerSpace_LookMovement;
     private readonly InputAction m_PlayerSpace_Move;
+    private readonly InputAction m_PlayerSpace_Boost;
     public struct PlayerSpaceActions
     {
         private @DefaultActionMap m_Wrapper;
@@ -674,6 +696,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         public InputAction @UpDown => m_Wrapper.m_PlayerSpace_UpDown;
         public InputAction @LookMovement => m_Wrapper.m_PlayerSpace_LookMovement;
         public InputAction @Move => m_Wrapper.m_PlayerSpace_Move;
+        public InputAction @Boost => m_Wrapper.m_PlayerSpace_Boost;
         public InputActionMap Get() { return m_Wrapper.m_PlayerSpace; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -701,6 +724,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Boost.started += instance.OnBoost;
+            @Boost.performed += instance.OnBoost;
+            @Boost.canceled += instance.OnBoost;
         }
 
         private void UnregisterCallbacks(IPlayerSpaceActions instance)
@@ -723,6 +749,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Boost.started -= instance.OnBoost;
+            @Boost.performed -= instance.OnBoost;
+            @Boost.canceled -= instance.OnBoost;
         }
 
         public void RemoveCallbacks(IPlayerSpaceActions instance)
@@ -817,6 +846,7 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         void OnUpDown(InputAction.CallbackContext context);
         void OnLookMovement(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnBoost(InputAction.CallbackContext context);
     }
     public interface IPlayerInForcefieldActions
     {

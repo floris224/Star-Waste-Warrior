@@ -22,10 +22,15 @@ public class SpaceMovement : MonoBehaviour
     private InputAction move;
     private InputAction roll;
     private InputAction upDown;
+    public InputAction boost;
+
+    private bool isBoosting = false;
 
     private void Awake()
     {
         defaultActionMap = new DefaultActionMap();
+        
+       
     }
 
     private void OnEnable()
@@ -34,6 +39,13 @@ public class SpaceMovement : MonoBehaviour
         move = defaultActionMap.PlayerSpace.Move;
         roll = defaultActionMap.PlayerSpace.Roll;
         upDown = defaultActionMap.PlayerSpace.UpDown;
+        boost = defaultActionMap.PlayerSpace.Boost;
+
+        boost.started += BoostStarted;
+        boost.performed += boostPerformed;
+        boost.canceled += boostCanceld;
+
+        boost.Enable();
         mouseDelta.Enable();
         move.Enable();
         roll.Enable();
@@ -46,6 +58,7 @@ public class SpaceMovement : MonoBehaviour
         move.Disable();
         roll.Disable();
         upDown.Disable();
+        boost.Disable();
     }
 
     // Start is called before the first frame update
@@ -70,6 +83,7 @@ public class SpaceMovement : MonoBehaviour
         if (vDis <= maxDis)
         {
             MovementManager();
+            
         }
         else if (vDis >= maxDis)
         {
@@ -85,7 +99,7 @@ public class SpaceMovement : MonoBehaviour
         rb.AddRelativeTorque(rollForce * rollTorque * Time.deltaTime);
 
         Vector2 moveValue = Move();
-        Vector3 moveForce = new Vector3(-moveValue.x, 0f, moveValue.y);
+        Vector3 moveForce = new Vector3(moveValue.x, 0f, moveValue.y);
         rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
 
         float upDown = UpDown();
@@ -106,6 +120,44 @@ public class SpaceMovement : MonoBehaviour
         Vector3 rotationYForce = new Vector3(0f, rotation.x, 0f);
         rb.AddRelativeTorque(rotationYForce * rotationYSensitivity * Time.deltaTime);
 
+    }
+    private void BoostStarted(InputAction.CallbackContext context)
+    {
+        
+    }
+
+    private void boostPerformed(InputAction.CallbackContext context)
+    {
+        isBoosting = true;
+        BoostInput();
+        Debug.Log("Input");
+    }
+    private void boostCanceld(InputAction.CallbackContext context)
+    {
+        isBoosting = false;
+        BoostInput();
+    }   
+
+/*
+action.started += context => Debug.Log($"{context.action} started");
+action.performed += context => Debug.Log($"{context.action} performed");
+action.canceled += context => Debug.Log($"{context.action} canceled");
+*/
+    public float BoostInput()
+    {
+        if (isBoosting)
+        {
+          thrust *= 2;
+            //button Down
+
+        }
+        else
+        {
+            thrust /= 2;
+            // button up.
+        }
+       
+        return boost.ReadValue<float>();
     }
 
     public Vector2 CursorPosition()
