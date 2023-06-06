@@ -21,6 +21,7 @@ TagManager:
   - QuestNPC
   - QuestItem
   - Music
+  - Target
   layers:
   - Default
   - TransparentFX

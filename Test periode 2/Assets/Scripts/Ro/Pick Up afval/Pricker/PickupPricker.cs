@@ -11,6 +11,7 @@ public class PickupPricker : MonoBehaviour
     public Collider trashcollider;
     public bool inprikker;
     public int capaciteit;
+    public int damage;
     private float timeStampAttack, timeStampHit;
     public float attackCooldown, hitcooldown;
     // Start is called before the first frame update
@@ -57,7 +58,8 @@ public class PickupPricker : MonoBehaviour
         {
             if (grabpoint.CompareTag("Enemy") && (Time.time > timeStampHit))
             {
-                grabpoint.gameObject.GetComponent<Alien>().ahealth -= 20;
+                grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
+                grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
                 timeStampHit = Time.time + hitcooldown;
                 Debug.Log("Enemy hit");
             }
