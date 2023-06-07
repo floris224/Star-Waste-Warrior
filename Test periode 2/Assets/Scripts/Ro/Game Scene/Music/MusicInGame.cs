@@ -5,14 +5,15 @@ using UnityEngine;
 public class MusicInGame : MonoBehaviour
 {
     public int numberOfAliensChasing;
-    public bool battle, background;
-    public AudioClip inGameMusic, inBattleMusic, currentClip;
-    public AudioSource musicAudio;
+    public bool battle;
+    public AudioClip defaultClip;
+    public AudioSource inGameAudio, battleAudio;
     // Start is called before the first frame update
     void Start()
     {
-        musicAudio.Play();
-        battle = true;
+        inGameAudio.Play();
+        battleAudio.Play();
+        battleAudio.volume = 0;
     }
 
     // Update is called once per frame
@@ -23,8 +24,7 @@ public class MusicInGame : MonoBehaviour
         {
             if (battle == false)
             {
-                musicAudio.clip = inBattleMusic;
-                musicAudio.Play();
+                SwapTrack();
             }
             battle = true;
         }
@@ -32,11 +32,46 @@ public class MusicInGame : MonoBehaviour
         {
             if (battle == true)
             {
-                musicAudio.clip = inGameMusic;
-                musicAudio.Play();
+                SwapTrack();
             }
             battle = false;
-            musicAudio.clip = inGameMusic;
+        }
+    }
+    public void SwapTrack()
+    {
+        StopAllCoroutines();
+
+        StartCoroutine(FadeTrack());
+    }
+    private IEnumerator FadeTrack()
+    {
+        float timeToFade = 4f;
+        float timeElapsed = 0;
+        if (battle == true)
+        {
+            
+
+            while (timeElapsed < timeToFade)
+            {
+                battleAudio.volume = Mathf.Lerp(0.25f, 0, timeElapsed / timeToFade);
+                inGameAudio.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+            
+        }
+        else
+        {
+            
+
+            while (timeElapsed < timeToFade)
+            {
+                inGameAudio.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+                battleAudio.volume = Mathf.Lerp(0, 0.25f, timeElapsed / timeToFade);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+            
         }
     }
 }
