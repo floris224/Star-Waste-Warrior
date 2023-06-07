@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2772779013081727116}
   - component: {fileID: 8233223457552825065}
   - component: {fileID: 6465783343016335512}
+  - component: {fileID: 3343031207449067767}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: TrashSmall
@@ -84,6 +85,21 @@ MonoBehaviour:
   rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
     type: 3}
   sound: 0
+--- !u!114 &3343031207449067767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5908398925857422916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Bottle
+  itemValue: 20
+  capacity: 1
 --- !u!1001 &6944569089664460467
 PrefabInstance:
   m_ObjectHideFlags: 0

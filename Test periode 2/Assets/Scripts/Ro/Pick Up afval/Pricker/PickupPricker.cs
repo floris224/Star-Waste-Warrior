@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickupPricker : MonoBehaviour
 {
+
     public Animator pricker;
     public Collider grabpoint;
     public GameObject end;
@@ -14,12 +15,12 @@ public class PickupPricker : MonoBehaviour
     public int damage;
     private float timeStampAttack, timeStampHit;
     public float attackCooldown, hitcooldown;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public int maxCapacity;
+    public List<int> inventory = new List<int>();
+    public Interact raycast;
+    private RaycastHit hit;
+    public Rigidbody rb;
+   
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +47,8 @@ public class PickupPricker : MonoBehaviour
                     trash.SetActive(false);
                     inprikker = false;
                     capaciteit += 1;
+                    TrashManager();
+                   
                     Debug.Log("je hebt "+capaciteit+" afval");
                 }
                 else
@@ -86,5 +89,28 @@ public class PickupPricker : MonoBehaviour
             }
            
         }
+       
     }
+    public void TrashManager()
+    {
+       if(Physics.Raycast(transform.position,transform.position, out hit, 5f))
+        {
+            if (hit.transform.CompareTag("TrashSmall"))
+            {
+                rb = hit.transform.GetComponent<Rigidbody>();
+                int itemValue = rb.GetComponent<ValueTrash>().itemValue;
+                if (inventory.Count < maxCapacity)
+                {
+                    inventory.Add(itemValue);
+                    Debug.Log("Item added to inventory. Current capacity: " + inventory.Count + "/" + maxCapacity);
+                }
+                else
+                {
+                    Debug.Log("Inventory is full. Cannot add more items.");
+                }
+            }
+        }
+        
+    }
+
 }

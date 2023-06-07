@@ -1381,6 +1381,10 @@ MonoBehaviour:
   damage: 20
   attackCooldown: 3
   hitcooldown: 1.5
+  maxCapacity: 0
+  inventory: 0000000000000000000000000000000000000000
+  raycast: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!65 &309588566
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1437,6 +1441,7 @@ MonoBehaviour:
   playerInSpace: {fileID: 309588557}
   spaceShipCam: {fileID: 879880168}
   spaceShip: {fileID: 400029432}
+  rb: {fileID: 516911931}
 --- !u!114 &309588569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3423,6 +3428,12 @@ GameObject:
 --- !u!4 &516911928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3373080697813320234, guid: ed08061b9f8298646a3292ccc1fca76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1996165862}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &516911931 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2772779013081727116, guid: ed08061b9f8298646a3292ccc1fca76e,
     type: 3}
   m_PrefabInstance: {fileID: 1996165862}
   m_PrefabAsset: {fileID: 0}

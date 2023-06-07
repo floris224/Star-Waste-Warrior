@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Interact : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Interact : MonoBehaviour
     public GameObject playerInSpace;
     public Camera spaceShipCam;
     public GameObject spaceShip;
+    public Rigidbody rb;
+    
+
     
     // Start is called before the first frame update
     private void Awake()
@@ -32,6 +36,7 @@ public class Interact : MonoBehaviour
 
     void Update()
     {
+        
         if (enter.triggered)
         {
             if(Physics.Raycast(transform.position, transform.forward, out hit, 5f))
@@ -54,11 +59,14 @@ public class Interact : MonoBehaviour
         }
     }
 
+    
     private float interacting()
     {
         return enter.ReadValue<float>();
     }
-    
 
-    
+   
+
+
+
 }
