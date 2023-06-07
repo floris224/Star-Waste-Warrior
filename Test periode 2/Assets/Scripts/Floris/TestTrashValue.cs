@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerInventory", menuName = "Inventory/Player Inventory")]
-public class TestTrashValue : ScriptableObject
+public class TestTrashValue : MonoBehaviour
 {
     public int currentCapacity;
     public int maximumCapacity;
     public List<ValueTrash> collectedGarbage = new List<ValueTrash>();
+    public ValueTrash _ValueTrash;
 
     public void AddGarbage(ValueTrash garbage)
     {
