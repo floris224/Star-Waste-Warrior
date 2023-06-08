@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Money : MonoBehaviour
 {
-    public float geld = 99999f;
+    public int geld = 0;
     
 }

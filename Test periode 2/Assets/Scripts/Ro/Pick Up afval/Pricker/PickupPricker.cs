@@ -21,9 +21,16 @@ public class PickupPricker : MonoBehaviour
     public List<int> inventory = new List<int>();
     public TextMeshProUGUI inventoryCoutn;
     public TextMeshProUGUI galaxyTokens;
-
+    public Money money;
+    private int currentMoney;
     private RaycastHit hit;
 
+    private void Start()
+    {
+        int currentMoney = money.geld;
+        UpdateUI();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -126,6 +133,8 @@ public class PickupPricker : MonoBehaviour
             totalPrice += itemValue;
         }
         inventory.Clear();
+        currentMoney += totalPrice;
+
         Debug.Log("Sold for" + totalPrice);
         UpdateUI();
     }
@@ -149,12 +158,5 @@ public class PickupPricker : MonoBehaviour
     private void UpdateUI()
     {
         inventoryCoutn.text = "Inventory: " + inventory.Count + "/" + maxCapacity;
-        int totalPrice = 0;
-
-        foreach (int itemValue in inventory)
-        {
-            totalPrice += itemValue;
-        }
-
-        galaxyTokens.text = "Total Price: " + totalPrice;
+        galaxyTokens.text = "Money: " + currentMoney;
 }   }

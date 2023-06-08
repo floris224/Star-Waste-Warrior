@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2684217240475003052}
   - component: {fileID: 1364479423959721737}
   - component: {fileID: 3822269136992605123}
+  - component: {fileID: 3675821179420245753}
+  - component: {fileID: 1249734962288024342}
   m_Layer: 0
   m_Name: Plasticbekers
   m_TagString: Untagged
@@ -83,3 +85,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3675821179420245753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317906041954218518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b1ea113b272ef42ae48cfc3da4f220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 0}
+  outlineScaleFactor: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1249734962288024342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3317906041954218518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b1ea113b272ef42ae48cfc3da4f220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 2100000, guid: 1c0cec9b6ffe7674bb2f52e3da5ad82d, type: 2}
+  outlineScaleFactor: -8.88
+  outlineColor: {r: 0, g: 0, b: 0, a: 0}
