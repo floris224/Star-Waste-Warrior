@@ -22,6 +22,7 @@ TagManager:
   - QuestItem
   - Music
   - Target
+  - Grinder
   layers:
   - Default
   - TransparentFX

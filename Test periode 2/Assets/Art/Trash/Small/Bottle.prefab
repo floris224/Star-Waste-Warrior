@@ -180,3 +180,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6944569089664460467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7827670783942368226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8cd9c87b093c6934c88b23a1a5d25048,
+    type: 3}
+  m_PrefabInstance: {fileID: 6944569089664460467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9196041282708798076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827670783942368226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: bottle
+  itemValue: 20
+  capacity: 1

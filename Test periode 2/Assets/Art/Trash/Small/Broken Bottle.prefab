@@ -192,6 +192,21 @@ MonoBehaviour:
   rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
     type: 3}
   sound: 0
+--- !u!114 &4608481036058211820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253742034941191883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: broken bottle
+  itemValue: 10
+  capacity: 1
 --- !u!4 &7518448158326592021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfaee16040194444b95ed9bcebcf9393,
@@ -253,3 +268,18 @@ MonoBehaviour:
   rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
     type: 3}
   sound: 0
+--- !u!114 &8118534701857846314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7819138540948592958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: broken bottle
+  itemValue: 10
+  capacity: 1

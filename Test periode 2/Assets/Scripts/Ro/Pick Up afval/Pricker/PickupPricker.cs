@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PickupPricker : MonoBehaviour
 {
@@ -17,13 +19,16 @@ public class PickupPricker : MonoBehaviour
     public float attackCooldown, hitcooldown;
     public int maxCapacity;
     public List<int> inventory = new List<int>();
-    public Interact raycast;
+    public TextMeshProUGUI inventoryCoutn;
+    public TextMeshProUGUI galaxyTokens;
+
     private RaycastHit hit;
-    public Rigidbody rb;
-   
+
+
     // Update is called once per frame
     void Update()
     {
+        InteractionSell();
         if (inprikker == true)
         {
             trash.transform.position = end.transform.position;
@@ -46,18 +51,18 @@ public class PickupPricker : MonoBehaviour
                 {
                     trash.SetActive(false);
                     inprikker = false;
-                    capaciteit += 1;
                     TrashManager();
-                   
-                    Debug.Log("je hebt "+capaciteit+" afval");
+
+
+                    Debug.Log("je hebt " + capaciteit + " afval");
                 }
                 else
                 {
                     Debug.Log("Je vuilniszak zit vol");
                 }
-                
+
             }
-            
+
         }
     }
     public void OnTriggerStay(Collider grabpoint)
@@ -69,7 +74,7 @@ public class PickupPricker : MonoBehaviour
                 grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
                 grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
                 timeStampHit = Time.time + hitcooldown;
-                Debug.Log("Enemy hit");
+
             }
         }
         if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Prikker"))
@@ -78,7 +83,7 @@ public class PickupPricker : MonoBehaviour
             {
                 if (grabpoint.CompareTag("TrashSmall"))
                 {
-                    Debug.Log("Werkt");
+
                     inprikker = true;
                     trash = grabpoint.gameObject;
                     trashcollider = trash.GetComponent<Collider>();
@@ -88,29 +93,68 @@ public class PickupPricker : MonoBehaviour
                 }
             }
            
+            
+
         }
-       
+
     }
     public void TrashManager()
     {
-       if(Physics.Raycast(transform.position,transform.position, out hit, 5f))
+        int itemValue = trash.GetComponent<ValueTrash>().itemValue;
+        if (trash.CompareTag("TrashSmall"))
         {
-            if (hit.transform.CompareTag("TrashSmall"))
+
+            if (inventory.Count < maxCapacity)
             {
-                rb = hit.transform.GetComponent<Rigidbody>();
-                int itemValue = rb.GetComponent<ValueTrash>().itemValue;
-                if (inventory.Count < maxCapacity)
-                {
-                    inventory.Add(itemValue);
-                    Debug.Log("Item added to inventory. Current capacity: " + inventory.Count + "/" + maxCapacity);
-                }
-                else
-                {
-                    Debug.Log("Inventory is full. Cannot add more items.");
-                }
+                inventory.Add(itemValue);
+                Debug.Log("Item added to inventory. Current capacity: " + inventory.Count + "/" + maxCapacity);
+                UpdateUI();
+            }
+            else
+            {
+                Debug.Log("Inventory is full. Cannot add more items.");
             }
         }
-        
-    }
 
-}
+    }
+    public void SellItems()
+    {
+        int totalPrice = 0;
+
+        foreach (int itemValue in inventory)
+        {
+            totalPrice += itemValue;
+        }
+        inventory.Clear();
+        Debug.Log("Sold for" + totalPrice);
+        UpdateUI();
+    }
+    
+    public void InteractionSell()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            if(Physics.Raycast(transform.position,transform.forward,out hit, 5f))
+            {
+                if (hit.transform.name == "Grinder")
+                {
+                    SellItems();
+                }
+
+
+            }
+            
+        }
+    }
+    private void UpdateUI()
+    {
+        inventoryCoutn.text = "Inventory: " + inventory.Count + "/" + maxCapacity;
+        int totalPrice = 0;
+
+        foreach (int itemValue in inventory)
+        {
+            totalPrice += itemValue;
+        }
+
+        galaxyTokens.text = "Total Price: " + totalPrice;
+}   }

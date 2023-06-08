@@ -41,7 +41,7 @@ public class Interact : MonoBehaviour
         {
             if(Physics.Raycast(transform.position, transform.forward, out hit, 5f))
             {
-                if (hit.rigidbody.CompareTag("SpaceShip"))
+                if (hit.transform.CompareTag("SpaceShip"))
                 {
                     spaceShip.GetComponent<Rigidbody>().isKinematic = false;
                     for (int i = 0; i < transform.childCount; i++)
