@@ -87,7 +87,7 @@ public class PickupPricker : MonoBehaviour
 
             }
         }
-        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Pick up"))
+        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Armature|Pick up "))
         {
             if (inprikker == false)
             {
