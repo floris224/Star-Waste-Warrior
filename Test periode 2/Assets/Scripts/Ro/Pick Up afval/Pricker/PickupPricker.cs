@@ -40,6 +40,7 @@ public class PickupPricker : MonoBehaviour
         {
             trash.transform.position = end.transform.position;
             trash.transform.rotation = end.transform.rotation;
+            pricker.SetBool("inGrapper", true);
         }
         if (Input.GetMouseButtonDown(0) && (Time.time > timeStampAttack))
         {
@@ -54,8 +55,10 @@ public class PickupPricker : MonoBehaviour
             }
             else
             {
+                
                 if (capaciteit < 5)
                 {
+                    pricker.SetBool("inGrapper", false);
                     trash.SetActive(false);
                     inprikker = false;
                     TrashManager();
@@ -74,7 +77,7 @@ public class PickupPricker : MonoBehaviour
     }
     public void OnTriggerStay(Collider grabpoint)
     {
-        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("PrikkerSwipe"))
+        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Armature|Slam"))
         {
             if (grabpoint.CompareTag("Enemy") && (Time.time > timeStampHit))
             {
@@ -84,7 +87,7 @@ public class PickupPricker : MonoBehaviour
 
             }
         }
-        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Prikker"))
+        if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Pick up"))
         {
             if (inprikker == false)
             {
