@@ -27,7 +27,7 @@ public class PickupPricker : MonoBehaviour
 
     private void Start()
     {
-        int currentMoney = money.geld;
+        //int CurrentMoney = money.geld;
         UpdateUI();
 
     }
@@ -136,7 +136,7 @@ public class PickupPricker : MonoBehaviour
             totalPrice += itemValue;
         }
         inventory.Clear();
-        currentMoney += totalPrice;
+        money.geld += totalPrice;
 
         Debug.Log("Sold for" + totalPrice);
         UpdateUI();

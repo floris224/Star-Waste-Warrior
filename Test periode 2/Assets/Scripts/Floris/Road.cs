@@ -50,11 +50,10 @@ public class Road : MonoBehaviour
             
             float step = moveToWardsSpeed * Time.deltaTime;
             spaceship.transform.position = Vector3.MoveTowards(spaceship.transform.position, spaceshipGoToPosition.transform.position, step);
+            Quaternion TargetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
+            spaceship.transform.rotation = Quaternion.Lerp(spaceship.transform.rotation, TargetRotation, Time.deltaTime * moveToWardsSpeed);
 
-          
-            Quaternion targetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
 
-            
         }
 
         if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)

@@ -14,7 +14,7 @@ public class Look : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
 
     }
 

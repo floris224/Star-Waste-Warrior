@@ -7,15 +7,21 @@ using System.Runtime.CompilerServices;
 
 public class ShopManager : MonoBehaviour
 {
+    public GameObject gun;
     public Money cash;
     public TMP_Text coinUI;
     public Shopitem[] shopItemSO;
     public ShopTemplate[] shopPanels;
     public Button[] myPurchaseBtns;
-
+    public SpaceMovement boost;
+    public float speed;
+    public float distance;
+    public SpaceMovement player;
     // Start is called before the first frame update
     void Start()
     {
+        distance = player.maxDis;
+        speed = boost.thrust;
         loadPanel();
         CheckCanBuy();
         CoinsUI();
@@ -24,8 +30,8 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
     }
     public void CoinsUI()
     {
@@ -36,8 +42,7 @@ public class ShopManager : MonoBehaviour
         for(int i = 0; i < shopItemSO.Length; i++)
         {
             shopPanels[i].titleText.text = shopItemSO[i].title;
-            shopPanels[i].descriptionText.text = shopItemSO[i].description;
-            shopPanels[i].priceText.text = "Galaxy Tokens" + shopItemSO[i].cost.ToString();
+            shopPanels[i].priceText.text = "Price: " + shopItemSO[i].cost.ToString();
         }
     }
     public void CheckCanBuy()
@@ -63,5 +68,18 @@ public class ShopManager : MonoBehaviour
             coinUI.text = "Galaxy Tokens: " + cash.geld.ToString();
             CheckCanBuy();
         }
+        if (myPurchaseBtns[0])
+        {
+            speed = 300f;
+        }
+        if (myPurchaseBtns[1])
+        {
+            Debug.Log("GotGun");
+        }
+        if (myPurchaseBtns[2])
+        {
+            distance = 30f;
+        }
     }
+
 }

@@ -15,7 +15,7 @@ public class SpaceMovement : MonoBehaviour
     public Rigidbody rb;
     public GameObject car;
 
-    public float maxDis = 5f;
+    public float maxDis;
 
     private DefaultActionMap defaultActionMap;
     private InputAction mouseDelta;
