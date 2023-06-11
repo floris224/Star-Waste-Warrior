@@ -43,10 +43,9 @@ public class MenuManager : MonoBehaviour
             {
                 if(hit.transform.tag == "ShopKeeper")
                 {
+                    Debug.Log("ShopKeeper");
                     
-                    panelShopMenu.SetActive(true);
-                    Cursor.lockState = CursorLockMode.None;
-                    interactInput();
+                    ShopManager();
 
                 }
             }
@@ -55,10 +54,14 @@ public class MenuManager : MonoBehaviour
 
     public void Shop()
     {
-        panelShopMenu.SetActive(false);
+       
         panelShop.SetActive(true);
     }
 
+    public void ShopManager()
+    {
+        panelShopMenu.SetActive(true);
+    }
 
 
 

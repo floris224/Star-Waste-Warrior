@@ -8,6 +8,7 @@ public class Road : MonoBehaviour
 {
     public GameObject spaceshipGoToPosition;
     public GameObject spaceship;
+    public bool hasRotated;
     private bool isMoving;
     public float timer;
     public float moveToWardsSpeed;
@@ -47,12 +48,20 @@ public class Road : MonoBehaviour
         
         if (isMoving)
         {
-            
+
             float step = moveToWardsSpeed * Time.deltaTime;
             spaceship.transform.position = Vector3.MoveTowards(spaceship.transform.position, spaceshipGoToPosition.transform.position, step);
-            Quaternion TargetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
-            spaceship.transform.rotation = Quaternion.Lerp(spaceship.transform.rotation, TargetRotation, Time.deltaTime * moveToWardsSpeed);
 
+            if (!hasRotated && Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)
+            {
+                // Calculate the target rotation
+                Quaternion targetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
+
+                // Set the rotation directly
+                spaceship.transform.rotation = targetRotation;
+
+                hasRotated = true; // Set the flag to true to prevent further rotation
+            }
 
         }
 

@@ -1450,7 +1450,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309588557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 250462049d7d6074486285dd8f7b2872, type: 3}
   m_Name: 
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309588557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8f41f8b596218b4a858c950c9535e31, type: 3}
   m_Name: 
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309588557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78f1cfc0cd0441458730ae4d760eff7, type: 3}
   m_Name: 
@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae13e39b8aaaff41bb78a4c6295bf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  health: 142
 --- !u!1 &314198361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,9 +2222,9 @@ GameObject:
   m_Component:
   - component: {fileID: 400029433}
   - component: {fileID: 400029434}
+  - component: {fileID: 400029438}
   - component: {fileID: 400029436}
   - component: {fileID: 400029437}
-  - component: {fileID: 400029438}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: SpaceShip
@@ -2240,7 +2240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400029432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.37, y: 0, z: -9.85}
+  m_LocalPosition: {x: -16.37, y: 0, z: 15.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4785,7 +4785,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879880167}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -5917,6 +5917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceshipGoToPosition: {fileID: 327743777}
   spaceship: {fileID: 400029432}
+  hasRotated: 0
   timer: 0
   moveToWardsSpeed: 2
   _ship: {fileID: 400029434}
@@ -6499,6 +6500,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Space garbage truck engines
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 111fba7bd5ec54b4683c888081961542,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111fba7bd5ec54b4683c888081961542, type: 3}
@@ -8681,6 +8687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space garbage truck Cockpit level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 58430de59e2c6ec41a2cd4b65d43e217,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58430de59e2c6ec41a2cd4b65d43e217, type: 3}
 --- !u!4 &1507427331 stripped
@@ -9835,8 +9846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd069630bbba0734cb80c1051edb7ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelShop: {fileID: 0}
-  panelShopMenu: {fileID: 1932127273}
+  panelShop: {fileID: 761025990}
+  panelShopMenu: {fileID: 868419201}
   camInGrav: {fileID: 14690675}
 --- !u!114 &1657892880
 MonoBehaviour:
@@ -10469,6 +10480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Space garbage truck interieur level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a50a911f16110640ad9e4f8b6a9b371,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a50a911f16110640ad9e4f8b6a9b371, type: 3}
@@ -11764,6 +11780,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Space garbage truck Ramen level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8668067edd391340b1d8e2a01cbb334,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8668067edd391340b1d8e2a01cbb334, type: 3}
 --- !u!4 &1885740048 stripped
@@ -12582,6 +12603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Space garbage truck deuren level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 65661783824c14244a10037832e05f5a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65661783824c14244a10037832e05f5a, type: 3}
