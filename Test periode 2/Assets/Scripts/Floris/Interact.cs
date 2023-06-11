@@ -13,9 +13,10 @@ public class Interact : MonoBehaviour
     public Camera spaceShipCam;
     public GameObject spaceShip;
     public Rigidbody rb;
-    
+    public InteractSpaceShip spaceShipInteract;
+    public bool outVechicl;
 
-    
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -32,8 +33,8 @@ public class Interact : MonoBehaviour
     {
         enter.Disable();
     }
-   
 
+    
     void Update()
     {
         
@@ -52,6 +53,7 @@ public class Interact : MonoBehaviour
                         spaceShipCam.enabled = true;
                         spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
                         spaceShip.GetComponent<InteractSpaceShip>().enabled =true;
+                        
                     }
                 }
                 

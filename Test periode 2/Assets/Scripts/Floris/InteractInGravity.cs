@@ -12,7 +12,9 @@ public class InteractInGravity : MonoBehaviour
     public GameObject playerInGravCam;
     public Camera spaceShipCam;
     public GameObject spaceShip;
-   
+    public InteractSpaceShip spaceshipScript;
+    public SpaceShipMovement _ship;
+    public InteractSpaceShip _interact;
     private void Awake()
     {
         actionMap = new DefaultActionMap();
@@ -20,7 +22,7 @@ public class InteractInGravity : MonoBehaviour
 
     private void OnEnable()
     {
-        enter = actionMap.PlayerSpace.Interact;
+        enter = actionMap.PlayerInForcefield.Interact;
         enter.Enable();
     }
 
@@ -28,7 +30,10 @@ public class InteractInGravity : MonoBehaviour
     {
         enter.Disable();
     }
-
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -39,15 +44,15 @@ public class InteractInGravity : MonoBehaviour
             {
                 if (hit.transform.CompareTag("SpaceShip"))
                 {
+                    _ship.enabled = true;
+                    _interact.enabled = true;
                     playerInGrav.SetActive(false);
                     playerInGrav.GetComponent<MovementinGrav>().enabled = false;
-                    spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
-                    spaceShip.GetComponent<InteractSpaceShip>().enabled = true;
                     playerInGrav.GetComponent<InteractInGrav>().enabled = false;
                     spaceShipCam.enabled = true;
                     playerInGravCam.SetActive(false);
 
-
+                    
                 }
                
 

@@ -9,48 +9,104 @@ public class InteractSpaceShip : MonoBehaviour
     private DefaultActionMap actionmap;
     private InputAction interact;
     public GameObject playerSpace;
+    public Camera camSpaceWalk;
     public Camera camSpaceShip;
-    // Start is called before the first frame update
+    private bool outVechicle = false;
+    private bool canInteract = true;
+    private RaycastHit hit;
+
     private void Awake()
     {
         actionmap = new DefaultActionMap();
-
     }
+
     private void OnEnable()
     {
         interact = actionmap.SpaceShip.Interact;
         interact.Enable();
-
     }
+
     private void OnDisable()
     {
         interact.Disable();
     }
-   
 
-    // Update is called once per frame
     void Update()
     {
-        if (interact.triggered)
+        if (!outVechicle)
         {
-            gameObject.GetComponent<SpaceShipMovement>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            playerSpace.SetActive(true);
-            playerSpace.transform.position = spawnPoint.transform.position;
-            for (int i = 0; i < playerSpace.transform.childCount; i++)
+            if (interact.triggered && canInteract)
             {
-                playerSpace.GetComponent<SpaceMovement>().enabled = true;
-                playerSpace.transform.GetChild(i).gameObject.SetActive(true);
-                camSpaceShip.GetComponent<Camera>().enabled = false;
-               
-
+                outVechicle = true;
+                canInteract = false;
+                ExitVehicle();
             }
-
+        }
+        else
+        {
+            if (interact.triggered && canInteract)
+            {
+                if (Physics.Raycast(playerSpace.transform.position, playerSpace.transform.forward, out hit, 5))
+                {
+                    if (hit.transform.CompareTag("SpaceShip"))
+                    {
+                        outVechicle = false;
+                        canInteract = false;
+                        ReenterVehicle();
+                    }
+                }
+            }
         }
 
+        if (!interact.triggered)
+        {
+            canInteract = true;
+        }
     }
-    private float interactInput()
+
+    private void ExitVehicle()
     {
-        return interact.ReadValue<float>();
+        gameObject.GetComponent<SpaceShipMovement>().enabled = false;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+        playerSpace.SetActive(true);
+        playerSpace.transform.position = spawnPoint.transform.position;
+        for (int i = 0; i < playerSpace.transform.childCount; i++)
+        {
+            playerSpace.GetComponent<SpaceMovement>().enabled = true;
+            playerSpace.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        camSpaceWalk.GetComponent<Camera>().enabled = true;
+        camSpaceShip.GetComponent<Camera>().enabled = false;
+        playerSpace.GetComponent<Interact>().enabled = true;
+        playerSpace.GetComponent<PickupPricker>().enabled = true;
+    }
+
+    private void ReenterVehicle()
+    {
+        // Disable player controls and movement
+        playerSpace.GetComponent<SpaceMovement>().enabled = false;
+        playerSpace.GetComponent<Interact>().enabled = false;
+        playerSpace.GetComponent<PickupPricker>().enabled = false;
+
+        // Enable spaceship controls and movement
+        gameObject.GetComponent<SpaceShipMovement>().enabled = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        // Set the player position back to the spaceship
+        playerSpace.SetActive(false);
+        playerSpace.transform.position = spawnPoint.transform.position;
+
+        // Enable spaceship camera and disable player camera
+        camSpaceWalk.GetComponent<Camera>().enabled = false;
+        camSpaceShip.GetComponent<Camera>().enabled = true;
+
+        // Set all child objects of playerSpace to inactive
+        for (int i = 0; i < playerSpace.transform.childCount; i++)
+        {
+            playerSpace.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        // Allow interaction again
+        canInteract = true;
     }
 }

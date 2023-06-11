@@ -12,7 +12,7 @@ public class Road : MonoBehaviour
     private bool isMoving;
     public float timer;
     public float moveToWardsSpeed;
-    public SpaceShipMovement _ship;
+    
     public GameObject playerInGrav;
 
     private DefaultActionMap actionmap;
@@ -61,6 +61,7 @@ public class Road : MonoBehaviour
                 spaceship.transform.rotation = targetRotation;
 
                 hasRotated = true; // Set the flag to true to prevent further rotation
+                isMoving = false;
             }
 
         }
@@ -70,18 +71,23 @@ public class Road : MonoBehaviour
             if (interact.triggered)
             {
                 playerInGrav.SetActive(true);
-                spaceship.GetComponent<SpaceShipMovement>().enabled = false;
+                
                 playerInGrav.GetComponent<MovementinGrav>().enabled = true;
                 camSpaceShip.GetComponent<Camera>().enabled = false;
                 camInGrav.GetComponent <Camera>().enabled = true;
                
+
             }
         }
 
+        if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) >= 5f)
+        {
+            spaceship.GetComponent<InteractSpaceShip>().enabled = true;
+        }
 
-       
-        
-       
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -91,11 +97,10 @@ public class Road : MonoBehaviour
 
             other.GetComponent<SpaceShipMovement>().enabled = false;
             spaceship.GetComponent<InteractSpaceShip>().enabled = false;
-
             isMoving = true;
             Debug.Log("" + other.transform.name);
         }
-
+        
     }
     float InteractInput()
     {

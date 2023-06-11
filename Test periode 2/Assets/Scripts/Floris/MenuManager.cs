@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
     private InputAction interact;
     private RaycastHit hit;
     public Camera camInGrav;
-
+    public Button leave;
 
 
 
@@ -43,6 +43,8 @@ public class MenuManager : MonoBehaviour
             {
                 if(hit.transform.tag == "ShopKeeper")
                 {
+                    gameObject.GetComponent<MovementinGrav>().enabled = false;
+                    camInGrav.GetComponent<Look>().enabled = false;
                     Debug.Log("ShopKeeper");
                     
                     ShopManager();
@@ -50,6 +52,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
         }
+        
     }
 
     public void Shop()
@@ -63,6 +66,17 @@ public class MenuManager : MonoBehaviour
         panelShopMenu.SetActive(true);
     }
 
+    public void Leave()
+    {
+        panelShop.SetActive(false);
+    }
+    
+    public void Exit()
+    {
+        panelShopMenu.SetActive(false);
+        gameObject.GetComponent<MovementinGrav>().enabled = true;
+        camInGrav.GetComponent<Look>().enabled = true;
+    }
 
 
     private float interactInput()
