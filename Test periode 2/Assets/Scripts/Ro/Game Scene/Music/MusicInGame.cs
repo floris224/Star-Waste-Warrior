@@ -53,7 +53,7 @@ public class MusicInGame : MonoBehaviour
 
             while (timeElapsed < timeToFade)
             {
-                battleAudio.volume = Mathf.Lerp(0.25f, 0, timeElapsed / timeToFade);
+                battleAudio.volume = Mathf.Lerp(0.2f, 0, timeElapsed / timeToFade);
                 inGameAudio.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
                 timeElapsed += Time.deltaTime;
                 yield return null;
@@ -67,7 +67,7 @@ public class MusicInGame : MonoBehaviour
             while (timeElapsed < timeToFade)
             {
                 inGameAudio.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
-                battleAudio.volume = Mathf.Lerp(0, 0.25f, timeElapsed / timeToFade);
+                battleAudio.volume = Mathf.Lerp(0, 0.2f, timeElapsed / timeToFade);
                 timeElapsed += Time.deltaTime;
                 yield return null;
             }

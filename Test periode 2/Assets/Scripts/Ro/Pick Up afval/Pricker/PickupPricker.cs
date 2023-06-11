@@ -24,6 +24,7 @@ public class PickupPricker : MonoBehaviour
     public Money money;
     private int currentMoney;
     private RaycastHit hit;
+    public AudioSource alienHit;
 
     private void Start()
     {
@@ -83,6 +84,7 @@ public class PickupPricker : MonoBehaviour
             {
                 grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
                 grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
+                alienHit.Play();
                 timeStampHit = Time.time + hitcooldown;
 
             }

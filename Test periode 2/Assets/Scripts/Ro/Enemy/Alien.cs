@@ -23,6 +23,8 @@ public class Alien : MonoBehaviour
     public Vector3 target;
     public int random;
     public bool resetTarget;
+    public AudioSource attack;
+    public GameObject alienDeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -131,6 +133,7 @@ public class Alien : MonoBehaviour
         {
             alien.SetTrigger("isAttacking");
             player.GetComponent<PlayerHealth>().Getdamage();
+            attack.Play();
             timeStamp = Time.time + attackCooldown;
         }
             
@@ -139,8 +142,7 @@ public class Alien : MonoBehaviour
     {
         Debug.Log("Alien Defeated");
         music.numberOfAliensChasing -= 1;
-        // Play Alien death SFX
-        particleHit.Emit(12);
+        Instantiate(alienDeath, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
         
         
