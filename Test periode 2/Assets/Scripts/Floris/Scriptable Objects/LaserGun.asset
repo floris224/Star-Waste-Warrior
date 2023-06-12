@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: LaserGun
   m_EditorClassIdentifier: 
   title: Laser Gun
-  description: alien tech
-  cost: 1000
+  cost: 1

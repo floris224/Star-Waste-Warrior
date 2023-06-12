@@ -37,7 +37,7 @@ public class Interact : MonoBehaviour
     
     void Update()
     {
-        
+      /*  
         if (enter.triggered)
         {
             if(Physics.Raycast(transform.position, transform.forward, out hit, 5f))
@@ -52,13 +52,14 @@ public class Interact : MonoBehaviour
                         transform.GetChild(i).gameObject.SetActive(false);
                         spaceShipCam.enabled = true;
                         spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
-                        spaceShip.GetComponent<InteractSpaceShip>().enabled =true;
+                        spaceShip.GetComponent<InteractSpaceShip>().enabled = true;
                         
                     }
                 }
                 
             }
         }
+      */
     }
 
     

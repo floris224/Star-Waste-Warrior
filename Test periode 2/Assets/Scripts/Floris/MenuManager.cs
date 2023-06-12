@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
     private RaycastHit hit;
     public Camera camInGrav;
     public Button leave;
-
+    public PickupPricker ui;
 
 
 
@@ -59,6 +59,8 @@ public class MenuManager : MonoBehaviour
     {
        
         panelShop.SetActive(true);
+        ui.UpdateUI();
+
     }
 
     public void ShopManager()

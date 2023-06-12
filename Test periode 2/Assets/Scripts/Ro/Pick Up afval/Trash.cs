@@ -12,6 +12,7 @@ public class Trash : MonoBehaviour
     public float distance;
     public GameObject rumblingSFX;
     public bool sound;
+    public ControllerSwitch controllerSwitch;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,11 @@ public class Trash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);
+        if (controllerSwitch.doesPlayerSpaceExist == true)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position);
+        }
+       
         if (random <= 100) 
         {
             if (sound == false)

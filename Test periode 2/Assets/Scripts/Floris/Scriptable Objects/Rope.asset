@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Rope
   m_EditorClassIdentifier: 
   title: Rope
-  description: To kil................  get more distance from your vehicle
-  cost: 250
+  cost: 1

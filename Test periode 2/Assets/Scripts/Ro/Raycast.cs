@@ -7,6 +7,7 @@ public class Raycast : MonoBehaviour
     public RaycastHit hit;
     public VuilniswagenCapaciteit truckcap;
     public Quest quest;
+    public ControllerSwitch controllerSwitch;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,15 @@ public class Raycast : MonoBehaviour
         
         if (Physics.Raycast(transform.position, transform.forward, out hit, 5))
         {
+            //Spaceship movement toggle
+            if (hit.transform.tag == "SpaceShip")
+            {
+                if (Input.GetKeyDown("f"))
+                {
+                    controllerSwitch.SwitchController();
+                }
+              
+            }
             //Quest System
             if (hit.collider.tag == "QuestItem")
             {

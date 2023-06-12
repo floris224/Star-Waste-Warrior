@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Truck Front
   m_EditorClassIdentifier: 
   title: Cab
-  description: More cozy nothing else really
-  cost: 400
+  cost: 1

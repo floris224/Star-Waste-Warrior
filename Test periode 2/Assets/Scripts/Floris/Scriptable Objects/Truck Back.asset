@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Truck Back
   m_EditorClassIdentifier: 
   title: Back
-  description: You can take more trash with you
-  cost: 450
+  cost: 1

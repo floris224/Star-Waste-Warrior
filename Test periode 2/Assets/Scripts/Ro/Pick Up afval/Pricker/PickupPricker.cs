@@ -19,9 +19,7 @@ public class PickupPricker : MonoBehaviour
     public float attackCooldown, hitcooldown;
     public int maxCapacity;
     public List<int> inventory = new List<int>();
-    public TextMeshProUGUI inventoryCoutn;
-    public TextMeshProUGUI galaxyTokens;
-    public TextMeshProUGUI questCount;
+    public TextMeshProUGUI questCount, inventoryCoutn, galaxyTokens, shopMoney;
     public Quest quest;
     public Money money;
     private int currentMoney;
@@ -164,9 +162,10 @@ public class PickupPricker : MonoBehaviour
             
         }
     }
-    private void UpdateUI()
+    public void UpdateUI()
     {
         questCount.text = "Quest: " + quest.questcomplete + "/ 5"; 
         inventoryCoutn.text = "Inventory: " + inventory.Count + "/" + maxCapacity;
         galaxyTokens.text = "Money: " + money.geld;
+        shopMoney.text = "Money: " + money.geld;
 }   }

@@ -194,8 +194,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4076863487
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.9490196}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1237,6 +1237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   truckcap: {fileID: 916159219}
   quest: {fileID: 423158263}
+  controllerSwitch: {fileID: 0}
 --- !u!1 &305866733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,8 +1350,9 @@ GameObject:
   - component: {fileID: 309588564}
   - component: {fileID: 309588567}
   - component: {fileID: 309588566}
-  - component: {fileID: 309588568}
   - component: {fileID: 309588569}
+  - component: {fileID: 309588570}
+  - component: {fileID: 309588571}
   m_Layer: 0
   m_Name: PlayerinSpace
   m_TagString: Player
@@ -1468,9 +1470,10 @@ MonoBehaviour:
   hitcooldown: 1
   maxCapacity: 5
   inventory: 
+  questCount: {fileID: 460416991}
   inventoryCoutn: {fileID: 1693586028}
   galaxyTokens: {fileID: 1167400995}
-  questCount: {fileID: 460416991}
+  shopMoney: {fileID: 597293374}
   quest: {fileID: 423158263}
   money: {fileID: 1657892880}
   alienHit: {fileID: 1857442251}
@@ -1515,24 +1518,8 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!114 &309588568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309588557}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78f1cfc0cd0441458730ae4d760eff7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInSpace: {fileID: 309588557}
-  spaceShipCam: {fileID: 879880168}
-  spaceShip: {fileID: 400029432}
-  rb: {fileID: 516911931}
-  spaceShipInteract: {fileID: 0}
-  outVechicl: 0
+  controllerSwitch: {fileID: 0}
+  vDis: 0
 --- !u!114 &309588569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,6 +1533,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!81 &309588570
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309588557}
+  m_Enabled: 1
+--- !u!114 &309588571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309588557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78f1cfc0cd0441458730ae4d760eff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInSpace: {fileID: 309588557}
+  spaceShipCam: {fileID: 879880168}
+  spaceShip: {fileID: 400029432}
+  rb: {fileID: 0}
+  spaceShipInteract: {fileID: 400029438}
+  outVechicl: 0
 --- !u!1 &314198361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1715,6 @@ GameObject:
   m_Component:
   - component: {fileID: 330585546}
   - component: {fileID: 330585545}
-  - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   m_Layer: 0
   m_Name: Main Camera
@@ -1711,14 +1723,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &330585544
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -2231,6 +2235,7 @@ GameObject:
   - component: {fileID: 400029438}
   - component: {fileID: 400029436}
   - component: {fileID: 400029437}
+  - component: {fileID: 400029439}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: SpaceShip
@@ -2325,6 +2330,14 @@ MonoBehaviour:
   playerSpace: {fileID: 309588557}
   camSpaceWalk: {fileID: 330585545}
   camSpaceShip: {fileID: 879880168}
+--- !u!81 &400029439
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400029432}
+  m_Enabled: 0
 --- !u!1 &423158262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,10 +3012,10 @@ RectTransform:
   m_Father: {fileID: 1051773160}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 136.9298, y: -201.12866}
+  m_SizeDelta: {x: 273.8596, y: 150.21947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &475474300
 GameObject:
@@ -3526,12 +3539,6 @@ CanvasRenderer:
 --- !u!4 &516911928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3373080697813320234, guid: ed08061b9f8298646a3292ccc1fca76e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1996165862}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &516911931 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2772779013081727116, guid: ed08061b9f8298646a3292ccc1fca76e,
     type: 3}
   m_PrefabInstance: {fileID: 1996165862}
   m_PrefabAsset: {fileID: 0}
@@ -4103,7 +4110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Galaxy Tokens
+  m_text: 'Money :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4248,7 +4255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5490,7 +5497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5659,6 +5666,7 @@ MonoBehaviour:
   speed: 0
   distance: 0
   player: {fileID: 309588567}
+  ui: {fileID: 0}
 --- !u!4 &995410987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fcc24569da2952b4e87e453385de7140,
@@ -6052,6 +6060,7 @@ GameObject:
   - component: {fileID: 1103752972}
   - component: {fileID: 1103752971}
   - component: {fileID: 1103752970}
+  - component: {fileID: 1103752975}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -6157,6 +6166,27 @@ Transform:
   m_Father: {fileID: 550595621}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103752975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103752969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4915db31bb2af404489a68d78d418ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceShip: {fileID: 400029432}
+  playerSpace: {fileID: 309588557}
+  playerGrav: {fileID: 1657892871}
+  playerSpaceCam: {fileID: 330585545}
+  playerGravCam: {fileID: 14690675}
+  spaceShipCam: {fileID: 879880168}
+  inShip: 0
+  inTrigger: 0
+  doesPlayerSpaceExist: 0
 --- !u!1 &1109011125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fb0d078a0aea1349a1f6ef700eca639,
@@ -6560,7 +6590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6940,10 +6970,10 @@ RectTransform:
   m_Father: {fileID: 1051773160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -150.21947}
+  m_SizeDelta: {x: 273.8596, y: 150.21947}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1169588248
 GameObject:
@@ -9027,7 +9057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10011,6 +10041,7 @@ MonoBehaviour:
   panelShopMenu: {fileID: 868419201}
   camInGrav: {fileID: 14690675}
   leave: {fileID: 0}
+  ui: {fileID: 309588564}
 --- !u!114 &1657892880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10434,10 +10465,10 @@ RectTransform:
   m_Father: {fileID: 1051773160}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -216.01894}
+  m_SizeDelta: {x: 273.8596, y: 155.79947}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1693586027
 CanvasRenderer:
@@ -11197,7 +11228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

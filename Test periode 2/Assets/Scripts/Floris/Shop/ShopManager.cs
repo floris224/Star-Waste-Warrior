@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
     public float speed;
     public float distance;
     public SpaceMovement player;
+    public PickupPricker ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +66,8 @@ public class ShopManager : MonoBehaviour
         if(cash.geld >= shopItemSO[btnNo].cost)
         {
             cash.geld = cash.geld - shopItemSO[btnNo].cost;
-            coinUI.text = "Galaxy Tokens: " + cash.geld.ToString();
+            ui.UpdateUI();
+            coinUI.text = "Money: " + cash.geld.ToString();
             CheckCanBuy();
         }
         if (myPurchaseBtns[0])

@@ -23,6 +23,8 @@ public class SpaceMovement : MonoBehaviour
     private InputAction roll;
     private InputAction upDown;
     public InputAction boost;
+    public ControllerSwitch controllerSwitch;
+    public float vDis;
 
     private bool isBoosting = false;
 
@@ -78,7 +80,11 @@ public class SpaceMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float vDis = Vector3.Distance(transform.position, car.transform.position);
+        if (controllerSwitch.doesPlayerSpaceExist == true)
+        {
+            vDis = Vector3.Distance(transform.position, car.transform.position);
+        }
+        
 
         if (vDis <= maxDis)
         {

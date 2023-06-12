@@ -67,6 +67,7 @@ public class InteractSpaceShip : MonoBehaviour
     private void ExitVehicle()
     {
         gameObject.GetComponent<SpaceShipMovement>().enabled = false;
+        gameObject.GetComponent<AudioListener>().enabled = false;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         playerSpace.SetActive(true);
         playerSpace.transform.position = spawnPoint.transform.position;
@@ -77,7 +78,7 @@ public class InteractSpaceShip : MonoBehaviour
         }
         camSpaceWalk.GetComponent<Camera>().enabled = true;
         camSpaceShip.GetComponent<Camera>().enabled = false;
-        playerSpace.GetComponent<Interact>().enabled = true;
+        playerSpace.GetComponent<AudioListener>().enabled = true;
         playerSpace.GetComponent<PickupPricker>().enabled = true;
     }
 
@@ -85,12 +86,13 @@ public class InteractSpaceShip : MonoBehaviour
     {
         // Disable player controls and movement
         playerSpace.GetComponent<SpaceMovement>().enabled = false;
-        playerSpace.GetComponent<Interact>().enabled = false;
+        playerSpace.GetComponent<AudioListener>().enabled = false;
         playerSpace.GetComponent<PickupPricker>().enabled = false;
 
         // Enable spaceship controls and movement
         gameObject.GetComponent<SpaceShipMovement>().enabled = true;
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.GetComponent<AudioListener>().enabled = true;
 
         // Set the player position back to the spaceship
         playerSpace.SetActive(false);

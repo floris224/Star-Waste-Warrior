@@ -25,6 +25,7 @@ public class Alien : MonoBehaviour
     public bool resetTarget;
     public AudioSource attack;
     public GameObject alienDeath;
+    public ControllerSwitch controllerSwitch;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,8 +85,11 @@ public class Alien : MonoBehaviour
         {
             target = player.transform.position;
         }
+        if (controllerSwitch.doesPlayerSpaceExist == true)
+        {
+            distance = Vector3.Distance(player.transform.position, transform.position);
+        }
        
-        distance = Vector3.Distance(player.transform.position, transform.position);
         if (ahealth <= 0)
         {
             //play death particles
@@ -97,7 +101,11 @@ public class Alien : MonoBehaviour
         if (distance  <= maxFollowRange && distance > minFollowRange)
         {
             Debug.Log("I see you");
-            Chase();
+            if (controllerSwitch.doesPlayerSpaceExist == true)
+            {
+                Chase();
+            }
+               
         }
         if (distance > maxFollowRange)
         {
@@ -108,7 +116,11 @@ public class Alien : MonoBehaviour
         }
         if (distance <= attackRange)
         {
-            Attack();
+            if (controllerSwitch.doesPlayerSpaceExist == true)
+            {
+                Attack();
+            }
+                
         }
        
 

@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Booster
   m_EditorClassIdentifier: 
   title: Booster
-  description: A better and faster booster
-  cost: 750
+  cost: 1

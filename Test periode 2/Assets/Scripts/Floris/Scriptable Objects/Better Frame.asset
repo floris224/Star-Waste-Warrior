@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Better Frame
   m_EditorClassIdentifier: 
   title: Frame
-  description: A better frame
-  cost: 300
+  cost: 1

@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Vacuum Cleaner
   m_EditorClassIdentifier: 
   title: Vacuum Cleaner
-  description: The Duson 500      (no not the dyson)
-  cost: 750
+  cost: 1

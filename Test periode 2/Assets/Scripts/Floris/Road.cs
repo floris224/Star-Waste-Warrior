@@ -66,7 +66,7 @@ public class Road : MonoBehaviour
 
         }
 
-        if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)
+        if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 1f)
         {
             if (interact.triggered)
             {
