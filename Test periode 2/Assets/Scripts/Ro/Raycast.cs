@@ -25,7 +25,7 @@ public class Raycast : MonoBehaviour
                 if (quest.questininv == false && quest.queststarted == true)
                 {
                     // Show ui press e
-                    if (Input.GetKeyDown("e"))
+                    if (Input.GetKeyDown("f"))
                     {
                         quest.PickupQuestItem();
                         quest.ininv = hit.transform.name;
@@ -38,7 +38,7 @@ public class Raycast : MonoBehaviour
             if (hit.collider.tag == "QuestNPC")
             {
                 // Show ui press e
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("f"))
                 {
                     if (quest.questininv == true)
                     {
@@ -60,7 +60,7 @@ public class Raycast : MonoBehaviour
             if (hit.collider.tag == "VuilniswagenCapaciteit")
             {
                 // Show ui press e
-                if (Input.GetKeyDown("e"))
+                if (Input.GetKeyDown("f"))
                 {
                     truckcap.PutTrashInTruck();
                 }

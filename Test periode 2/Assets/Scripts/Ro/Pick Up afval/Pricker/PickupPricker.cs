@@ -21,6 +21,8 @@ public class PickupPricker : MonoBehaviour
     public List<int> inventory = new List<int>();
     public TextMeshProUGUI inventoryCoutn;
     public TextMeshProUGUI galaxyTokens;
+    public TextMeshProUGUI questCount;
+    public Quest quest;
     public Money money;
     private int currentMoney;
     private RaycastHit hit;
@@ -62,6 +64,7 @@ public class PickupPricker : MonoBehaviour
                     pricker.SetBool("inGrapper", false);
                     trash.SetActive(false);
                     inprikker = false;
+                    capaciteit += 1;
                     TrashManager();
 
 
@@ -137,8 +140,9 @@ public class PickupPricker : MonoBehaviour
         {
             totalPrice += itemValue;
         }
-        inventory.Clear();
         money.geld += totalPrice;
+        inventory.Clear();
+        capaciteit = 0;
 
         Debug.Log("Sold for" + totalPrice);
         UpdateUI();
@@ -162,6 +166,7 @@ public class PickupPricker : MonoBehaviour
     }
     private void UpdateUI()
     {
+        questCount.text = "Quest: " + quest.questcomplete + "/ 5"; 
         inventoryCoutn.text = "Inventory: " + inventory.Count + "/" + maxCapacity;
-        galaxyTokens.text = "Money: " + currentMoney;
+        galaxyTokens.text = "Money: " + money.geld;
 }   }
