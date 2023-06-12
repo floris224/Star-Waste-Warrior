@@ -27,14 +27,16 @@ public class Alien : MonoBehaviour
     public GameObject alienDeath;
     public ControllerSwitch controllerSwitch;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        controllerSwitch = GameObject.Find("Road").GetComponent<ControllerSwitch>();
         music = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicInGame>();
         player = GameObject.FindGameObjectWithTag("Player");
         gt1 = GameObject.Find("Target1");
         gt2 = GameObject.Find("Target2");
         gt3 = GameObject.Find("Target3");
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -88,6 +90,10 @@ public class Alien : MonoBehaviour
         if (controllerSwitch.doesPlayerSpaceExist == true)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
+        }
+        else
+        {
+            distance = 10;
         }
        
         if (ahealth <= 0)

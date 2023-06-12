@@ -23,16 +23,16 @@ public class ShopManager : MonoBehaviour
     {
         distance = player.maxDis;
         speed = boost.thrust;
-        loadPanel();
-        CheckCanBuy();
-        CoinsUI();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
+        
+        CheckCanBuy();
+        CoinsUI();
+        loadPanel();
     }
     public void CoinsUI()
     {
@@ -66,9 +66,9 @@ public class ShopManager : MonoBehaviour
         if(cash.geld >= shopItemSO[btnNo].cost)
         {
             cash.geld = cash.geld - shopItemSO[btnNo].cost;
-            ui.UpdateUI();
             coinUI.text = "Money: " + cash.geld.ToString();
             CheckCanBuy();
+            ui.UpdateUI();
         }
         if (myPurchaseBtns[0])
         {

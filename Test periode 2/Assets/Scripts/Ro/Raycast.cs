@@ -21,11 +21,12 @@ public class Raycast : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 5))
         {
             //Spaceship movement toggle
-            if (hit.transform.tag == "SpaceShip")
+            if (hit.collider.tag == "SpaceShip")
             {
                 if (Input.GetKeyDown("f"))
                 {
                     controllerSwitch.SwitchController();
+                    Debug.Log("Test");
                 }
               
             }

@@ -71,10 +71,7 @@ public class SpaceMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         car = GameObject.Find("SpaceShip");
-        if (car == null)
-        {
-            Debug.Log("Car not set");
-        }
+       
     }
 
     // Update is called once per frame
@@ -83,6 +80,10 @@ public class SpaceMovement : MonoBehaviour
         if (controllerSwitch.doesPlayerSpaceExist == true)
         {
             vDis = Vector3.Distance(transform.position, car.transform.position);
+        }
+        else
+        {
+            vDis = 0;
         }
         
 

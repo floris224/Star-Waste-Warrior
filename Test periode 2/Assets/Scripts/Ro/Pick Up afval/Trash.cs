@@ -14,10 +14,15 @@ public class Trash : MonoBehaviour
     public bool sound;
     public ControllerSwitch controllerSwitch;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        controllerSwitch = GameObject.Find("Road").GetComponent<ControllerSwitch>();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Start()
     {
         random = Random.Range(1, 100);
-        player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
@@ -26,6 +31,10 @@ public class Trash : MonoBehaviour
         if (controllerSwitch.doesPlayerSpaceExist == true)
         {
             distance = Vector3.Distance(player.transform.position, transform.position);
+        }
+        else
+        {
+            distance = 8;
         }
        
         if (random <= 100) 

@@ -9,7 +9,7 @@ public class Road : MonoBehaviour
     public GameObject spaceshipGoToPosition;
     public GameObject spaceship;
     public bool hasRotated;
-    private bool isMoving;
+    public bool isMoving;
     public float timer;
     public float moveToWardsSpeed;
     
@@ -31,7 +31,7 @@ public class Road : MonoBehaviour
     }
     private void OnEnable()
     {
-        interact = actionmap.PlayerSpace.Interact;
+        interact = actionmap.SpaceShip.Interact;
         interact.Enable();
     }
 
@@ -52,38 +52,20 @@ public class Road : MonoBehaviour
             float step = moveToWardsSpeed * Time.deltaTime;
             spaceship.transform.position = Vector3.MoveTowards(spaceship.transform.position, spaceshipGoToPosition.transform.position, step);
 
-            if (!hasRotated && Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 0.01f)
+            if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 1)
             {
-                // Calculate the target rotation
                 Quaternion targetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
 
-                // Set the rotation directly
                 spaceship.transform.rotation = targetRotation;
-
-                hasRotated = true; // Set the flag to true to prevent further rotation
                 isMoving = false;
-            }
-
-        }
-
-        if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) <= 1f)
-        {
-            if (interact.triggered)
-            {
-                playerInGrav.SetActive(true);
                 
-                playerInGrav.GetComponent<MovementinGrav>().enabled = true;
-                camSpaceShip.GetComponent<Camera>().enabled = false;
-                camInGrav.GetComponent <Camera>().enabled = true;
-               
-
             }
+           
+
         }
 
-        if (Vector3.Distance(spaceship.transform.position, spaceshipGoToPosition.transform.position) >= 5f)
-        {
-            spaceship.GetComponent<InteractSpaceShip>().enabled = true;
-        }
+        
+        
 
 
 
@@ -95,14 +77,14 @@ public class Road : MonoBehaviour
         if (other.gameObject.CompareTag("SpaceShip"))
         {
 
-            other.GetComponent<SpaceShipMovement>().enabled = false;
-            spaceship.GetComponent<InteractSpaceShip>().enabled = false;
+           
             isMoving = true;
             Debug.Log("" + other.transform.name);
         }
         
     }
-    float InteractInput()
+   
+    private float Interact()
     {
         return interact.ReadValue<float>();
     }
