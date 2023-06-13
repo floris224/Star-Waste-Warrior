@@ -8,6 +8,7 @@ public class Raycast : MonoBehaviour
     public VuilniswagenCapaciteit truckcap;
     public Quest quest;
     public ControllerSwitch controllerSwitch;
+    public PickupPricker ui;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,7 @@ public class Raycast : MonoBehaviour
                         quest.questcomplete += 1;
                         quest.EndQuest();
                         quest.questininv = false;
+                        ui.UpdateUI();
                         
                     }
                     else
