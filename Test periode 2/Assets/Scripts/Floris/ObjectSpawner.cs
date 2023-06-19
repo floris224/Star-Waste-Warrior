@@ -6,6 +6,7 @@ public class ObjectSpawner : MonoBehaviour
 {
     public List<GameObject> objectsToSpawn = new List<GameObject>();
     public int numberOfSpawns = 5;
+    public int spawnRadius;
    
     public void SpawnObjects()
     {
@@ -16,7 +17,7 @@ public class ObjectSpawner : MonoBehaviour
         for (int i = 0; i < numberOfSpawns; i++)
         {
             GameObject objectToSpawn = objectsToSpawn[Random.Range(0, objectsToSpawn.Count)];
-            Vector3 spawnPosition = new Vector3(Random.Range(0,40),Random.Range(-10,10), Random.Range(0,40));
+            Vector3 spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
             Instantiate(objectToSpawn,spawnPosition,Quaternion.identity);
         }
     }
