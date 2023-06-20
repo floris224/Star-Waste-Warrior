@@ -2479,7 +2479,8 @@ AudioSource:
   m_GameObject: {fileID: 506053744}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f6181610ec1104a4ea957ad074d14462,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 2cd2750db6f79374cb4c81f2b8c5affe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -4399,7 +4400,8 @@ AudioSource:
   m_GameObject: {fileID: 1039931321}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f6181610ec1104a4ea957ad074d14462,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 91b61e82f41355d4cbfdf26f8c7b6c50, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -7733,8 +7735,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1811455350}
   m_HandleRect: {fileID: 1594649346}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.0001
+  m_MaxValue: 1.2
   m_WholeNumbers: 0
   m_Value: 0.7
   m_OnValueChanged:
@@ -7742,8 +7744,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26225670}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 1
+        m_MethodName: SetMusicSlider
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9205,17 +9207,17 @@ MonoBehaviour:
   m_FillRect: {fileID: 340193142}
   m_HandleRect: {fileID: 1196046621}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 26225670}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 1
+        m_MethodName: SetSFXSlider
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

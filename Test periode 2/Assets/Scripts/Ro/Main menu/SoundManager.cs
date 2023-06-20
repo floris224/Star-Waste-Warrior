@@ -23,12 +23,16 @@ public class SoundManager : MonoBehaviour
         Load();
     }
 
-    public void ChangeVolume()
+    public void SetSFXSlider(float newVolume)
     {
-        music.Equals(musicSlider.value);
-        sfx.Equals(sfxSlider.value);
-        Save();
+        sfx.SetFloat("Volume", Mathf.Log10(newVolume) * 20);
+        PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
+    }
 
+    public void SetMusicSlider(float newVolume)
+    {
+        music.SetFloat("Volume", Mathf.Log10(newVolume)* 20);
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
     }
 
     private void Load()
@@ -39,10 +43,4 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    private void Save()
-    {
-        PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
-        PlayerPrefs.SetFloat("sfxVolume", sfxSlider.value);
-        Debug.Log(PlayerPrefs.GetFloat("sfxVolume"));
-    }
 }
