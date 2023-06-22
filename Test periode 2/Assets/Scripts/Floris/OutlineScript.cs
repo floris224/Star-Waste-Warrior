@@ -9,7 +9,7 @@ public class OutlineScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject offline in trashGameObjectList)
+        foreach(GameObject Óutline in trashGameObjectList)
         {
             gameObject.SetActive(false);
         }
@@ -23,11 +23,11 @@ public class OutlineScript : MonoBehaviour
             float distance = Vector3.Distance(transform.position, trashGameObject.transform.position);
             if(distance <= range)
             {
-                trashGameObject.SetActive(true);
+                trashGameObject.SetActive(false);
             }
             else
             {
-                trashGameObject.SetActive(false);
+                trashGameObject.SetActive(true);
             }
         }
     }
