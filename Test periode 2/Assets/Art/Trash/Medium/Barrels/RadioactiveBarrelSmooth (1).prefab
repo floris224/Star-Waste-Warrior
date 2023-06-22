@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2831586722922586907}
   - component: {fileID: 1217109387194952894}
   - component: {fileID: 3963446690049726580}
+  - component: {fileID: 2295540181496321349}
   m_Layer: 0
   m_Name: RadioactiveBarrelSmooth (1)
-  m_TagString: Untagged
+  m_TagString: TrashMedium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2295540181496321349
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3170536009606838689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2534964839176971238, guid: d240e917fecaebc4681caf3399f6cd7e, type: 3}
 --- !u!1 &6673488243652779560
 GameObject:
   m_ObjectHideFlags: 0

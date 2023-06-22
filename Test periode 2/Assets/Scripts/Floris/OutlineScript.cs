@@ -4,31 +4,52 @@ using UnityEngine;
 
 public class OutlineScript : MonoBehaviour
 {
-    public List <GameObject> trashGameObjectList = new List <GameObject>();
-    public float range;
-    // Start is called before the first frame update
-    void Start()
+    public string[] tags;
+    public List<GameObject> childSmall = new List<GameObject>();
+
+    
+ 
+    private void OnTriggerEnter(Collider other)
     {
-        foreach(GameObject Óutline in trashGameObjectList)
+        if (tagMatch(other.gameObject.tag))
         {
-            gameObject.SetActive(false);
+            if (!childSmall.Contains(other.gameObject))
+            {
+                childSmall.Add(other.gameObject);
+                ChildGoTrue(other.gameObject, true);
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        foreach(GameObject trashGameObject in trashGameObjectList)
+        if (tagMatch(other.gameObject.tag))
         {
-            float distance = Vector3.Distance(transform.position, trashGameObject.transform.position);
-            if(distance <= range)
+            if (childSmall.Contains(other.gameObject))
             {
-                trashGameObject.SetActive(false);
+                childSmall.Remove(other.gameObject);
+                ChildGoTrue(other.gameObject, false);
             }
-            else
+        }
+    }
+
+    private bool tagMatch(string tag)
+    {
+        foreach(string goodTag in tags)
+        {
+            if(tag == goodTag)
             {
-                trashGameObject.SetActive(true);
+                return true;
             }
+        }
+        return false;
+    }
+
+    private void ChildGoTrue(GameObject parent , bool activate)
+    {
+        foreach(Transform child in parent.transform)
+        {
+            child.gameObject.SetActive(activate);
         }
     }
 }
