@@ -29633,6 +29633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RadioactiveBarrelSmooth
       objectReference: {fileID: 0}
+    - target: {fileID: 3696206383942718216, guid: 2414fd8840864c142bd12cadbc6a27f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2414fd8840864c142bd12cadbc6a27f4, type: 3}
 --- !u!1001 &263719392751742064
@@ -30184,6 +30189,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4packblikjes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7980579913411981634, guid: 7cb267b03adb54d4ab595c009b3b2c64,
+        type: 3}
+      propertyPath: m_TagString
+      value: TrashSmall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb267b03adb54d4ab595c009b3b2c64, type: 3}
 --- !u!1001 &4490327607986278201
@@ -30253,11 +30263,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Koelkast
       objectReference: {fileID: 0}
+    - target: {fileID: 864321029610264084, guid: 9e3779f25c91f9d41a39d7802a02bde8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2388722662188472435, guid: 9e3779f25c91f9d41a39d7802a02bde8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3493032423956425329, guid: 9e3779f25c91f9d41a39d7802a02bde8,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493032423956425329, guid: 9e3779f25c91f9d41a39d7802a02bde8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7eae11abc205324fada669751507d00, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e3779f25c91f9d41a39d7802a02bde8, type: 3}
 --- !u!4 &4532212089884197783 stripped
@@ -30372,6 +30397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterflesjeDirty
+      objectReference: {fileID: 0}
+    - target: {fileID: 187423647717858043, guid: edb21d99e0b9c564dbceb08ea13cb877,
+        type: 3}
+      propertyPath: m_TagString
+      value: TrashSmall
       objectReference: {fileID: 0}
     - target: {fileID: 707641818468794433, guid: edb21d99e0b9c564dbceb08ea13cb877,
         type: 3}
@@ -30821,6 +30851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plasticbekers
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693668328401142828, guid: 228c8b69da96ecb45840d1add242c3c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: TrashSmall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 228c8b69da96ecb45840d1add242c3c7, type: 3}
