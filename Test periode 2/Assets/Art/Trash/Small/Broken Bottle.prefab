@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &893924810514395661
 Transform:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   random: 0
   alien: {fileID: 3673980160439089983, guid: 516a45e9d8d7cf64984e759d649d9a3b, type: 3}
   spawnrange: 5
-  player: {fileID: 0}
+  player: {fileID: 3866948778822124984}
   distance: 0
   rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
     type: 3}
@@ -248,7 +248,7 @@ MonoBehaviour:
   random: 0
   alien: {fileID: 3673980160439089983, guid: 516a45e9d8d7cf64984e759d649d9a3b, type: 3}
   spawnrange: 5
-  player: {fileID: 0}
+  player: {fileID: 3866948778822124984}
   distance: 0
   rumblingSFX: {fileID: 8908390747369377106, guid: d0ba6f83138acdb4c9d6f49740299dcb,
     type: 3}
