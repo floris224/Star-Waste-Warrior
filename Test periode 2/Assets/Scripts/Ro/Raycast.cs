@@ -66,6 +66,10 @@ public class Raycast : MonoBehaviour
                         {
                             quest.StartQuest();
                         }
+                        else
+                        {
+                            quest.Reminder();
+                        }
                     }
                 }
             }
