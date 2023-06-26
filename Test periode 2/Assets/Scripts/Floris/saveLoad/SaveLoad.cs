@@ -9,7 +9,7 @@ public class SaveLoad : MonoBehaviour
     public static void SaveData(Data data)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/roelhoudvanmannen.lol";
+        string path = Application.persistentDataPath + "/Test.lol";
         FileStream stream = new FileStream(path, FileMode.Create);
         SaveLoadData sl = new SaveLoadData(data);
         formatter.Serialize(stream, sl);
@@ -19,7 +19,7 @@ public class SaveLoad : MonoBehaviour
 
     public static SaveLoadData LoadData()
     {
-        string path = Application.persistentDataPath + "/roelhoudvanmannen.lol";
+        string path = Application.persistentDataPath + "/Test.lol";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

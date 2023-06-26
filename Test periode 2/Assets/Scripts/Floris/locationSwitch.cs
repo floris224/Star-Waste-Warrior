@@ -6,6 +6,7 @@ public class locationSwitch : MonoBehaviour
 {
     public ControllerSwitch controller;
     public GameObject ship, playerSpace, playerGrav;
+    public Camera gravCam, shipCam, playerspaceCam;
 
     // Start is called before the first frame update
     void Start()
@@ -16,23 +17,35 @@ public class locationSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controller.inShip == true)
+        if (controller.inShip)
         {
-            ship.SetActive(true);
-            playerGrav.SetActive(false);
+            shipCam.enabled = true;
+            playerspaceCam.enabled = false;
+            gravCam.enabled = false;
             playerSpace.SetActive(false);
+            playerGrav.SetActive(false);
+            ship.GetComponent<SpaceShipMovement>().enabled = true;
         }
-        if (controller.playerSpace == true)
+        else if (controller.doesPlayerSpaceExist)
         {
+            shipCam.enabled = false;
+            playerspaceCam.enabled = true;
+            gravCam.enabled = false;
             playerSpace.SetActive(true);
-            ship.SetActive(false);
             playerGrav.SetActive(false);
+            playerSpace.GetComponent<SpaceMovement>().enabled = true;
+            ship.GetComponent<SpaceShipMovement>().enabled = false;
         }
-        if (controller.playerGrav == true)
+        else if (controller.inTrigger)
         {
-            playerGrav.SetActive(true);
-            ship.SetActive(false);
+            shipCam.enabled = false;
+            playerspaceCam.enabled = false;
+            gravCam.enabled = true;
             playerSpace.SetActive(false);
+            playerGrav.SetActive(true);
+            playerGrav.GetComponent<MovementinGrav>().enabled = true;
+            ship.GetComponent<SpaceShipMovement>().enabled = false;
         }
     }
 }
+
