@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 
 public class ShopManager : MonoBehaviour
 {
+    public GameObject spaceshipMark1, spaceshipMark2;
+    public TeleportGun TeleportGun;
     public GameObject gun;
     public Money cash;
     public TMP_Text coinUI;
@@ -23,13 +25,13 @@ public class ShopManager : MonoBehaviour
     {
         distance = player.maxDis;
         speed = boost.thrust;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         CheckCanBuy();
         CoinsUI();
         loadPanel();
@@ -40,7 +42,7 @@ public class ShopManager : MonoBehaviour
     }
     public void loadPanel()
     {
-        for(int i = 0; i < shopItemSO.Length; i++)
+        for (int i = 0; i < shopItemSO.Length; i++)
         {
             shopPanels[i].titleText.text = shopItemSO[i].title;
             shopPanels[i].priceText.text = "Price: " + shopItemSO[i].cost.ToString();
@@ -52,7 +54,7 @@ public class ShopManager : MonoBehaviour
         {
             if (cash.geld >= shopItemSO[i].cost)
             {
-                myPurchaseBtns[i].interactable = true; 
+                myPurchaseBtns[i].interactable = true;
             }
             else
             {
@@ -63,7 +65,7 @@ public class ShopManager : MonoBehaviour
     }
     public void PurchaseItem(int btnNo)
     {
-        if(cash.geld >= shopItemSO[btnNo].cost)
+        if (cash.geld >= shopItemSO[btnNo].cost)
         {
             cash.geld = cash.geld - shopItemSO[btnNo].cost;
             coinUI.text = "Money: " + cash.geld.ToString();
@@ -72,16 +74,24 @@ public class ShopManager : MonoBehaviour
         }
         if (myPurchaseBtns[0])
         {
-            speed = 300f;
+            speed = 600f;
         }
         if (myPurchaseBtns[1])
         {
+            TeleportGun.enabled = true;
+            TeleportGun.bought = true;
             Debug.Log("GotGun");
         }
         if (myPurchaseBtns[2])
         {
             distance = 30f;
         }
+        if (myPurchaseBtns[3])
+        {
+            spaceshipMark1.SetActive(false);
+            spaceshipMark2.SetActive(true);
+        }
     }
 
 }
+
