@@ -14,11 +14,11 @@ public class ControllerSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerGrav.SetActive(true);
+        //playerGrav.SetActive(true);
         playerGravCam.enabled = true;
         playerGrav.GetComponent<MovementinGrav>().enabled = true;
         playerSpace.GetComponent<SpaceMovement>().enabled = false;
-        playerSpace.SetActive(false);
+        //playerSpace.SetActive(false);
         doesPlayerSpaceExist = false;
         spaceShip.GetComponent<SpaceShipMovement>().enabled = false;
         spaceShipCam.enabled = false;

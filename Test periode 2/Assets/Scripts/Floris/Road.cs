@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Road : MonoBehaviour
 {
+    public ControllerSwitch _switch;
     public GameObject spaceshipGoToPosition;
     public GameObject spaceship;
     public bool hasRotated;
@@ -14,6 +15,7 @@ public class Road : MonoBehaviour
     public float moveToWardsSpeed;
     
     public GameObject playerInGrav;
+    public GameObject player;
 
     private DefaultActionMap actionmap;
     private InputAction interact;
@@ -83,7 +85,12 @@ public class Road : MonoBehaviour
         }
         
     }
-   
+
+    private void OnTriggerExit(Collider other)
+    {
+       _switch.inTrigger = false;
+    }
+
     private float Interact()
     {
         return interact.ReadValue<float>();

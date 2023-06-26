@@ -9,6 +9,7 @@ public class UFO : MonoBehaviour
     public GameObject player;
     public GameObject spaceShip;
     public Transform ufo;
+    public Transform inRange;
     private int transformIndex = 0;
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,22 @@ public class UFO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Vector3.Distance(player.transform.position, ufo.transform.position) <= 10)
+        {
+            ufo.position = Vector3.MoveTowards(ufo.transform.position, inRange.transform.position, speed * Time.deltaTime);
+        }
+        else
+        {
+            MovementUfo();
+        }
+    }
+    
+    
+    
+    public void MovementUfo()
+    {
         ufo.position = Vector3.MoveTowards(ufo.position, targets[transformIndex].position, speed * Time.deltaTime);
-        if(ufo.position == targets[transformIndex].position)
+        if (ufo.position == targets[transformIndex].position)
         {
             transformIndex++;
         }
