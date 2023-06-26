@@ -9,10 +9,6 @@ public class MainMenu : MonoBehaviour
 {
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 
     public void QuitGame()
     {
