@@ -41,7 +41,7 @@ public class Trash : MonoBehaviour
             distance = 8;
         }
        
-        if (random <= 100) 
+        if (random <= 10) 
         {
             if (sound == false)
             {
