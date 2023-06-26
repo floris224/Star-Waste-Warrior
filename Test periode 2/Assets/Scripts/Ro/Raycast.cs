@@ -80,6 +80,7 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown("f"))
                 {
                     truckcap.PutTrashInTruck();
+                    ui.UpdateUI();
                 }
                 
             }
