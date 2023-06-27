@@ -6,9 +6,13 @@ public class OutlineScript : MonoBehaviour
 {
     public string[] tags;
     public List<GameObject> childSmall = new List<GameObject>();
+    public Transform player;
 
-    
- 
+    private void Update()
+    {
+        gameObject.transform.position = player.position;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (tagMatch(other.gameObject.tag))

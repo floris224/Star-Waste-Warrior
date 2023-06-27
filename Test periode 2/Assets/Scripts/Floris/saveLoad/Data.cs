@@ -15,7 +15,7 @@ public class Data : MonoBehaviour
 
     public ControllerSwitch _controllerSwitch;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         SaveLoadData data = SaveLoad.LoadData();
         _inspace = data._inspace;
@@ -52,11 +52,7 @@ public class Data : MonoBehaviour
 
      void Update()
     {
-        if (Input.GetKey(KeyCode.J)) 
-        {
-            Save();
-        
-        }
+       
     }
 
 
