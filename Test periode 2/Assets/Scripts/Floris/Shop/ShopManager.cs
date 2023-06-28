@@ -9,7 +9,7 @@ public class ShopManager : MonoBehaviour
 {
     public GameObject spaceshipMark1, spaceshipMark2;
     public TeleportGun TeleportGun;
-    public GameObject gun;
+    public GameObject gun, lasergun, truckBackm2,truckBackm1;
     public Money cash;
     public TMP_Text coinUI;
     public Shopitem[] shopItemSO;
@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
     public float distance;
     public SpaceMovement player;
     public PickupPricker ui;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -72,24 +73,33 @@ public class ShopManager : MonoBehaviour
             CheckCanBuy();
             ui.UpdateUI();
         }
-        if (myPurchaseBtns[0])
+        if (myPurchaseBtns[0])//boosters
         {
             speed = 600f;
         }
-        if (myPurchaseBtns[1])
+        if (myPurchaseBtns[1])//lasergun
         {
             TeleportGun.enabled = true;
             TeleportGun.bought = true;
             Debug.Log("GotGun");
+            
         }
-        if (myPurchaseBtns[2])
+        if (myPurchaseBtns[2])//rope
         {
             distance = 30f;
         }
-        if (myPurchaseBtns[3])
+        if (myPurchaseBtns[3])//truckBack
+        {
+            
+        }
+        if (myPurchaseBtns[4])//truckfront
         {
             spaceshipMark1.SetActive(false);
             spaceshipMark2.SetActive(true);
+        }
+        if (myPurchaseBtns[5])//betterframe
+        {
+
         }
     }
 
