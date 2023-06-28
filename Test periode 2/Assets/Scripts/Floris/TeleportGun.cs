@@ -25,7 +25,7 @@ public class TeleportGun : MonoBehaviour
         {
             if (weaponEquiped == true)
             {
-                if (Input.GetMouseButtonUp(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     if (currentCapacity <= maxCapacityInventory)
                     {
