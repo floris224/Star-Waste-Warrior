@@ -16,48 +16,45 @@ public class TeleportGun : MonoBehaviour
     public List<int> spaceshipSlots = new List<int>();
     public bool bought;
     public bool weaponEquiped;
+    public Camera playerCam;
 
 
     void Update()
     {
-
-        if (bought == true)
+        if (bought == true && weaponEquiped == true)
         {
-            if (weaponEquiped == true)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0))
+                if (currentCapacity < maxCapacityInventory)
                 {
-                    if (currentCapacity <= maxCapacityInventory)
+                    if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 100) && tagsMatch(hit.transform.tag))
                     {
-                        if (Physics.Raycast(transform.position, transform.forward, out hit, 100) && tagsMatch(hit.transform.tag))
+                        Debug.Log(hit.transform.name + "");
+                        ValueTrash valueTrash = hit.collider.GetComponent<ValueTrash>();
+                        if (valueTrash != null)
                         {
-                            ValueTrash valueTrash = hit.transform.GetComponent<ValueTrash>();
-                            if (valueTrash != null)
+                            inventory.Add(valueTrash.itemValue);
+                            currentCapacity += valueTrash.capacity;
+                            hit.transform.gameObject.SetActive(false);
+                            if (currentCapacity >= maxCapacityInventory)
                             {
-                                inventory.Add(valueTrash.itemValue);
-                                currentCapacity += valueTrash.capacity;
-                                if (currentCapacity > maxCapacityInventory)
+                                currentCapacity = maxCapacityInventory;
+                                int money = totalMoney();
+                                spaceshipSlots.Add(money);
+                                inventory.Clear();
+                                if (currentCapacity >= maxCapacitySpaceship)
                                 {
-                                    currentCapacity = maxCapacityInventory;
-                                    int money = totalmoney();
-                                    spaceshipSlots.Add(money);
-                                    inventory.Clear();
-                                    if (currentCapacity >= maxCapacitySpaceship)
-                                    {
-                                        Debug.Log("SpaceShip Full");
-                                    }
-
+                                    currentCapacity = maxCapacitySpaceship;
+                                    Debug.Log("SpaceShip Full");
                                 }
                             }
-
                         }
-
                     }
-
                 }
             }
         }
     }
+
     private bool tagsMatch(string tag)
     {
         foreach (string goodtags in tags)
@@ -69,7 +66,7 @@ public class TeleportGun : MonoBehaviour
         }
         return false;
     }
-    private int totalmoney()
+    private int totalMoney()
     {
         int totalmoney = 0;
         foreach (int ItemValue in inventory)
@@ -78,4 +75,5 @@ public class TeleportGun : MonoBehaviour
         }
         return totalmoney;
     }
+    
 }

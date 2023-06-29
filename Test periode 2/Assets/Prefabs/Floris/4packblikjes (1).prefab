@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7317055859349629944}
   - component: {fileID: 5919062639324341341}
   - component: {fileID: 8484864529868935319}
+  - component: {fileID: 6620084817328576367}
   m_Layer: 0
   m_Name: 4packblikjes (1)
   m_TagString: Untagged
@@ -167,3 +168,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6620084817328576367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980579913411981634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 4pack
+  itemValue: 25
+  capacity: 1

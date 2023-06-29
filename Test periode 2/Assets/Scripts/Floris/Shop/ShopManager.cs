@@ -15,11 +15,12 @@ public class ShopManager : MonoBehaviour
     public Shopitem[] shopItemSO;
     public ShopTemplate[] shopPanels;
     public Button[] myPurchaseBtns;
-    public SpaceMovement boost;
+    public SpaceMovement boost,ropeDistance;
     public float speed;
     public float distance;
     public SpaceMovement player;
     public PickupPricker ui;
+  
     
     // Start is called before the first frame update
     void Start()
@@ -73,33 +74,33 @@ public class ShopManager : MonoBehaviour
             CheckCanBuy();
             ui.UpdateUI();
         }
-        if (myPurchaseBtns[0])//boosters
+        if (btnNo == 0) // boosters
         {
             speed = 600f;
         }
-        if (myPurchaseBtns[1])//lasergun
+        else if (btnNo == 1) // lasergun
         {
-            TeleportGun.enabled = true;
             TeleportGun.bought = true;
+            lasergun.SetActive(true);
             Debug.Log("GotGun");
-            
         }
-        if (myPurchaseBtns[2])//rope
+        else if (btnNo == 2) // rope
         {
-            distance = 30f;
+            ropeDistance.maxDis = 30;
         }
-        if (myPurchaseBtns[3])//truckBack
+        else if (btnNo == 3) // truckBack
         {
-            
+            truckBackm1.SetActive(false);
+            truckBackm2.SetActive(true);
         }
-        if (myPurchaseBtns[4])//truckfront
+        else if (btnNo == 4) // truckfront
         {
             spaceshipMark1.SetActive(false);
             spaceshipMark2.SetActive(true);
         }
-        if (myPurchaseBtns[5])//betterframe
+        else if (btnNo == 5) // betterframe
         {
-
+           
         }
     }
 

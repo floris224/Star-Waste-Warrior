@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 51087473113140398}
   - component: {fileID: 3970666738561745675}
   - component: {fileID: 1224507500825311169}
+  - component: {fileID: 5276838315043562284}
+  - component: {fileID: 26198378294326670}
   m_Layer: 0
   m_Name: Koelkast
   m_TagString: TrashLarge
@@ -84,6 +86,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5276838315043562284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864321029610264084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Koelkast
+  itemValue: 250
+  capacity: 3
+--- !u!65 &26198378294326670
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864321029610264084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9690566, y: 1.8999999, z: 0.85071886}
+  m_Center: {x: 0.0000076293945, y: 0.95257735, z: 0.011824794}
 --- !u!1 &2388722662188472435
 GameObject:
   m_ObjectHideFlags: 0

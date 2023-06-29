@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 707641818468794433}
   - component: {fileID: 4502992599577284580}
   - component: {fileID: 1844541397140814638}
+  - component: {fileID: 5144774642281135575}
+  - component: {fileID: 7954896573565049179}
   m_Layer: 0
   m_Name: WaterflesjeDirty
-  m_TagString: Untagged
+  m_TagString: TrashSmall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +86,34 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5144774642281135575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187423647717858043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd13f1917a0ad040bf5fc152139875f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Bottle
+  itemValue: 15
+  capacity: 1
+--- !u!65 &7954896573565049179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187423647717858043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08397139, y: 0.29999956, z: 0.09000464}
+  m_Center: {x: 0.000005722046, y: 0.15062939, z: 0.0000047683716}
 --- !u!1 &3297342870773084770
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3806299337248158429
 Transform:
   m_ObjectHideFlags: 0
