@@ -7734,8 +7734,9 @@ MonoBehaviour:
   - TrashLarge
   inventory: 
   spaceshipSlots: 
-  bought: 0
+  bought: 1
   weaponEquiped: 1
+  shot: 0
   playerCam: {fileID: 330585545}
   bulletPrefab: {fileID: 4033762940435432515, guid: 9f75527e42369534487821e81c81c06a,
     type: 3}
@@ -40607,6 +40608,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 812927624460317280, guid: 9f75527e42369534487821e81c81c06a,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4033762940435432515, guid: 9f75527e42369534487821e81c81c06a,
         type: 3}
       propertyPath: m_Name
@@ -40674,6 +40680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8387071811973772555, guid: 9f75527e42369534487821e81c81c06a, type: 3}
+    - {fileID: 258974043, guid: 9f75527e42369534487821e81c81c06a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9f75527e42369534487821e81c81c06a, type: 3}
 --- !u!1001 &1885740047
 PrefabInstance:
@@ -44745,6 +44752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607975825237647768, guid: e6b4cb4b7ed115044b62a373bac67f85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5069
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b4cb4b7ed115044b62a373bac67f85, type: 3}
