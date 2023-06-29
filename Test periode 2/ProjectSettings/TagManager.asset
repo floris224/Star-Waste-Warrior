@@ -23,6 +23,7 @@ TagManager:
   - Music
   - Target
   - Grinder
+  - Indestructable
   layers:
   - Default
   - TransparentFX

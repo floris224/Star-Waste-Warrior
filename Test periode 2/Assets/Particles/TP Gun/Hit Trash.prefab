@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5683981792003712254}
   m_Layer: 0
-  m_Name: On hit trash
+  m_Name: Hit Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6505773089913995871}
   - component: {fileID: 2571386636688221517}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Particle System Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
