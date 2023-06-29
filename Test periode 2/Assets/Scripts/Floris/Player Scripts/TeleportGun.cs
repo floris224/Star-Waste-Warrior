@@ -16,6 +16,7 @@ public class TeleportGun : MonoBehaviour
     public List<int> spaceshipSlots = new List<int>();
     public bool bought;
     public bool weaponEquiped;
+    public bool shot;
     public Camera playerCam;
     public GameObject bulletPrefab;
     public float bulletSpeed;
@@ -34,8 +35,7 @@ public class TeleportGun : MonoBehaviour
                     
                     GameObject bullet = Instantiate(bulletPrefab, shotPoint.transform.position, shotPoint.transform.rotation);
 
-                    Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-                    bulletRigidbody.velocity = bullet.transform.forward * bulletSpeed* Time.deltaTime;
+                   
                     
                    
 
