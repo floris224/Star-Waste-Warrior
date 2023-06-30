@@ -794,7 +794,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30857620}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -7064,6 +7064,7 @@ MonoBehaviour:
   healthBar: {fileID: 1963731656}
   healthProcent: {fileID: 1503442655}
   procent: 0
+  blood: {fileID: 30857620}
 --- !u!81 &309588570
 AudioListener:
   m_ObjectHideFlags: 0
