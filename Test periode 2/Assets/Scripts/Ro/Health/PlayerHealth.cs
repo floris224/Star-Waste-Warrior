@@ -15,7 +15,10 @@ public class PlayerHealth : MonoBehaviour
     public GameObject healthBar;
     public TMP_Text healthProcent;
     public float procent;
-    public GameObject blood;
+    public Volume blood;
+    public Vignette vignette;
+    public float vigFloat;
+    public float timeStamp;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,14 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        blood.profile.TryGet(out vignette);
+        {
+            vignette.intensity.value = vigFloat;
+        }
+        if (Time.time > timeStamp)
+        {
+            vigFloat -= 0.07f * Time.deltaTime;
+        }
         
         procent = health / 100;
         healthProcent.text = health.ToString();
@@ -38,8 +49,16 @@ public class PlayerHealth : MonoBehaviour
     public void Getdamage()
     {
         health -= 5;
+        if (vigFloat < 0.2f)
+        {
+            vigFloat = 0.4f;
+        }
+        else
+        {
+            vigFloat += 0.2f;
+        }
         
-        //blood.GetComponent<Volume>().profile.GetComponent<Vignette>().intensity.value += 0.2f;
+        timeStamp = Time.time + 5;
     }
     void Death()
     {
