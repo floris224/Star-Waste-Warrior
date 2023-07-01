@@ -18,7 +18,7 @@ public class PickupPricker : MonoBehaviour
     private float timeStampAttack, timeStampHit;
     public float attackCooldown, hitcooldown;
     public int maxCapacity;
-    public List<int> inventory = new List<int>();
+   
     public TextMeshProUGUI questCount, inventoryCoutn, galaxyTokens, shopMoney;
     public Quest quest;
     public Money money;
@@ -36,7 +36,7 @@ public class PickupPricker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InteractionSell();
+        
         if (inprikker == true)
         {
             trash.transform.position = end.transform.position;
@@ -63,7 +63,7 @@ public class PickupPricker : MonoBehaviour
                     trash.SetActive(false);
                     inprikker = false;
                     capaciteit += 1;
-                    TrashManager();
+                    
 
 
                     Debug.Log("je hebt " + capaciteit + " afval");
@@ -111,61 +111,14 @@ public class PickupPricker : MonoBehaviour
         }
 
     }
-    public void TrashManager()
-    {
-        int itemValue = trash.GetComponent<ValueTrash>().itemValue;
-        if (trash.CompareTag("TrashSmall"))
-        {
-
-            if (inventory.Count < maxCapacity)
-            {
-                inventory.Add(itemValue);
-                Debug.Log("Item added to inventory. Current capacity: " + inventory.Count + "/" + maxCapacity);
-                UpdateUI();
-            }
-            else
-            {
-                Debug.Log("Inventory is full. Cannot add more items.");
-            }
-        }
-
-    }
-    public void SellItems()
-    {
-        int totalPrice = 0;
-
-        foreach (int itemValue in inventory)
-        {
-            totalPrice += itemValue;
-        }
-        money.geld += totalPrice;
-        inventory.Clear();
-        capaciteit = 0;
-
-        Debug.Log("Sold for" + totalPrice);
-        UpdateUI();
-    }
+   
     
-    public void InteractionSell()
-    {
-        if (Input.GetKey(KeyCode.F))
-        {
-            if(Physics.Raycast(transform.position,transform.forward,out hit, 5f))
-            {
-                if (hit.transform.name == "Grinder")
-                {
-                    SellItems();
-                }
-
-
-            }
-            
-        }
-    }
+    
+    
     public void UpdateUI()
     {
         questCount.text = "Quest: " + quest.questcomplete + "/ 5"; 
-        inventoryCoutn.text = "Inventory: " + inventory.Count + "/" + maxCapacity;
+        
         galaxyTokens.text = "Money: " + money.geld;
         shopMoney.text = "Money: " + money.geld;
 }   }

@@ -24,6 +24,8 @@ TagManager:
   - Target
   - Grinder
   - Indestructable
+  - Particle
+  - Scrapper
   layers:
   - Default
   - TransparentFX

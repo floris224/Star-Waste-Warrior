@@ -20,6 +20,8 @@ public class BulletCollider : MonoBehaviour
             {
                 teleportGun.inventory.Add(valueTrash.itemValue);
                 teleportGun.currentCapacity += valueTrash.capacity;
+
+                teleportGun.currentCapacitySpaceShip += teleportGun.spaceshipSlots.Count;
             }
 
             

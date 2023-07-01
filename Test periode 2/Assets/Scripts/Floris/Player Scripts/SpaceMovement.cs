@@ -14,9 +14,9 @@ public class SpaceMovement : MonoBehaviour
 
     public Rigidbody rb;
     public GameObject car;
-
+    public Camera cam;
     public float maxDis;
-
+    public TeleportGun sell;
     private DefaultActionMap defaultActionMap;
     private InputAction mouseDelta;
     private InputAction move;
@@ -25,6 +25,7 @@ public class SpaceMovement : MonoBehaviour
     public InputAction boost;
     public ControllerSwitch controllerSwitch;
     public float vDis;
+    public RaycastHit hit;
 
     private bool isBoosting = false;
 
@@ -74,6 +75,10 @@ public class SpaceMovement : MonoBehaviour
        
     }
 
+    private void Update()
+    {
+        interactSell();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -166,7 +171,20 @@ action.canceled += context => Debug.Log($"{context.action} canceled");
        
         return boost.ReadValue<float>();
     }
-
+    public void interactSell()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10f))
+            {
+                if(hit.transform.tag == "Grinder")
+                {
+                    sell.Sell();
+                }
+            }
+        }
+        
+    }
     public Vector2 CursorPosition()
     {
         return mouseDelta.ReadValue<Vector2>();

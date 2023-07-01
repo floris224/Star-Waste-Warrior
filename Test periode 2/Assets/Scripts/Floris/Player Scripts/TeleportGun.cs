@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 
 public class TeleportGun : MonoBehaviour
 {
+ 
     public int maxCapacityInventory;
-    public int currentCapacity;
+    public int currentCapacity, currentCapacitySpaceShip;
     public int maxCapacitySpaceship;
     public string[] tags;
-   
+    public int totalMoney, totalMoneySpaceShip;
     public List<int> inventory = new List<int>();
     public List<int> spaceshipSlots = new List<int>();
     public bool bought;
@@ -21,33 +23,36 @@ public class TeleportGun : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed;
     public Transform shotPoint;
+    public TextMeshProUGUI inventorySlots;
+    public Money currentMoney;
 
 
 
     void Update()
     {
+        UpdateUi();
+
+
         if (bought == true && weaponEquiped == true)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (currentCapacity < maxCapacityInventory)
+                if (currentCapacity <= maxCapacityInventory|| currentCapacity == maxCapacityInventory)
                 {
-                    
                     GameObject bullet = Instantiate(bulletPrefab, shotPoint.transform.position, shotPoint.transform.rotation);
 
-                   
-                    
-                   
-
-                    if (currentCapacity >= maxCapacityInventory)
+                    if (currentCapacity >= maxCapacityInventory || currentCapacity == maxCapacityInventory)
                     {
-                        currentCapacity = maxCapacityInventory;
-                        int money = totalMoney();
-                        spaceshipSlots.Add(money);
+                        
+                        totalMoneyInventory();
+                        spaceshipSlots.Add(totalMoney);
                         inventory.Clear();
-                        if (currentCapacity >= maxCapacitySpaceship)
+                        currentCapacity = 0;
+                        UpdateUi();
+
+                        if (currentCapacitySpaceShip >= maxCapacitySpaceship)
                         {
-                            currentCapacity = maxCapacitySpaceship;
+                            currentCapacitySpaceShip = maxCapacitySpaceship;
                             Debug.Log("SpaceShip Full");
                         }
                     }
@@ -55,7 +60,7 @@ public class TeleportGun : MonoBehaviour
             }
         }
     }
-
+  
     public bool tagsMatch(string tag)
     {
         foreach (string goodtags in tags)
@@ -67,18 +72,42 @@ public class TeleportGun : MonoBehaviour
         }
         return false;
     }
-    private int totalMoney()
+    public int totalMoneyInventory()
     {
-        int totalmoney = 0;
+         totalMoney = 0;
         foreach (int ItemValue in inventory)
         {
-            totalmoney += ItemValue;
+            totalMoney += ItemValue;
         }
-        return totalmoney;
+        return totalMoney;
+    }
+    private int totalMoneyInventorySpaceShip()
+    {
+        totalMoneySpaceShip = 0;
+        foreach (int ItemValue in spaceshipSlots)
+        {
+            totalMoneySpaceShip += ItemValue;
+        }
+        return totalMoneySpaceShip;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
+    }
+   
+    public void Sell()
+    {
+        totalMoneyInventory();
+        totalMoneyInventorySpaceShip();
+        currentMoney.geld += totalMoney + totalMoneySpaceShip;
+        UpdateUi();
+        spaceshipSlots.Clear();
+        inventory.Clear();
+    }
+
+    private void UpdateUi()
+    {
+        inventorySlots.text = "Inventory Count:" + currentCapacity + "/" + maxCapacityInventory;
     }
 }
