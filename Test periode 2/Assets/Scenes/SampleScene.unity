@@ -11249,7 +11249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -11799,8 +11799,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Quest: 0/5'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 148cec764d7e73d488aa60473e71c738, type: 2}
+  m_sharedMaterial: {fileID: -8929275294907078096, guid: 148cec764d7e73d488aa60473e71c738,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12545,7 +12546,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c8ef363b8d35bec4980173c124e33ff9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8ef363b8d35bec4980173c124e33ff9,
         type: 3}
@@ -15046,7 +15047,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 493e0c59e4f99304b919c858bf9704d9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 493e0c59e4f99304b919c858bf9704d9,
         type: 3}
@@ -15980,7 +15981,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2af1c1ca1c49aa64ab79e0f6f6f2cb22,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2af1c1ca1c49aa64ab79e0f6f6f2cb22,
         type: 3}
@@ -21557,7 +21558,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b94f7995b9a06d64e81c640cfc376210,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b94f7995b9a06d64e81c640cfc376210,
         type: 3}
@@ -22682,7 +22683,7 @@ PrefabInstance:
     - target: {fileID: 5613454098665416824, guid: 6d3bfaaf90a1d8b419785e23e467bef5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5613454098665416824, guid: 6d3bfaaf90a1d8b419785e23e467bef5,
         type: 3}
@@ -22753,6 +22754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516270667749430180, guid: 6d3bfaaf90a1d8b419785e23e467bef5,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d3bfaaf90a1d8b419785e23e467bef5, type: 3}
@@ -26905,6 +26911,8 @@ MonoBehaviour:
   playerSpace: {fileID: 309588557}
   playerGrav: {fileID: 1657892871}
   spawnPositionPlayer: {fileID: 537312980}
+  healthPanel: {fileID: 0}
+  fuelPanel: {fileID: 0}
   playerSpaceCam: {fileID: 330585545}
   playerGravCam: {fileID: 14690675}
   spaceShipCam: {fileID: 879880168}
@@ -28742,8 +28750,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Galaxy Tokens: XXX'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 148cec764d7e73d488aa60473e71c738, type: 2}
+  m_sharedMaterial: {fileID: -8929275294907078096, guid: 148cec764d7e73d488aa60473e71c738,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35088,7 +35097,7 @@ PrefabInstance:
     - target: {fileID: 4294654792773830335, guid: 97e01ae9e366e234aa29147718dc35e8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4294654792773830335, guid: 97e01ae9e366e234aa29147718dc35e8,
         type: 3}
@@ -47161,6 +47170,8 @@ MonoBehaviour:
   gravCam: {fileID: 14690675}
   shipCam: {fileID: 879880168}
   playerspaceCam: {fileID: 330585545}
+  healthPanel: {fileID: 438936505}
+  fuelPanel: {fileID: 0}
 --- !u!1001 &1688879607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47377,8 +47388,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Inventory Count: xxx'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 148cec764d7e73d488aa60473e71c738, type: 2}
+  m_sharedMaterial: {fileID: -8929275294907078096, guid: 148cec764d7e73d488aa60473e71c738,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -47402,10 +47414,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: -232.1
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 14
   m_fontSizeMax: 25
   m_fontStyle: 0
@@ -50750,7 +50762,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820651270}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -52526,7 +52538,7 @@ PrefabInstance:
     - target: {fileID: 8460432348049166916, guid: 9f75527e42369534487821e81c81c06a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8460432348049166916, guid: 9f75527e42369534487821e81c81c06a,
         type: 3}
@@ -53098,7 +53110,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1caccdd870c4dfe479f03b99ef96ac18,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1caccdd870c4dfe479f03b99ef96ac18,
         type: 3}
@@ -56390,7 +56402,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0b19889e343e2a948a3fb85888f0b87b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b19889e343e2a948a3fb85888f0b87b,
         type: 3}
@@ -57029,7 +57041,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bff8550f7043e2b40a67a4fb45303c63,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bff8550f7043e2b40a67a4fb45303c63,
         type: 3}
