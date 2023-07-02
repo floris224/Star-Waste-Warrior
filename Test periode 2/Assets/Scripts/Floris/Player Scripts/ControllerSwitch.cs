@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ControllerSwitch : MonoBehaviour
 {
-    public GameObject spaceShip, playerSpace, playerGrav, spawnPositionPlayer, healthPanel, fuelPanel;
+    public GameObject spaceShip, playerSpace, playerGrav, spawnPositionPlayer,spawnPositionSpaceStation, healthPanel, fuelPanel;
     public Camera playerSpaceCam, playerGravCam, spaceShipCam;
-    public bool inShip, inTrigger;
+    public bool inShip, inTrigger,inTriggerSpaceStation;
     public bool doesPlayerSpaceExist;
     public float timeStamp, distance;
-    public Collider colliderSpaceShip;
+    public Collider colliderSpaceShip, colliderSpaceStation;
     public AudioListener audiolist;
     public AudioSource stepInOut;
     // Start is called before the first frame update
     void Start()
     {
+       
         //fuelPanel.SetActive(false);
         healthPanel.SetActive(false);
         playerGrav.SetActive(true);
@@ -25,9 +26,11 @@ public class ControllerSwitch : MonoBehaviour
         doesPlayerSpaceExist = false;
         spaceShip.GetComponent<SpaceShipMovement>().enabled = false;
         spaceShipCam.enabled = false;
+
+
     }
 
-
+    
     private void Update()
     {
         if(Time.time > timeStamp)
@@ -38,6 +41,20 @@ public class ControllerSwitch : MonoBehaviour
                 {
                     if (inTrigger == true)
                     {
+                        stepInOut.Play();
+                        audiolist.enabled = false;
+                        //fuelPanel.SetActive(false);
+                        healthPanel.SetActive(false);
+                        spaceShipCam.enabled = false;
+                        playerGrav.SetActive(true);
+                        playerGravCam.enabled = true;
+                        playerGrav.GetComponent<MovementinGrav>().enabled = true;
+                        spaceShip.GetComponent<SpaceShipMovement>().enabled = false;
+                        inShip = false;
+                    }
+                    else if (inTriggerSpaceStation == true)
+                    {
+                        playerGrav.transform.position = spawnPositionSpaceStation.transform.position;
                         stepInOut.Play();
                         audiolist.enabled = false;
                         //fuelPanel.SetActive(false);

@@ -25,6 +25,7 @@ public class TeleportGun : MonoBehaviour
     public Transform shotPoint;
     public TextMeshProUGUI inventorySlots;
     public Money currentMoney;
+    public PickupPricker pickupPricker;
 
 
 
@@ -37,24 +38,25 @@ public class TeleportGun : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (currentCapacity <= maxCapacityInventory|| currentCapacity == maxCapacityInventory)
+                if (currentCapacity <= maxCapacityInventory)
                 {
                     GameObject bullet = Instantiate(bulletPrefab, shotPoint.transform.position, shotPoint.transform.rotation);
 
-                    if (currentCapacity >= maxCapacityInventory || currentCapacity == maxCapacityInventory)
-                    {
-                        
-                        totalMoneyInventory();
-                        spaceshipSlots.Add(totalMoney);
-                        inventory.Clear();
-                        currentCapacity = 0;
-                        UpdateUi();
+                   
+                }
+                else if (currentCapacity >= maxCapacityInventory)
+                {
 
-                        if (currentCapacitySpaceShip >= maxCapacitySpaceship)
-                        {
-                            currentCapacitySpaceShip = maxCapacitySpaceship;
-                            Debug.Log("SpaceShip Full");
-                        }
+                    totalMoneyInventory();
+                    spaceshipSlots.Add(totalMoney);
+                    inventory.Clear();
+                    currentCapacity = 0;
+                    UpdateUi();
+
+                    if (currentCapacitySpaceShip >= maxCapacitySpaceship)
+                    {
+                        currentCapacitySpaceShip = maxCapacitySpaceship;
+                        Debug.Log("SpaceShip Full");
                     }
                 }
             }
@@ -98,16 +100,19 @@ public class TeleportGun : MonoBehaviour
    
     public void Sell()
     {
+        
         totalMoneyInventory();
         totalMoneyInventorySpaceShip();
         currentMoney.geld += totalMoney + totalMoneySpaceShip;
         UpdateUi();
         spaceshipSlots.Clear();
         inventory.Clear();
+ 
     }
 
     private void UpdateUi()
     {
         inventorySlots.text = "Inventory Count:" + currentCapacity + "/" + maxCapacityInventory;
+        pickupPricker.UpdateUI();
     }
 }

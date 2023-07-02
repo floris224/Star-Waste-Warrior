@@ -75,10 +75,7 @@ public class SpaceMovement : MonoBehaviour
        
     }
 
-    private void Update()
-    {
-        interactSell();
-    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -171,20 +168,7 @@ action.canceled += context => Debug.Log($"{context.action} canceled");
        
         return boost.ReadValue<float>();
     }
-    public void interactSell()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 10f))
-            {
-                if(hit.transform.tag == "Grinder")
-                {
-                    sell.Sell();
-                }
-            }
-        }
-        
-    }
+   
     public Vector2 CursorPosition()
     {
         return mouseDelta.ReadValue<Vector2>();

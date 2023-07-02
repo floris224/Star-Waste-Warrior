@@ -18,13 +18,12 @@ public class PickupPricker : MonoBehaviour
     private float timeStampAttack, timeStampHit;
     public float attackCooldown, hitcooldown;
     public int maxCapacity;
-   
+    public List<int> capaciteitList;
     public TextMeshProUGUI questCount, inventoryCoutn, galaxyTokens, shopMoney;
     public Quest quest;
     public Money money;
-    private int currentMoney;
-    private RaycastHit hit;
     public AudioSource alienHit;
+    public int totalMoneyInventory;
 
     private void Start()
     {
@@ -62,14 +61,12 @@ public class PickupPricker : MonoBehaviour
                     pricker.SetBool("inGrapper", false);
                     trash.SetActive(false);
                     inprikker = false;
-                    capaciteit += 1;
-                    
-
 
                     Debug.Log("je hebt " + capaciteit + " afval");
                 }
                 else
                 {
+                    
                     Debug.Log("Je vuilniszak zit vol");
                 }
 
@@ -103,7 +100,14 @@ public class PickupPricker : MonoBehaviour
                     trashcollider.enabled = false;
                     trash.GetComponent<Rigidbody>().freezeRotation = true;
                     trash.transform.SetParent(end.transform, true);
+                    ValueTrash valueTrash = trash.GetComponent<ValueTrash>();
+                    if (valueTrash != null)
+                    {
+                        capaciteitList.Add(valueTrash.itemValue);
+                        capaciteit += valueTrash.capacity;
+                    }
                 }
+
             }
            
             
@@ -111,9 +115,24 @@ public class PickupPricker : MonoBehaviour
         }
 
     }
-   
-    
-    
+    public void SellInv()
+    {
+        InventoryMoney();
+        money.geld += totalMoneyInventory;
+        UpdateUI();
+        capaciteitList.Clear();
+        capaciteit = 0;
+    }
+
+    public int InventoryMoney()
+    {
+        totalMoneyInventory = 0;
+        foreach (int ItemValue in capaciteitList)
+        {
+            totalMoneyInventory += ItemValue;
+        }
+        return totalMoneyInventory;
+    }
     
     public void UpdateUI()
     {
