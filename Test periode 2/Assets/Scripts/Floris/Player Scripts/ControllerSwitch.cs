@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControllerSwitch : MonoBehaviour
 {
-    public GameObject spaceShip, playerSpace, playerGrav, spawnPositionPlayer;
+    public GameObject spaceShip, playerSpace, playerGrav, spawnPositionPlayer, healthPanel, fuelPanel;
     public Camera playerSpaceCam, playerGravCam, spaceShipCam;
     public bool inShip, inTrigger;
     public bool doesPlayerSpaceExist;
@@ -14,6 +14,8 @@ public class ControllerSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //fuelPanel.SetActive(false);
+        healthPanel.SetActive(false);
         playerGrav.SetActive(true);
         playerGravCam.enabled = true;
         playerGrav.GetComponent<MovementinGrav>().enabled = true;
@@ -35,6 +37,8 @@ public class ControllerSwitch : MonoBehaviour
                 {
                     if (inTrigger == true)
                     {
+                        //fuelPanel.SetActive(false);
+                        healthPanel.SetActive(false);
                         spaceShipCam.enabled = false;
                         playerGrav.SetActive(true);
                         playerGravCam.enabled = true;
@@ -44,6 +48,8 @@ public class ControllerSwitch : MonoBehaviour
                     }
                     else
                     {
+                        //fuelPanel.SetActive(false);
+                        healthPanel.SetActive(true);
                         spaceShipCam.enabled = false;
                         doesPlayerSpaceExist = true;
                         playerSpace.SetActive(true);
@@ -71,6 +77,8 @@ public class ControllerSwitch : MonoBehaviour
     // Update is called once per frame
     public void SwitchController()
     {
+        //fuelPanel.SetActive(true);
+        healthPanel.SetActive(false);
         timeStamp = Time.time + 3f;
         inShip = true;
         spaceShipCam.enabled = true;
