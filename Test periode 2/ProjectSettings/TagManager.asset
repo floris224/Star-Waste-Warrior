@@ -26,6 +26,7 @@ TagManager:
   - Indestructable
   - Particle
   - Scrapper
+  - Exit SpaceStation
   layers:
   - Default
   - TransparentFX
