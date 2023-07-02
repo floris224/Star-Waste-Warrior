@@ -16,6 +16,10 @@ public class SpaceShipMovement : MonoBehaviour
     public GameObject playerSpace;
     public GameObject playerInGrav;
     public float rotationSmoothness = 10f;
+    public GameObject[] particles;
+    public AudioSource engine;
+    private bool enginePlaying;
+    //public Thruster thruster;
 
 
     public void Awake()
@@ -52,6 +56,28 @@ public class SpaceShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb.velocity.magnitude > 0.8f)
+        {
+            if (enginePlaying == false)
+            {
+                engine.Play();
+                enginePlaying = true;
+            }
+            
+            for (int i = 0; i < particles.Length; i++)
+            {
+                particles[i].GetComponent<Thruster>().SetOn(); 
+            }
+        }
+        else
+        {
+            engine.Stop();
+            enginePlaying = false;
+            for (int i = 0; i < particles.Length; i++)
+            {
+                particles[i].GetComponent<Thruster>().SetOf();
+            }
+        }
         MovementShipManager();
     }
 

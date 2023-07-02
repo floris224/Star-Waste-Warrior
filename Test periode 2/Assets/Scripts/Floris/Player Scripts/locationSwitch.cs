@@ -21,7 +21,7 @@ public class locationSwitch : MonoBehaviour
     {
         if (controller.inShip)
         {
-            fuelPanel.SetActive(true);
+            //fuelPanel.SetActive(true);
             healthPanel.SetActive(false);
             shipCam.enabled = true;
             playerspaceCam.enabled = false;
@@ -32,7 +32,7 @@ public class locationSwitch : MonoBehaviour
         }
         else if (controller.doesPlayerSpaceExist)
         {
-            fuelPanel.SetActive(false);
+            //fuelPanel.SetActive(false);
             healthPanel.SetActive(true);
             shipCam.enabled = false;
             playerspaceCam.enabled = true;
@@ -44,7 +44,7 @@ public class locationSwitch : MonoBehaviour
         }
         else if (controller.inTrigger)
         {
-            fuelPanel.SetActive(false);
+            //fuelPanel.SetActive(false);
             healthPanel.SetActive(false);
             shipCam.enabled = false;
             playerspaceCam.enabled = false;

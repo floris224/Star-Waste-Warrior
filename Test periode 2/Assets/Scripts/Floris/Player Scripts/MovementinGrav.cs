@@ -10,6 +10,8 @@ public class MovementinGrav : MonoBehaviour
     private InputAction move;
     private InputAction mouseAction;
     public Transform camRotation;
+    public AudioSource footstep;
+    private bool footstepPlaying;
     void Awake()
     {
         actionMap = new DefaultActionMap();
@@ -30,6 +32,20 @@ public class MovementinGrav : MonoBehaviour
 
     void Update()
     {
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            if (footstepPlaying == false)
+            {
+                footstep.Play();
+                footstepPlaying = true;
+            }
+           
+        }
+        else
+        {
+            footstep.Stop();
+            footstepPlaying = false;
+        }
         // movement
         Vector2 moveValue = Move();
         Vector3 forward = camRotation.forward;

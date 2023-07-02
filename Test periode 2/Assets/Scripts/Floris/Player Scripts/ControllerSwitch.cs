@@ -10,7 +10,8 @@ public class ControllerSwitch : MonoBehaviour
     public bool doesPlayerSpaceExist;
     public float timeStamp, distance;
     public Collider colliderSpaceShip;
-    
+    public AudioListener audiolist;
+    public AudioSource stepInOut;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,8 @@ public class ControllerSwitch : MonoBehaviour
                 {
                     if (inTrigger == true)
                     {
+                        stepInOut.Play();
+                        audiolist.enabled = false;
                         //fuelPanel.SetActive(false);
                         healthPanel.SetActive(false);
                         spaceShipCam.enabled = false;
@@ -48,6 +51,8 @@ public class ControllerSwitch : MonoBehaviour
                     }
                     else
                     {
+                        stepInOut.Play();
+                        audiolist.enabled = false;
                         //fuelPanel.SetActive(false);
                         healthPanel.SetActive(true);
                         spaceShipCam.enabled = false;
@@ -77,6 +82,8 @@ public class ControllerSwitch : MonoBehaviour
     // Update is called once per frame
     public void SwitchController()
     {
+        stepInOut.Play();
+        audiolist.enabled = true;
         //fuelPanel.SetActive(true);
         healthPanel.SetActive(false);
         timeStamp = Time.time + 3f;

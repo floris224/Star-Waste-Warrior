@@ -19,7 +19,7 @@ public class Quest : MonoBehaviour
         items[1] = "Item2";
         items[2] = "Item3";
         items[3] = "Item4";
-        items[4] = "Item5";
+        items[4] = "Core";
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class Quest : MonoBehaviour
         player.GetComponent<MovementinGrav>().enabled = false;
         cam.GetComponent<Look>().enabled = false;
         quest.SetActive(true);
-        npcSays.text = ("Search for these Items: Item1, Item2, Item3, Item4, Item5");
+        npcSays.text = ("Search for these Items: Item1, Item2, Item3, Item4, Core");
         queststarted = true;
     }
     public void EndQuest()

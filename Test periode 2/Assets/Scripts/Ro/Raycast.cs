@@ -9,6 +9,8 @@ public class Raycast : MonoBehaviour
     public Quest quest;
     public ControllerSwitch controllerSwitch;
     public PickupPricker ui;
+    public string[] tags;
+    public GameObject f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +23,30 @@ public class Raycast : MonoBehaviour
         
         if (Physics.Raycast(transform.position, transform.forward, out hit, 5))
         {
+            for (int i = 0; i < tags.Length; i++)
+            {
+                if (hit.collider.tag == tags[i])
+                {
+                    f.SetActive(true);
+                    
+                }
+                else
+                {
+                    f.SetActive(false);
+                    
+                }
+                
+            }
             //Spaceship movement toggle
             if (hit.collider.tag == "SpaceShip")
+            
+            if (Input.GetKeyDown("f"))
             {
-                if (Input.GetKeyDown("f"))
-                {
-                    controllerSwitch.SwitchController();
-                    Debug.Log("Test");
-                }
-              
+                controllerSwitch.SwitchController();
+                Debug.Log("Test");
             }
+              
+            
             //Quest System
             if (hit.collider.tag == "QuestItem")
             {
