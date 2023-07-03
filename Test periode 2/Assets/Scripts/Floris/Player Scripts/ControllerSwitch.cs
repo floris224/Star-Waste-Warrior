@@ -12,6 +12,7 @@ public class ControllerSwitch : MonoBehaviour
     public Collider colliderSpaceShip, colliderSpaceStation;
     public AudioListener audiolist;
     public AudioSource stepInOut;
+    public RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class ControllerSwitch : MonoBehaviour
     
     private void Update()
     {
+        ExitSpaceStation();
         if(Time.time > timeStamp)
         {
             if (inShip == true)
@@ -115,6 +117,33 @@ public class ControllerSwitch : MonoBehaviour
         playerSpace.GetComponent<SpaceMovement>().enabled = false;
         spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
     }
+    public void ExitSpaceStation()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (Physics.Raycast(playerGravCam.transform.position, playerGravCam.transform.forward, out hit, 10f))
+            {
+                if (hit.transform.CompareTag("ExitSpaceStation"))
+                {
+                    stepInOut.Play();
+                    audiolist.enabled = true;
+                    //fuelPanel.SetActive(true);
+                    healthPanel.SetActive(false);
+                    timeStamp = Time.time + 3f;
+                    inShip = true;
+                    spaceShipCam.enabled = true;
+                    playerSpace.SetActive(false);
+                    playerSpaceCam.enabled = false;
+                    doesPlayerSpaceExist = false;
+                    playerGrav.SetActive(false);
+                    playerGravCam.enabled = false;
+                    playerGrav.GetComponent<MovementinGrav>().enabled = false;
+                    playerSpace.GetComponent<SpaceMovement>().enabled = false;
+                    spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
+                }
+            }
+        }
+    }
 
-    
+
 }

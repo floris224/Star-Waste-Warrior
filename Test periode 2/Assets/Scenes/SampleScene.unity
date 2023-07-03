@@ -7126,7 +7126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300648150}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -16.5, y: 6.07, z: -48.585995}
+  m_LocalPosition: {x: -16.5, y: 6.07, z: -43.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31757,7 +31757,7 @@ GameObject:
   - component: {fileID: 1261042888}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: ExitSpaceStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46321,7 +46321,7 @@ MonoBehaviour:
   particleDuration: 3
   particleTimer: 0
   isParticleActive: 1
-  teleportGun: {fileID: 0}
+  teleportGun: {fileID: 424065288}
 --- !u!1 &1633411734
 GameObject:
   m_ObjectHideFlags: 0

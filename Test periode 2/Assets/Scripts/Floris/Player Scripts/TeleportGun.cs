@@ -41,12 +41,9 @@ public class TeleportGun : MonoBehaviour
                 if (currentCapacity <= maxCapacityInventory)
                 {
                     GameObject bullet = Instantiate(bulletPrefab, shotPoint.transform.position, shotPoint.transform.rotation);
-
-                   
                 }
                 else if (currentCapacity >= maxCapacityInventory)
                 {
-
                     totalMoneyInventory();
                     spaceshipSlots.Add(totalMoney);
                     inventory.Clear();
