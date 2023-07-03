@@ -8,6 +8,7 @@ public class WeaponSwitch : MonoBehaviour
     private int currentWeaponIndex = 0;
     public TeleportGun teleportGun;
     public GameObject laserGun;
+    public GUN gun;
    
     // Update is called once per frame
     void Update()
@@ -43,10 +44,19 @@ public class WeaponSwitch : MonoBehaviour
             teleportGun.enabled = true;
             teleportGun.weaponEquiped = true;
         }
-        else
+        else if(teleportGun != null)
         {
-            if (teleportGun != null)
-                teleportGun.enabled = false;
+            
+            teleportGun.enabled = false;
+        }
+        else if(weapons[currentWeaponIndex].TryGetComponent(out gun))
+        {
+            gun.enabled = true;
+            gun.hasEquipped = true;
+        }
+        else if (gun != null)
+        {
+            gun.enabled = false;
         }
     }  
 

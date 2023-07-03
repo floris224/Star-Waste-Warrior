@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,11 @@ public class SpaceShipMovement : MonoBehaviour
     public float rotationSmoothness = 10f;
     public GameObject[] particles;
     public AudioSource engine;
-    private bool enginePlaying;
+    private bool enginePlaying, isFlying;
+    public float maxEngineFuel = 300f, currentEngineFuel;
+    public float fuelReduction = 1f;
+
+
     //public Thruster thruster;
 
 
@@ -50,7 +55,7 @@ public class SpaceShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        currentEngineFuel = maxEngineFuel;
     }
 
     // Update is called once per frame
@@ -79,12 +84,13 @@ public class SpaceShipMovement : MonoBehaviour
             }
         }
         MovementShipManager();
+        
     }
 
     public void MovementShipManager()
     {
         // move forwards backwards
-
+        
         float movement = Move();
         Vector3 moveForce = new Vector3(0, 0, -movement);
         rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
@@ -103,6 +109,9 @@ public class SpaceShipMovement : MonoBehaviour
         float upDown = UpDown();
         Vector3 UpDownStrenght = new Vector3(0, -upDown, 0);
         rb.AddForce(UpDownStrenght * thrust * Time.deltaTime);
+
+
+        EngineFuel();
     }
     public void ExitEnter()
     {
@@ -130,4 +139,18 @@ public class SpaceShipMovement : MonoBehaviour
     {
         return interact.ReadValue<float>();
     }
+    public void EngineFuel()
+    {
+        DateTime startTime = DateTime.Now;
+        while (move.ReadValue<float>() < 0 && currentEngineFuel >= 0)
+        {
+            Debug.Log("Current Fuel" + currentEngineFuel);
+            fuelReduction -=  currentEngineFuel* Time.deltaTime;
+        }
+        if (currentEngineFuel < 0)
+        {
+            currentEngineFuel = 0;
+            
+        }
+    }       
 }

@@ -13,7 +13,7 @@ public class UFO : MonoBehaviour
     public RaycastHit hit;
     public GameObject particleEffect;
     public Transform particleSpawnPoint;
-    public int transformIndex = 0;
+    public int transformIndex = 0, ufoHealth;
     public float particleDuration = 3f;
     public float particleTimer = 0f;
     public bool isParticleActive = false;
@@ -79,6 +79,13 @@ public class UFO : MonoBehaviour
         {
             int randomIndex = Random.Range(0, targets.Count);
             transformIndex = randomIndex;
+        }
+    }
+    public void UfoDied()
+    {
+        if(ufoHealth <= 1)
+        {
+            Destroy(ufo);
         }
     }
 }

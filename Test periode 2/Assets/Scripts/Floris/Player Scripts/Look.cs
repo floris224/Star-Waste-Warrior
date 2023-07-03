@@ -39,14 +39,14 @@ public class Look : MonoBehaviour
         transform.eulerAngles = e;
         interactSell();
     }
-
+   
     public void interactSell()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, 10f))
             {
-                Debug.Log(hit.transform.name);
+                
                 if (hit.transform.tag == "Grinder")
                 {
                     pickupPricker.SellInv();
