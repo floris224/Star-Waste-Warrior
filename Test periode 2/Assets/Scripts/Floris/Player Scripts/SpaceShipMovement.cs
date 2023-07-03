@@ -83,8 +83,12 @@ public class SpaceShipMovement : MonoBehaviour
                 particles[i].GetComponent<Thruster>().SetOf();
             }
         }
-        MovementShipManager();
         
+        if(currentEngineFuel != 0)
+        {
+            MovementShipManager();
+            
+        }
     }
 
     public void MovementShipManager()
@@ -142,10 +146,10 @@ public class SpaceShipMovement : MonoBehaviour
     public void EngineFuel()
     {
         DateTime startTime = DateTime.Now;
-        while (move.ReadValue<float>() < 0 && currentEngineFuel >= 0)
+        if (move.ReadValue<float>() < 0 && currentEngineFuel > 0)
         {
             Debug.Log("Current Fuel" + currentEngineFuel);
-            fuelReduction -=  currentEngineFuel* Time.deltaTime;
+            currentEngineFuel -= fuelReduction * Time.deltaTime;
         }
         if (currentEngineFuel < 0)
         {
