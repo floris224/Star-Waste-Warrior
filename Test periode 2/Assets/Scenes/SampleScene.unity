@@ -7501,6 +7501,7 @@ MonoBehaviour:
   attackCooldown: 1.5
   hitcooldown: 1
   maxCapacity: 5
+  currentCapacity: 0
   capaciteitList: 
   questCount: {fileID: 460416991}
   inventoryCoutn: {fileID: 1693586028}
@@ -22916,11 +22917,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prickercap: {fileID: 309588564}
-  capaciteit: 0
+  capaciteitLimiet: 
   trash:
   - {fileID: 977006463}
   - {fileID: 2090245721}
   - {fileID: 1572107947}
+  capaciteitList: 
+  capaciteit: 0
+  activeLimit: 0
+  upgraded: 0
 --- !u!4 &916159220 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c5d8a5a98ca6d8b4a9085745e7340e56,

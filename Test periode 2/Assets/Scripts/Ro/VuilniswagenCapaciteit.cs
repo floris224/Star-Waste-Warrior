@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VuilniswagenCapaciteit : MonoBehaviour
 {
     public PickupPricker prickercap;
-    public int capaciteit;
-    public GameObject[] trash; 
+    public int[] capaciteitLimiet;
+    public GameObject[] trash;
+    public List<int> capaciteitList;
+    public int capaciteit, activeLimit;
+    public bool upgraded;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (upgraded == true)
+        {
+            activeLimit = capaciteitLimiet[1];
+        }
+        else
+        {
+            activeLimit= capaciteitLimiet[0];
+        }
     }
 
     // Update is called once per frame
@@ -54,13 +65,16 @@ public class VuilniswagenCapaciteit : MonoBehaviour
 
     public void PutTrashInTruck()
     {
-        capaciteit += prickercap.capaciteit;
-        prickercap.capaciteit = 0;
-        Debug.Log("Je hebt " + capaciteit + " vuilnis in je vuilniswagen en je vuilniszak is leeg " + prickercap.capaciteit);
-        if (capaciteit >= 10)
+        if (prickercap.capaciteit + capaciteit < activeLimit)
         {
-            capaciteit = 10;
-            Debug.Log("Je vuilniswagen zit vol");
-        }
+            capaciteitList = prickercap.capaciteitList;
+            prickercap.capaciteitList.Clear();
+        } 
+    }
+
+    public void Upgrade()
+    {
+        activeLimit = capaciteitLimiet[1];
+        upgraded = true;
     }
 }

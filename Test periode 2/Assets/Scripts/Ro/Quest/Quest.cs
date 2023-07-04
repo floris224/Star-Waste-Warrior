@@ -5,12 +5,12 @@ using TMPro;
 
 public class Quest : MonoBehaviour
 {
-    public int questcomplete;
+    public int questcomplete; // save
     public bool questininv, queststarted;
     public string ininv;
     public GameObject quest, okay, bye;
     public TMP_Text npcSays;
-    public string[] items;
+    public string[] items; // save
     public GameObject player, cam;
     // Start is called before the first frame update
     void Start()
