@@ -31,7 +31,7 @@ public class TeleportGun : MonoBehaviour
 
     void Update()
     {
-        UpdateUi();
+        //UpdateUi();
 
 
         if (bought == true && weaponEquiped == true)
@@ -48,7 +48,7 @@ public class TeleportGun : MonoBehaviour
                     spaceshipSlots.Add(totalMoney);
                     inventory.Clear();
                     currentCapacity = 0;
-                    UpdateUi();
+                    //UpdateUi();
 
                     if (currentCapacitySpaceShip >= maxCapacitySpaceship)
                     {
@@ -101,15 +101,16 @@ public class TeleportGun : MonoBehaviour
         totalMoneyInventory();
         totalMoneyInventorySpaceShip();
         currentMoney.geld += totalMoney + totalMoneySpaceShip;
-        UpdateUi();
+        
         spaceshipSlots.Clear();
         inventory.Clear();
  
     }
 
-    private void UpdateUi()
+   /* private void UpdateUi()
     {
-        inventorySlots.text = "Inventory Count:" + currentCapacity + "/" + maxCapacityInventory;
+        
         pickupPricker.UpdateUI();
     }
+   */
 }

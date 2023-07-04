@@ -17,7 +17,7 @@ public class PickupPricker : MonoBehaviour
     public int damage;
     private float timeStampAttack, timeStampHit;
     public float attackCooldown, hitcooldown;
-    public int maxCapacity;
+    public int maxCapacity, currentCapacity;
     public List<int> capaciteitList;
     public TextMeshProUGUI questCount, inventoryCoutn, galaxyTokens, shopMoney;
     public Quest quest;
@@ -29,13 +29,13 @@ public class PickupPricker : MonoBehaviour
     {
         //int CurrentMoney = money.geld;
         UpdateUI();
-
+        capaciteit = capaciteitList.Count;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateUI();
         if (inprikker == true)
         {
             trash.transform.position = end.transform.position;
@@ -137,7 +137,9 @@ public class PickupPricker : MonoBehaviour
     public void UpdateUI()
     {
         questCount.text = "Quest: " + quest.questcomplete + "/ 5"; 
-        
+        inventoryCoutn.text = "Inventory: " + capaciteit + "/5";
         galaxyTokens.text = "Money: " + money.geld;
         shopMoney.text = "Money: " + money.geld;
-}   }
+    }
+
+}
