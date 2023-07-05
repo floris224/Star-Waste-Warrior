@@ -4,7 +4,8 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public static class SaveLoad
+
+public  class SaveLoad : MonoBehaviour
 {
     public static void SaveData(Data data)
     {

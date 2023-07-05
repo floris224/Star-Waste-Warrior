@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Common;
 using UnityEngine;
 
+[System.Serializable]
 public class Data : MonoBehaviour
 {
     public Money money;
@@ -12,7 +13,8 @@ public class Data : MonoBehaviour
     public TeleportGun teleportGun;
     public GameObject playerInSpace;
     public GameObject playerInGrav;
-    public bool _inship, _inspace, _ingrav, hasBoughtGun, hasBoughtTeleportGun, hasBoughtFuelUpgrade, hasBought;
+    public GameObject spaceShip;
+    public bool _inship, _inspace, _ingrav, hasBoughtTeleportGun, hasBoughtFuelUpgrade, hasBought;
     public bool  hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
     public Transform[] pos;
     public float[] inshipLoc = new float[3];
@@ -20,21 +22,17 @@ public class Data : MonoBehaviour
     public float[] ingravLoc = new float[3];
    
     public float playerHealth;
-    public float playerMoney;
+    public int playerMoney;
+
+    public float fuel;
+    public float currentEngineFuel;
 
     public ControllerSwitch _controllerSwitch;
 
+    
     private void Awake()
     {
-        SaveLoadData loadedData = SaveLoad.LoadData();
-        if (loadedData != null)
-        {
-            playerMoney = loadedData.playerMoney;
-        }
-        else
-        {
-            playerMoney = money.Amount();
-        }
+        
 
     }
     // Start is called before the first frame update
@@ -42,45 +40,62 @@ public class Data : MonoBehaviour
     {
        
         SaveLoadData data = SaveLoad.LoadData();
-        _inspace = data._inspace;
-        _inship = data._inship;
-        _ingrav = data._ingrav;
-        money.geld = data.playerMoney;
-        
-        hasBought = data.hasBought;
-        hasBoughtBoosters = data.hasBoughtBoosters;
-        hasBoughtRope = data.hasBoughtRope;
-        hasBoughtTruckBack = data.hasBoughtTruckBack;
-        hasBoughtTruckFront = data.hasBoughtTruckFront;
-        hasBoughtGun = data.hasBoughtGun;
+        if(data != null)
+        {
+            _inspace = data._inspace;
+            _inship = data._inship;
+            _ingrav = data._ingrav;
 
-        inshipLoc[0] = data.shipPos1;
-        inshipLoc[1] = data.shipPos2;
-        inshipLoc[2] = data.shipPos3;
-        Vector3 shiplocation = new Vector3(inshipLoc[0], inshipLoc[1], inshipLoc[2]);
-        pos[0].position = shiplocation;
+            playerMoney = data.playerMoney;
+            money.SetMoney(playerMoney);
 
+            fuel = data.fuel;
+            spaceShip.GetComponent<SpaceShipMovement>().currentEngineFuel = fuel;
+            playerHealth = data.playerHealth;
+            playerInSpace.AddComponent<PlayerHealth>().health = playerHealth;
 
+            hasBought = data.hasBought;
+            hasBoughtTeleportGun = data.hasBoughtTeleportGun;
+            hasBoughtBoosters = data.hasBoughtBoosters;
+            hasBoughtFuelUpgrade = data.hasBoughtFuelUpgrade;
+            hasBoughtRope = data.hasBoughtRope;
+            hasBoughtTruckBack = data.hasBoughtTruckBack;
+            hasBoughtTruckFront = data.hasBoughtTruckFront;
 
-        ingravLoc[0] = data.gravPos1;
-        ingravLoc[1] = data.gravPos2;
-        ingravLoc[2] = data.gravPos3;
-        Vector3 gravPos = new Vector3(ingravLoc[0], ingravLoc[1], ingravLoc[2]);
-        pos[2].position = gravPos;
-
-
-        inspaceLoc[0] = data.spacePos1;
-        inspaceLoc[1] = data.spacePos2;
-        inspaceLoc[2] = data.spacePos3;
-        Vector3 spacePos = new Vector3(inspaceLoc[0], inspaceLoc[1], inspaceLoc[2]);
-        pos[1].position = spacePos;
+            inshipLoc[0] = data.shipPos1;
+            inshipLoc[1] = data.shipPos2;
+            inshipLoc[2] = data.shipPos3;
+            Vector3 shiplocation = new Vector3(inshipLoc[0], inshipLoc[1], inshipLoc[2]);
+            pos[0].position = shiplocation;
 
 
-       
 
-        _controllerSwitch.inShip = _inship;
-        _controllerSwitch.doesPlayerSpaceExist = _inspace;
-        _controllerSwitch.inTrigger = _ingrav;
+            ingravLoc[0] = data.gravPos1;
+            ingravLoc[1] = data.gravPos2;
+            ingravLoc[2] = data.gravPos3;
+            Vector3 gravPos = new Vector3(ingravLoc[0], ingravLoc[1], ingravLoc[2]);
+            pos[2].position = gravPos;
+
+
+            inspaceLoc[0] = data.spacePos1;
+            inspaceLoc[1] = data.spacePos2;
+            inspaceLoc[2] = data.spacePos3;
+            Vector3 spacePos = new Vector3(inspaceLoc[0], inspaceLoc[1], inspaceLoc[2]);
+            pos[1].position = spacePos;
+
+
+
+
+            _controllerSwitch.inShip = _inship;
+            _controllerSwitch.doesPlayerSpaceExist = _inspace;
+            _controllerSwitch.inTrigger = _ingrav;
+        }
+        else
+        {
+            playerMoney = 0;
+            money.SetMoney(playerMoney);
+        }
+
         Debug.Log("playerMoney value after loading: " + playerMoney);
     }
 
@@ -96,17 +111,20 @@ public class Data : MonoBehaviour
         _inship = _controllerSwitch.inShip;
         _inspace = _controllerSwitch.doesPlayerSpaceExist;
         _ingrav = _controllerSwitch.inTrigger;
-
-        hasBoughtGun = shopManager.hasBoughtGun;
-        hasBought = teleportGun.bought;
+        
+        hasBought = shopManager.hasBoughtGun;
+        hasBoughtTeleportGun = shopManager.TeleportGun.bought;
         hasBoughtBoosters = shopManager.hasBoughtBoosters;
+        hasBoughtFuelUpgrade = shopManager.hasBoughtFuelUpgrade;
         hasBoughtRope = shopManager.hasBoughtRope;
-        hasBoughtTruckBack = shopManager.hasBoughtTruckBack;
+        hasBoughtTruckBack =shopManager.hasBoughtTruckBack;
         hasBoughtTruckFront = shopManager.hasBoughtTruckFront;
 
-        playerHealth = playerInSpace.GetComponent<PlayerHealth>().health;
-        playerMoney = money.geld;
+        fuel = spaceShip.GetComponent<SpaceShipMovement>().currentEngineFuel;
 
+
+        playerMoney = money.GetMoney();
+        playerHealth = playerInSpace.GetComponent<PlayerHealth>().health;
         inshipLoc[0] = pos[0].position.x;
         inshipLoc[1] = pos[0].position.y;
         inshipLoc[2] = pos[0].position.z;

@@ -2635,9 +2635,9 @@ MonoBehaviour:
   - {fileID: 1745573003491162074, guid: 2414fd8840864c142bd12cadbc6a27f4, type: 3}
   - {fileID: 3170536009606838689, guid: e003e8044252c524ab7a8e5c19f7aca2, type: 3}
   - {fileID: 7628046798506534995, guid: 2284ab2ea1c8fa14cbe891b4d90a14cf, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 864321029610264084, guid: 9e3779f25c91f9d41a39d7802a02bde8, type: 3}
+  - {fileID: 187423647717858043, guid: edb21d99e0b9c564dbceb08ea13cb877, type: 3}
+  - {fileID: 6803546109012273861, guid: 9ec5595540211b645b1e00edd02b1fd2, type: 3}
   numberOfSpawns: 200
   spawnRadius: 100
 --- !u!1 &93365193 stripped
@@ -5393,9 +5393,9 @@ MonoBehaviour:
   - {fileID: 1745573003491162074, guid: 2414fd8840864c142bd12cadbc6a27f4, type: 3}
   - {fileID: 3170536009606838689, guid: e003e8044252c524ab7a8e5c19f7aca2, type: 3}
   - {fileID: 7628046798506534995, guid: 2284ab2ea1c8fa14cbe891b4d90a14cf, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 864321029610264084, guid: 9e3779f25c91f9d41a39d7802a02bde8, type: 3}
+  - {fileID: 187423647717858043, guid: edb21d99e0b9c564dbceb08ea13cb877, type: 3}
+  - {fileID: 6803546109012273861, guid: 9ec5595540211b645b1e00edd02b1fd2, type: 3}
   numberOfSpawns: 200
   spawnRadius: 100
 --- !u!1 &216868532
@@ -12027,8 +12027,8 @@ MonoBehaviour:
   totalMoney: 0
   totalMoneySpaceShip: 0
   inventory: 
-  bought: 0
-  weaponEquiped: 0
+  bought: 1
+  weaponEquiped: 1
   shot: 0
   playerCam: {fileID: 330585545}
   bulletPrefab: {fileID: 4033762940435432515, guid: 9f75527e42369534487821e81c81c06a,
@@ -12038,7 +12038,7 @@ MonoBehaviour:
   inventorySlots: {fileID: 1693586028}
   currentMoney: {fileID: 1657892880}
   pickupPricker: {fileID: 309588564}
-  trashCapacity: {fileID: 0}
+  trashCapacity: {fileID: 916159219}
 --- !u!1 &425134770
 GameObject:
   m_ObjectHideFlags: 0
@@ -17632,9 +17632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6803546109012273861, guid: 9ec5595540211b645b1e00edd02b1fd2, type: 3}
+  - {fileID: 8923230901849462157, guid: 5f698f71654b3c24e9e4f90a9828bb6b, type: 3}
+  - {fileID: 187423647717858043, guid: edb21d99e0b9c564dbceb08ea13cb877, type: 3}
   - {fileID: 1473761644}
   - {fileID: 5908398925857422916, guid: ed08061b9f8298646a3292ccc1fca76e, type: 3}
   - {fileID: 2099503571}
@@ -21444,9 +21444,9 @@ MonoBehaviour:
   - {fileID: 1745573003491162074, guid: 2414fd8840864c142bd12cadbc6a27f4, type: 3}
   - {fileID: 3170536009606838689, guid: e003e8044252c524ab7a8e5c19f7aca2, type: 3}
   - {fileID: 7628046798506534995, guid: 2284ab2ea1c8fa14cbe891b4d90a14cf, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 864321029610264084, guid: 9e3779f25c91f9d41a39d7802a02bde8, type: 3}
+  - {fileID: 5908398925857422916, guid: ed08061b9f8298646a3292ccc1fca76e, type: 3}
+  - {fileID: 8923230901849462157, guid: 5f698f71654b3c24e9e4f90a9828bb6b, type: 3}
   numberOfSpawns: 200
   spawnRadius: 100
 --- !u!1 &776087757
@@ -21494,9 +21494,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6803546109012273861, guid: 9ec5595540211b645b1e00edd02b1fd2, type: 3}
+  - {fileID: 8923230901849462157, guid: 5f698f71654b3c24e9e4f90a9828bb6b, type: 3}
+  - {fileID: 187423647717858043, guid: edb21d99e0b9c564dbceb08ea13cb877, type: 3}
   - {fileID: 1473761644}
   - {fileID: 5908398925857422916, guid: ed08061b9f8298646a3292ccc1fca76e, type: 3}
   - {fileID: 2099503571}
@@ -26295,6 +26295,7 @@ MonoBehaviour:
   hasBoughtRope: 0
   hasBoughtTruckBack: 0
   hasBoughtTruckFront: 0
+  hasBoughtFuelUpgrade: 0
 --- !u!114 &962071370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28704,9 +28705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6803546109012273861, guid: 9ec5595540211b645b1e00edd02b1fd2, type: 3}
+  - {fileID: 8923230901849462157, guid: 5f698f71654b3c24e9e4f90a9828bb6b, type: 3}
+  - {fileID: 187423647717858043, guid: edb21d99e0b9c564dbceb08ea13cb877, type: 3}
   - {fileID: 1473761644}
   - {fileID: 5908398925857422916, guid: ed08061b9f8298646a3292ccc1fca76e, type: 3}
   - {fileID: 2099503571}
@@ -42956,7 +42957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 640, y: 335.21802}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534120973
@@ -52316,7 +52317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1688004207}
   - component: {fileID: 1688004211}
-  - component: {fileID: 1688004209}
+  - component: {fileID: 1688004212}
   - component: {fileID: 1688004210}
   m_Layer: 0
   m_Name: Saveload
@@ -52340,18 +52341,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1688004209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688004206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ebd500012df0d459a8bdd7e3a357a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1688004210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52364,14 +52353,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955fe726db0b0f749b252587936ca292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: {fileID: 1657892880}
   shopManager: {fileID: 962071369}
   teleportGun: {fileID: 424065288}
   playerInSpace: {fileID: 309588557}
   playerInGrav: {fileID: 1657892871}
+  spaceShip: {fileID: 400029432}
   _inship: 0
   _inspace: 0
   _ingrav: 0
-  hasBoughtGun: 0
   hasBoughtTeleportGun: 0
   hasBoughtFuelUpgrade: 0
   hasBought: 0
@@ -52391,9 +52381,14 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  ingravLoc: []
+  ingravLoc:
+  - 0
+  - 0
+  - 0
   playerHealth: 0
   playerMoney: 0
+  fuel: 0
+  currentEngineFuel: 300
   _controllerSwitch: {fileID: 1103752975}
 --- !u!114 &1688004211
 MonoBehaviour:
@@ -52416,6 +52411,18 @@ MonoBehaviour:
   playerspaceCam: {fileID: 330585545}
   healthPanel: {fileID: 438936505}
   fuelPanel: {fileID: 0}
+--- !u!114 &1688004212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688004206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ebd500012df0d459a8bdd7e3a357a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1688879607
 PrefabInstance:
   m_ObjectHideFlags: 0

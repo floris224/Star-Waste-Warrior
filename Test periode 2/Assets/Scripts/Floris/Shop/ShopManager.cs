@@ -20,7 +20,7 @@ public class ShopManager : MonoBehaviour
     public float distance;
     public SpaceMovement player;
     public PickupPricker ui;
-    public bool hasBoughtGun, hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
+    public bool hasBoughtGun, hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront, hasBoughtFuelUpgrade;
   
     
     // Start is called before the first frame update
