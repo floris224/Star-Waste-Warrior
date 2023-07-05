@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Data : MonoBehaviour
 {
+    public Money money;
     public ShopManager shopManager;
     public TeleportGun teleportGun;
     public GameObject playerInSpace;
@@ -14,24 +15,38 @@ public class Data : MonoBehaviour
     public bool _inship, _inspace, _ingrav, hasBoughtGun, hasBoughtTeleportGun, hasBoughtFuelUpgrade, hasBought;
     public bool  hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
     public Transform[] pos;
-    public float[] inshipLoc;
-    public float[] inspaceLoc;
-    public float[] ingravLoc;
+    public float[] inshipLoc = new float[3];
+    public float[] inspaceLoc = new float[3];
+    public float[] ingravLoc = new float[3];
    
     public float playerHealth;
     public float playerMoney;
 
     public ControllerSwitch _controllerSwitch;
+
+    private void Awake()
+    {
+        SaveLoadData loadedData = SaveLoad.LoadData();
+        if (loadedData != null)
+        {
+            playerMoney = loadedData.playerMoney;
+        }
+        else
+        {
+            playerMoney = money.Amount();
+        }
+
+    }
     // Start is called before the first frame update
     public void Start()
     {
+       
         SaveLoadData data = SaveLoad.LoadData();
         _inspace = data._inspace;
         _inship = data._inship;
         _ingrav = data._ingrav;
-        playerHealth = data.playerHealth;
-        playerMoney = data.playerMoney;
-       
+        money.geld = data.playerMoney;
+        
         hasBought = data.hasBought;
         hasBoughtBoosters = data.hasBoughtBoosters;
         hasBoughtRope = data.hasBoughtRope;
@@ -66,18 +81,18 @@ public class Data : MonoBehaviour
         _controllerSwitch.inShip = _inship;
         _controllerSwitch.doesPlayerSpaceExist = _inspace;
         _controllerSwitch.inTrigger = _ingrav;
+        Debug.Log("playerMoney value after loading: " + playerMoney);
     }
 
     public void Update()
     {
-        playerHealth = playerInSpace.GetComponent<PlayerHealth>().health;
-        playerMoney = playerInGrav.GetComponent<Money>().geld;
-        hasBought = teleportGun.bought;
+  
     }
 
 
     public void Save()
     {
+        Debug.Log("Before loading: " + playerMoney);
         _inship = _controllerSwitch.inShip;
         _inspace = _controllerSwitch.doesPlayerSpaceExist;
         _ingrav = _controllerSwitch.inTrigger;
@@ -90,7 +105,8 @@ public class Data : MonoBehaviour
         hasBoughtTruckFront = shopManager.hasBoughtTruckFront;
 
         playerHealth = playerInSpace.GetComponent<PlayerHealth>().health;
-        playerMoney = playerInGrav.GetComponent<Money>().geld;
+        playerMoney = money.geld;
+
         inshipLoc[0] = pos[0].position.x;
         inshipLoc[1] = pos[0].position.y;
         inshipLoc[2] = pos[0].position.z;

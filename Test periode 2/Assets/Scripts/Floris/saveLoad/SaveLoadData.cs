@@ -5,11 +5,12 @@ using UnityEngine;
 public class SaveLoadData
 {
     //fuel
-
+    public Money cash;
     public float spacePos1, spacePos2, spacePos3;
     public float gravPos1, gravPos2, gravPos3;
     public float shipPos1, shipPos2, shipPos3;
-    public float playerHealth, playerMoney;
+    public float playerHealth;
+    public float playerMoney;
     public bool _inship, _inspace, _ingrav, hasBought, hasBoughtGun, hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
 
     public SaveLoadData(Data data)

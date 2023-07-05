@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Money : MonoBehaviour
+[Serializable]
+public class Money
 {
-    public int geld = 0;
+    public float geld;
     
+    public float Amount()
+    {
+        return geld;
+    }
 }

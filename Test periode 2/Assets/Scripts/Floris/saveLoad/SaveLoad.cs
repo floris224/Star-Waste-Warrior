@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class SaveLoad : MonoBehaviour
+public static class SaveLoad
 {
     public static void SaveData(Data data)
     {
@@ -14,7 +14,7 @@ public class SaveLoad : MonoBehaviour
         SaveLoadData sl = new SaveLoadData(data);
         formatter.Serialize(stream, sl);
         stream.Close();
-        Debug.Log("Game opgeslagen in " + path);
+        Debug.Log("Game opgeslagen in " + path + ". playerMoney"+sl.playerMoney);
     }
 
     public static SaveLoadData LoadData()
@@ -26,7 +26,7 @@ public class SaveLoad : MonoBehaviour
             FileStream stream = new FileStream(path, FileMode.Open);
             SaveLoadData data = formatter.Deserialize(stream) as SaveLoadData;
             stream.Close();
-            Debug.Log("Data opgehaald uit " + path);
+            Debug.Log("Data loaded from " + path + ". playerMoney: " + data.playerMoney);
             return data;
         }
         else
