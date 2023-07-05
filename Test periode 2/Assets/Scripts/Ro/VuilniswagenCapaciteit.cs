@@ -5,23 +5,21 @@ using UnityEngine;
 
 public class VuilniswagenCapaciteit : MonoBehaviour
 {
-    public PickupPricker prickercap;
-    public int[] capaciteitLimiet;
+    public int capaciteit;
+    public int maxCapacitySpaceShip, currentCapacitySpaceShip;
+    public int totalMoney;
     public GameObject[] trash;
-    public List<int> capaciteitList;
-    public int capaciteit, activeLimit;
-    public bool upgraded;
+    public List<int> spaceshipSlots = new List<int>();
+    public List<int> playerInventory = new List<int>();
+    
+    public PickupPricker pickUpPrikker;
     // Start is called before the first frame update
     void Start()
     {
-        if (upgraded == true)
-        {
-            activeLimit = capaciteitLimiet[1];
-        }
-        else
-        {
-            activeLimit= capaciteitLimiet[0];
-        }
+        pickUpPrikker = GetComponent<PickupPricker>();
+        playerInventory = pickUpPrikker.capaciteitList;
+        currentCapacitySpaceShip = spaceshipSlots.Count;
+        maxCapacitySpaceShip = 5;
     }
 
     // Update is called once per frame
@@ -65,16 +63,28 @@ public class VuilniswagenCapaciteit : MonoBehaviour
 
     public void PutTrashInTruck()
     {
-        if (prickercap.capaciteit + capaciteit < activeLimit)
+        totalMoneyInventory();
+        Debug.Log(totalMoneyInventory());
+       
+        if(currentCapacitySpaceShip > maxCapacitySpaceShip)
         {
-            capaciteitList = prickercap.capaciteitList;
-            prickercap.capaciteitList.Clear();
-        } 
+            currentCapacitySpaceShip = maxCapacitySpaceShip;
+            Debug.Log("inventoryFull");
+        }
+        else
+        {
+            spaceshipSlots.Add(totalMoney);
+            pickUpPrikker.capaciteitList.Clear();
+        }
     }
 
-    public void Upgrade()
+    public int totalMoneyInventory()
     {
-        activeLimit = capaciteitLimiet[1];
-        upgraded = true;
+        totalMoney = 0;
+        foreach (int ItemValue in pickUpPrikker.capaciteitList)
+        {
+            totalMoney += ItemValue;
+        }
+        return totalMoney;
     }
 }

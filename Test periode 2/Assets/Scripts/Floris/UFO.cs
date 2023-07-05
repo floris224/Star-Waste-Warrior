@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,55 +5,69 @@ public class UFO : MonoBehaviour
 {
     public float speed;
     public List<Transform> targets;
-    public GameObject player;
     public GameObject spaceShip, laserPoint;
     public Transform ufo;
     public Transform inRange;
-    public RaycastHit hit;
-    public GameObject particleEffect;
+    public ParticleSystem particleEffect;
     public Transform particleSpawnPoint;
-    public int transformIndex = 0, ufoHealth;
-    public float particleDuration = 3f;
-    public float particleTimer = 0f;
-    public bool isParticleActive = false;
-    public TeleportGun teleportGun;
+    public float hangDuration = 5f;
+    public bool isHanging = false;
+    public float hangTimer = 0f;
+    public int transformIndex = 0;
+    public int ufoHealth;
+    public RaycastHit hit;
+    public float range;
+
+    private VuilniswagenCapaciteit capaciteit;
+    private List<int> spaceshipSlots;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        capaciteit = FindObjectOfType<VuilniswagenCapaciteit>();
+        spaceshipSlots = capaciteit.spaceshipSlots;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(spaceShip.transform.position, ufo.transform.position) <= 10)
+        if (Vector3.Distance(spaceShip.transform.position, ufo.transform.position) <= range)
         {
-            ufo.position = Vector3.MoveTowards(ufo.transform.position, inRange.transform.position, speed * Time.deltaTime);
-            if(Physics.Raycast(laserPoint.transform.position,-laserPoint.transform.up,out hit , 10))
+            if (isHanging)
             {
-                if(hit.transform.tag == "VuilniswagenCapaciteit")
+                
+                hangTimer += Time.deltaTime;
+
+                if (hangTimer >= hangDuration)
                 {
-                    if (!isParticleActive)
+                   
+                    isHanging = false;
+                    particleEffect.Stop();
+                    hangTimer = 0f;
+                    MovementUfo();
+                }
+            }
+            else
+            {
+                ufo.position = Vector3.MoveTowards(ufo.transform.position, inRange.transform.position, speed * Time.deltaTime);
+                Debug.DrawRay(laserPoint.transform.position, -laserPoint.transform.up, Color.red);
+                if (Physics.Raycast(laserPoint.transform.position, -laserPoint.transform.up, out hit, 200))
+                {
+                    Debug.Log(hit.transform.name);
+
+                    if (hit.transform.tag == "SpaceShip")
                     {
-                        particleTimer = 0;
-                        isParticleActive = true;
-                    }
-                    if (particleTimer >= particleDuration)
-                    {
-                        particleEffect.SetActive(true);
+                      
+                        isHanging = true;
+                        particleEffect.Play();
                         particleEffect.transform.position = particleSpawnPoint.position;
-                        for (int i = teleportGun.spaceshipSlots.Count - 1; i >= 0; i--)
+
+                        
+                        if (spaceshipSlots.Count > 0)
                         {
-                            teleportGun.spaceshipSlots.RemoveAt(i);
+                            spaceshipSlots.RemoveAt(spaceshipSlots.Count - 1);
                         }
                     }
-                }
-                else
-                {
-                    particleEffect.SetActive(false);
-                    isParticleActive = false;
-                    particleTimer = 0f;
-                    
                 }
             }
         }
@@ -62,15 +75,8 @@ public class UFO : MonoBehaviour
         {
             MovementUfo();
         }
-       
-        if (isParticleActive)
-        {
-            particleTimer += Time.deltaTime;
-        }
     }
-    
-    
-    
+
     public void MovementUfo()
     {
         ufo.position = Vector3.MoveTowards(ufo.position, targets[transformIndex].position, speed * Time.deltaTime);
@@ -81,9 +87,10 @@ public class UFO : MonoBehaviour
             transformIndex = randomIndex;
         }
     }
+
     public void UfoDied()
     {
-        if(ufoHealth <= 1)
+        if (ufoHealth <= 1)
         {
             Destroy(ufo);
         }

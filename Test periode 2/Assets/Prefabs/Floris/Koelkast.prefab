@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1224507500825311169}
   - component: {fileID: 5276838315043562284}
   - component: {fileID: 26198378294326670}
+  - component: {fileID: 2873861254940892148}
   m_Layer: 0
   m_Name: Koelkast
   m_TagString: TrashLarge
@@ -114,6 +115,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9690566, y: 1.8999999, z: 0.85071886}
   m_Center: {x: 0.0000076293945, y: 0.95257735, z: 0.011824794}
+--- !u!54 &2873861254940892148
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864321029610264084}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2388722662188472435
 GameObject:
   m_ObjectHideFlags: 0

@@ -81,7 +81,7 @@ public class Road : MonoBehaviour
 
            
             isMoving = true;
-            Debug.Log("" + other.transform.name);
+           
         }
         
     }

@@ -7,6 +7,7 @@ public class BulletCollider : MonoBehaviour
 {
     public GameObject hitTrash;
     public bool exploded;
+    public VuilniswagenCapaciteit capaciteit;
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -21,7 +22,7 @@ public class BulletCollider : MonoBehaviour
                 teleportGun.inventory.Add(valueTrash.itemValue);
                 teleportGun.currentCapacity += valueTrash.capacity;
 
-                teleportGun.currentCapacitySpaceShip += teleportGun.spaceshipSlots.Count;
+                teleportGun.currentCapacitySpaceShip += capaciteit.spaceshipSlots.Count;
             }
 
             

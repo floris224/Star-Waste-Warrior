@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
     public float distance;
     public SpaceMovement player;
     public PickupPricker ui;
+    public bool hasBoughtGun, hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
   
     
     // Start is called before the first frame update
@@ -73,6 +74,8 @@ public class ShopManager : MonoBehaviour
             coinUI.text = "Money: " + cash.geld.ToString();
             CheckCanBuy();
             ui.UpdateUI();
+
+            myPurchaseBtns[btnNo].interactable = false;
         }
         if (btnNo == 0) // boosters
         {

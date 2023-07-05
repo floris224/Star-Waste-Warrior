@@ -15,7 +15,7 @@ public class TeleportGun : MonoBehaviour
     public string[] tags;
     public int totalMoney, totalMoneySpaceShip;
     public List<int> inventory = new List<int>();
-    public List<int> spaceshipSlots = new List<int>();
+   
     public bool bought;
     public bool weaponEquiped;
     public bool shot;
@@ -26,12 +26,21 @@ public class TeleportGun : MonoBehaviour
     public TextMeshProUGUI inventorySlots;
     public Money currentMoney;
     public PickupPricker pickupPricker;
+    public VuilniswagenCapaciteit trashCapacity;
 
 
+    private void Start()
+    {
+        inventory = pickupPricker.capaciteitList;
+    }
 
     void Update()
     {
-        //UpdateUi();
+        if(currentCapacity > maxCapacityInventory)
+        {
+            currentCapacity = maxCapacityInventory;
+            
+        }
 
 
         if (bought == true && weaponEquiped == true)
@@ -45,10 +54,10 @@ public class TeleportGun : MonoBehaviour
                 else if (currentCapacity >= maxCapacityInventory)
                 {
                     totalMoneyInventory();
-                    spaceshipSlots.Add(totalMoney);
+                    trashCapacity.spaceshipSlots.Add(totalMoney);
                     inventory.Clear();
                     currentCapacity = 0;
-                    //UpdateUi();
+                   
 
                     if (currentCapacitySpaceShip >= maxCapacitySpaceship)
                     {
@@ -83,7 +92,7 @@ public class TeleportGun : MonoBehaviour
     private int totalMoneyInventorySpaceShip()
     {
         totalMoneySpaceShip = 0;
-        foreach (int ItemValue in spaceshipSlots)
+        foreach (int ItemValue in trashCapacity.spaceshipSlots)
         {
             totalMoneySpaceShip += ItemValue;
         }
@@ -102,15 +111,12 @@ public class TeleportGun : MonoBehaviour
         totalMoneyInventorySpaceShip();
         currentMoney.geld += totalMoney + totalMoneySpaceShip;
         
-        spaceshipSlots.Clear();
+        trashCapacity.spaceshipSlots.Clear();
         inventory.Clear();
+        pickupPricker.SellInv();
+        pickupPricker.capaciteitList.Clear();
  
     }
 
-   /* private void UpdateUi()
-    {
-        
-        pickupPricker.UpdateUI();
-    }
-   */
+ 
 }
