@@ -18,28 +18,31 @@ public class PauseMenu : MonoBehaviour
     {
         if (inPauseMenu == true)
         {
-            pauseMenu.SetActive(true);
+            
             screenUi.SetActive(false);
             Time.timeScale = 0;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                pauseMenu.SetActive(false);
                 inPauseMenu = false;
             }
         }
         else
         {
-            pauseMenu.SetActive(false);
+            
             screenUi.SetActive(true);
             Time.timeScale = 1;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 inPauseMenu = true;
+                pauseMenu.SetActive(true);
             }
         }
     }
     public void BackToGame()
     {
         inPauseMenu = false;
+        pauseMenu.SetActive(false);
     }
 
     public void MainMenu()

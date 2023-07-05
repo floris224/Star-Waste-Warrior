@@ -11,7 +11,7 @@ using UnityEditor.Rendering.Universal;
 public class PlayerHealth : MonoBehaviour
 {
     [Range(0,100)]
-    public float health;
+    public float health; // save
     public GameObject healthBar;
     public TMP_Text healthProcent;
     public float procent;

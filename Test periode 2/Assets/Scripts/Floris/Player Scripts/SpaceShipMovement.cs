@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class SpaceShipMovement : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class SpaceShipMovement : MonoBehaviour
     private bool enginePlaying, isFlying;
     public float maxEngineFuel = 300f, currentEngineFuel;
     public float fuelReduction = 1f;
+    public float procent, sliderValue;
+    public GameObject fuelBar;
+    public TMP_Text procentText;
 
 
     //public Thruster thruster;
@@ -31,6 +36,7 @@ public class SpaceShipMovement : MonoBehaviour
     {
         actionMap = new DefaultActionMap();
         rb = GetComponent<Rigidbody>();
+        
     }
 
     public void OnEnable()
@@ -61,6 +67,10 @@ public class SpaceShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        procent = currentEngineFuel / 3;
+        sliderValue = currentEngineFuel / 300f;
+        procentText.text = procent.ToString("n0") + "%";
+        fuelBar.GetComponent<Slider>().value = sliderValue;
         if (rb.velocity.magnitude > 0.8f)
         {
             if (enginePlaying == false)

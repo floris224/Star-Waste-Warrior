@@ -17,7 +17,7 @@ public class ControllerSwitch : MonoBehaviour
     void Start()
     {
        
-        //fuelPanel.SetActive(false);
+        fuelPanel.SetActive(false);
         healthPanel.SetActive(false);
         playerGrav.SetActive(true);
         playerGravCam.enabled = true;
@@ -45,7 +45,7 @@ public class ControllerSwitch : MonoBehaviour
                     {
                         stepInOut.Play();
                         audiolist.enabled = false;
-                        //fuelPanel.SetActive(false);
+                        fuelPanel.SetActive(false);
                         healthPanel.SetActive(false);
                         spaceShipCam.enabled = false;
                         playerGrav.SetActive(true);
@@ -59,7 +59,7 @@ public class ControllerSwitch : MonoBehaviour
                         playerGrav.transform.position = spawnPositionSpaceStation.transform.position;
                         stepInOut.Play();
                         audiolist.enabled = false;
-                        //fuelPanel.SetActive(false);
+                        fuelPanel.SetActive(false);
                         healthPanel.SetActive(false);
                         spaceShipCam.enabled = false;
                         playerGrav.SetActive(true);
@@ -72,7 +72,7 @@ public class ControllerSwitch : MonoBehaviour
                     {
                         stepInOut.Play();
                         audiolist.enabled = false;
-                        //fuelPanel.SetActive(false);
+                        fuelPanel.SetActive(false);
                         healthPanel.SetActive(true);
                         spaceShipCam.enabled = false;
                         doesPlayerSpaceExist = true;
@@ -103,7 +103,7 @@ public class ControllerSwitch : MonoBehaviour
     {
         stepInOut.Play();
         audiolist.enabled = true;
-        //fuelPanel.SetActive(true);
+        fuelPanel.SetActive(true);
         healthPanel.SetActive(false);
         timeStamp = Time.time + 3f;
         inShip = true;
@@ -127,7 +127,7 @@ public class ControllerSwitch : MonoBehaviour
                 {
                     stepInOut.Play();
                     audiolist.enabled = true;
-                    //fuelPanel.SetActive(true);
+                    fuelPanel.SetActive(true);
                     healthPanel.SetActive(false);
                     timeStamp = Time.time + 3f;
                     inShip = true;
