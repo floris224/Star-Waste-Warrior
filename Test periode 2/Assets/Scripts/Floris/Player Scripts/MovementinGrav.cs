@@ -12,6 +12,7 @@ public class MovementinGrav : MonoBehaviour
     public Transform camRotation;
     public AudioSource footstep;
     private bool footstepPlaying;
+    public Transform spawnPoint;
     void Awake()
     {
         actionMap = new DefaultActionMap();
@@ -56,9 +57,14 @@ public class MovementinGrav : MonoBehaviour
         rb.velocity = movement * speed * Time.deltaTime;
     }
 
+    public void ResetPosition()
+    {
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
+    }
 
 
-   
+
 
     Vector2 Move()
     {

@@ -14,6 +14,9 @@ public class MenuManager : MonoBehaviour
     public Camera camInGrav;
     public Button leave;
     public PickupPricker ui;
+    public PaymentManager paymentManager;
+    public Button payMent;
+
 
 
 
@@ -34,6 +37,7 @@ public class MenuManager : MonoBehaviour
         interact.Disable();
     }
 
+    
 
     void Update()
     {
@@ -43,8 +47,7 @@ public class MenuManager : MonoBehaviour
             {
                 if(hit.transform.tag == "ShopKeeper")
                 {
-                    gameObject.GetComponent<MovementinGrav>().enabled = false;
-                    camInGrav.GetComponent<Look>().enabled = false;
+                    gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     Debug.Log("ShopKeeper");
                     
                     ShopManager();
@@ -76,8 +79,7 @@ public class MenuManager : MonoBehaviour
     public void Exit()
     {
         panelShopMenu.SetActive(false);
-        gameObject.GetComponent<MovementinGrav>().enabled = true;
-        camInGrav.GetComponent<Look>().enabled = true;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
 
@@ -85,6 +87,7 @@ public class MenuManager : MonoBehaviour
     {
         return interact.ReadValue<float>();
     }
+    
     
    
     

@@ -11,7 +11,7 @@ public class SpaceMovement : MonoBehaviour
     public float thrust;
     public float rotationXSensitivity;
     public float rotationYSensitivity;
-
+    public Transform spawnPoint;
     public Rigidbody rb;
     public GameObject car;
     public Camera cam;
@@ -168,7 +168,11 @@ action.canceled += context => Debug.Log($"{context.action} canceled");
        
         return boost.ReadValue<float>();
     }
-   
+    public void ResetPosition()
+    {
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
+    }
     public Vector2 CursorPosition()
     {
         return mouseDelta.ReadValue<Vector2>();

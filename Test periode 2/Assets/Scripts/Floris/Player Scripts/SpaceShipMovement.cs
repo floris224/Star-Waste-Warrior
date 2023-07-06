@@ -27,7 +27,7 @@ public class SpaceShipMovement : MonoBehaviour
     public float procent, sliderValue;
     public GameObject fuelBar;
     public TMP_Text procentText;
-
+    public Transform spawnPoint;
 
     //public Thruster thruster;
 
@@ -131,6 +131,11 @@ public class SpaceShipMovement : MonoBehaviour
             playerSpace.SetActive(true);
             
         }
+    }
+    public void ResetPosition()
+    {
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
     }
     public float UpDown()
     {

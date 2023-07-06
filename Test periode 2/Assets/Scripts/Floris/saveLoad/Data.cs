@@ -52,7 +52,7 @@ public class Data : MonoBehaviour
             fuel = data.fuel;
             spaceShip.GetComponent<SpaceShipMovement>().currentEngineFuel = fuel;
             playerHealth = data.playerHealth;
-            playerInSpace.AddComponent<PlayerHealth>().health = playerHealth;
+            playerInSpace.GetComponent<PlayerHealth>().health = playerHealth;
 
             hasBought = data.hasBought;
             hasBoughtTeleportGun = data.hasBoughtTeleportGun;
