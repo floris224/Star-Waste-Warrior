@@ -21,6 +21,7 @@ public class ShopManager : MonoBehaviour
     public PickupPricker ui;
     public VuilniswagenCapaciteit vuilniswagenCapaciteit;
     public Button refuelButton;
+    public WeaponSwitch weaponSwitch;
     private bool[] weaponPurchased;
     public bool gunGot;
 
@@ -80,13 +81,8 @@ public class ShopManager : MonoBehaviour
                 CheckCanBuy();
                 ui.UpdateUI();
                 myPurchaseBtns[btnNo].interactable = false;
-
-                MarkWeaponPurchased(btnNo);
-
-                WeaponSwitch weaponSwitch = FindObjectOfType<WeaponSwitch>();
-                weaponSwitch.MarkWeaponPurchased(btnNo);
-
                 ActivateItem(btnNo);
+               
             }
         }
     }
@@ -108,14 +104,14 @@ public class ShopManager : MonoBehaviour
                 break;
             case 2: // gun
                 gunGot = true;
-                WeaponSwitch weaponSwitch = FindObjectOfType<WeaponSwitch>();
-                weaponSwitch.MarkWeaponPurchased(btnNo);
+                weaponSwitch.weapons.Add(gun);
+                
                 break;
             case 3: // Lasergun
                 teleportGun.bought = true;
-                teleportGun.weaponEquiped = true;
-                lasergun.SetActive(true);
-                Debug.Log("GotGun");
+                weaponSwitch.weapons.Add(lasergun);
+                Debug.Log("Bought");
+               
                 break;
 
             case 4: // TruckFront

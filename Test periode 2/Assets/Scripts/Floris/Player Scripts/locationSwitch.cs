@@ -9,16 +9,18 @@ public class locationSwitch : MonoBehaviour
     public GameObject ship, playerSpace, playerGrav;
     public Camera gravCam, shipCam, playerspaceCam;
     public GameObject healthPanel, fuelPanel;
+    public PaymentManager paymentManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (controller.inShip)
         {
             //fuelPanel.SetActive(true);
@@ -56,4 +58,5 @@ public class locationSwitch : MonoBehaviour
         }
     }
 }
+
 

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class Alien : MonoBehaviour
 {
     public GameObject player;
-    public int ahealth;
+    public float ahealth;
     public int damage;
     public float maxFollowRange, minFollowRange;
     public float attackRange;

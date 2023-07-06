@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class ControllerSwitch : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ControllerSwitch : MonoBehaviour
     public AudioListener audiolist;
     public AudioSource stepInOut;
     public RaycastHit hit;
+    public Transform spawnPointGrav;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class ControllerSwitch : MonoBehaviour
         {
             if (inShip == true)
             {
-                if (Input.GetKeyDown("f"))
+                if (Input.GetKeyDown("f")) // player in grav
                 {
                     if (inTrigger == true)
                     {
@@ -54,7 +56,7 @@ public class ControllerSwitch : MonoBehaviour
                         spaceShip.GetComponent<SpaceShipMovement>().enabled = false;
                         inShip = false;
                     }
-                    else if (inTriggerSpaceStation == true)
+                    else if (inTriggerSpaceStation == true) // player in spacestation
                     {
                         playerGrav.transform.position = spawnPositionSpaceStation.transform.position;
                         stepInOut.Play();
@@ -144,6 +146,9 @@ public class ControllerSwitch : MonoBehaviour
             }
         }
     }
+    
 
-
+   
 }
+
+

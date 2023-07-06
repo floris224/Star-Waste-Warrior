@@ -14,10 +14,10 @@ public class UFO : MonoBehaviour
     public bool isHanging = false;
     public float hangTimer = 0f;
     public int transformIndex = 0;
-    public int ufoHealth;
+    public float ufoHealth;
     public RaycastHit hit;
     public float range;
-
+    public ParticleSystem ufoExplosion;
     private VuilniswagenCapaciteit capaciteit;
     private List<int> spaceshipSlots;
 
@@ -31,6 +31,7 @@ public class UFO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UfoDied();
         if (Vector3.Distance(spaceShip.transform.position, ufo.transform.position) <= range)
         {
             if (isHanging)
@@ -92,7 +93,8 @@ public class UFO : MonoBehaviour
     {
         if (ufoHealth <= 1)
         {
-            Destroy(ufo);
+            ufoExplosion.Play();
+            Destroy(gameObject);
         }
     }
 }

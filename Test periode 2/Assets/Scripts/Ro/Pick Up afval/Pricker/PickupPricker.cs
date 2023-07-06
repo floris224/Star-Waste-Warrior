@@ -6,7 +6,7 @@ using TMPro;
 
 public class PickupPricker : MonoBehaviour
 {
-
+    public ParticleSystem ufoHit;
     public Animator pricker;
     public Collider grabpoint;
     public GameObject end;
@@ -80,11 +80,18 @@ public class PickupPricker : MonoBehaviour
         {
             if (grabpoint.CompareTag("Enemy") && (Time.time > timeStampHit))
             {
-                grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
-                grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
-                alienHit.Play();
+                if (grabpoint.CompareTag("UFO"))
+                {
+                    ufoHit.Play();
+                    grabpoint.gameObject.GetComponent<UFO>().ufoHealth -= damage;
+                }
+                else
+                {
+                    grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
+                    grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
+                    alienHit.Play();
+                }
                 timeStampHit = Time.time + hitcooldown;
-
             }
         }
         if (this.pricker.GetCurrentAnimatorStateInfo(0).IsName("Armature|Pick up "))

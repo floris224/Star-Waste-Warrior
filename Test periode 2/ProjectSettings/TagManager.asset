@@ -27,6 +27,7 @@ TagManager:
   - Particle
   - Scrapper
   - ExitSpaceStation
+  - UFO
   layers:
   - Default
   - TransparentFX

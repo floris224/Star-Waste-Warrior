@@ -9,13 +9,13 @@ public class WeaponSwitch : MonoBehaviour
     public TeleportGun teleportGun;
     public GameObject laserGun;
     public GUN gun;
-    public bool[] weaponPurchased;
+    
     private ShopManager shopManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        weaponPurchased = new bool[weapons.Count];
+        
         shopManager = FindObjectOfType<ShopManager>();
     }
 
@@ -37,14 +37,11 @@ public class WeaponSwitch : MonoBehaviour
 
     void ChangeWeapon(int index)
     {
-        if (!weaponPurchased[currentWeaponIndex])
-        {
-            
-            return;
-        }
+        
 
         weapons[currentWeaponIndex].SetActive(false);
         currentWeaponIndex += index;
+
         if (currentWeaponIndex < 0)
         {
             currentWeaponIndex = weapons.Count - 1;
@@ -55,8 +52,8 @@ public class WeaponSwitch : MonoBehaviour
         }
         weapons[currentWeaponIndex].SetActive(true);
 
-        if (weaponPurchased[currentWeaponIndex])
-        {
+        
+       
             if (weapons[currentWeaponIndex].TryGetComponent(out teleportGun))
             {
                 teleportGun.enabled = true;
@@ -74,31 +71,24 @@ public class WeaponSwitch : MonoBehaviour
             else if (gun != null)
             {
                 gun.enabled = false;
+                gun.hasEquipped = false;
             }
-        }
-        else
-        {
+        
+       
+        
             if (teleportGun != null)
             {
                 teleportGun.enabled = false;
+                teleportGun.weaponEquiped = false;
             }
             if (gun != null)
             {
                 gun.enabled = false;
+                gun.hasEquipped = false;
             }
-        }
+        
     }
 
-    public void MarkWeaponPurchased(int weaponIndex)
-    {
-        if (weaponIndex >= 0 && weaponIndex < weaponPurchased.Length)
-        {
-            weaponPurchased[weaponIndex] = true;
-        }
-    }
-
-    public void UpdateWeaponPurchaseStatus(int weaponIndex)
-    {
-        MarkWeaponPurchased(weaponIndex);
-    }
+    
+    
 }

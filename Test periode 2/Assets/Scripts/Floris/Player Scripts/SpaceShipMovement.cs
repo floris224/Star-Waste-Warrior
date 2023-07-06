@@ -21,7 +21,8 @@ public class SpaceShipMovement : MonoBehaviour
     public float rotationSmoothness = 10f;
     public GameObject[] particles;
     public AudioSource engine;
-    private bool enginePlaying, isFlying;
+    private bool enginePlaying;
+    public bool canMove = true;
     public float maxEngineFuel = 300f, currentEngineFuel;
     public float fuelReduction = 1f;
     public float procent, sliderValue;
@@ -93,45 +94,38 @@ public class SpaceShipMovement : MonoBehaviour
                 particles[i].GetComponent<Thruster>().SetOf();
             }
         }
-        
-        if(currentEngineFuel != 0)
-        {
-            MovementShipManager();
-            
-        }
+        MovementShipManager();
+       
     }
 
     public void MovementShipManager()
     {
-        // move forwards and backwards
-        float movement = Move();
-        Vector3 moveForce = new Vector3(0, 0, -movement);
-        rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
-
-        if (Mathf.Approximately(movement, 0f) == false)
+        if(canMove && currentEngineFuel > 0)
         {
-            // rotation
-            float rotate = Rotation();
-            Vector3 rotateStrenght = new Vector3(0, rotate * rotationSmoothness, 0);
-            Quaternion deltaRotation = Quaternion.Euler(rotateStrenght * rotationSpeed * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * deltaRotation);
-        }
+            float movement = Move();
+            Vector3 moveForce = new Vector3(0, 0, -movement);
+            rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
 
-        // Up Down
-        float upDown = UpDown();
-        Vector3 upDownForce = new Vector3(0, -upDown, 0);
-        rb.AddForce(upDownForce * thrust * Time.deltaTime);
+            if (Mathf.Approximately(movement, 0f) == false)
+            {
+                // rotation
+                float rotate = Rotation();
+                Vector3 rotateStrenght = new Vector3(0, rotate * rotationSmoothness, 0);
+                Quaternion deltaRotation = Quaternion.Euler(rotateStrenght * rotationSpeed * Time.deltaTime);
+                rb.MoveRotation(rb.rotation * deltaRotation);
+            }
 
-        EngineFuel();
-    }
-    public void ExitEnter()
-    {
-        if (interact.triggered)
-        {
-            playerSpace.SetActive(true);
-            
+            // Up Down
+            float upDown = UpDown();
+            Vector3 upDownForce = new Vector3(0, -upDown, 0);
+            rb.AddForce(upDownForce * thrust * Time.deltaTime);
+
+            EngineFuel();
         }
+        
+        
     }
+  
     public void ResetPosition()
     {
         transform.position = spawnPoint.position;
@@ -151,16 +145,12 @@ public class SpaceShipMovement : MonoBehaviour
     {
         return move.ReadValue<float>();
     }
-    public float Interact()
-    {
-        return interact.ReadValue<float>();
-    }
+   
     public void EngineFuel()
     {
         DateTime startTime = DateTime.Now;
         if (move.ReadValue<float>() < 0 && currentEngineFuel > 0)
         {
-            Debug.Log("Current Fuel" + currentEngineFuel);
             currentEngineFuel -= fuelReduction * Time.deltaTime;
         }
         if (currentEngineFuel < 0)
