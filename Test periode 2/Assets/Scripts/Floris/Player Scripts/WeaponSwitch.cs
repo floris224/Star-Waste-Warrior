@@ -9,13 +9,14 @@ public class WeaponSwitch : MonoBehaviour
     public TeleportGun teleportGun;
     public GameObject laserGun;
     public GUN gun;
-    private bool[] weaponPurchased;
+    public bool[] weaponPurchased;
+    private ShopManager shopManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
         weaponPurchased = new bool[weapons.Count];
+        shopManager = FindObjectOfType<ShopManager>();
     }
 
     // Update is called once per frame
@@ -24,11 +25,11 @@ public class WeaponSwitch : MonoBehaviour
         teleportGun = laserGun.GetComponent<TeleportGun>();
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scrollInput > 0f) 
+        if (scrollInput > 0f)
         {
             ChangeWeapon(1);
         }
-        else if (scrollInput < 0f) 
+        else if (scrollInput < 0f)
         {
             ChangeWeapon(-1);
         }
@@ -36,6 +37,12 @@ public class WeaponSwitch : MonoBehaviour
 
     void ChangeWeapon(int index)
     {
+        if (!weaponPurchased[currentWeaponIndex])
+        {
+            
+            return;
+        }
+
         weapons[currentWeaponIndex].SetActive(false);
         currentWeaponIndex += index;
         if (currentWeaponIndex < 0)
@@ -50,7 +57,6 @@ public class WeaponSwitch : MonoBehaviour
 
         if (weaponPurchased[currentWeaponIndex])
         {
-           
             if (weapons[currentWeaponIndex].TryGetComponent(out teleportGun))
             {
                 teleportGun.enabled = true;
@@ -72,7 +78,6 @@ public class WeaponSwitch : MonoBehaviour
         }
         else
         {
-           
             if (teleportGun != null)
             {
                 teleportGun.enabled = false;
@@ -84,12 +89,16 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
 
-  
     public void MarkWeaponPurchased(int weaponIndex)
     {
         if (weaponIndex >= 0 && weaponIndex < weaponPurchased.Length)
         {
             weaponPurchased[weaponIndex] = true;
         }
+    }
+
+    public void UpdateWeaponPurchaseStatus(int weaponIndex)
+    {
+        MarkWeaponPurchased(weaponIndex);
     }
 }

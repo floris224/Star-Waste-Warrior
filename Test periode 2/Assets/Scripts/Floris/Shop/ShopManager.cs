@@ -3,47 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Runtime.CompilerServices;
 
 public class ShopManager : MonoBehaviour
 {
     public GameObject spaceshipMark1, spaceshipMark2;
-    public TeleportGun TeleportGun;
-    public GameObject gun, lasergun, truckBackm2,truckBackm1;
+    public TeleportGun teleportGun;
+    public GameObject gun, lasergun, truckBackm2, truckBackm1, spaceShip;
     public Money cash;
     public TMP_Text coinUI;
     public Shopitem[] shopItemSO;
     public ShopTemplate[] shopPanels;
     public Button[] myPurchaseBtns;
-    public SpaceMovement boost,ropeDistance;
+    public SpaceMovement boost, ropeDistance;
     public float speed;
-    public float distance;
     public SpaceMovement player;
+    public GameObject playerInSpace;
     public PickupPricker ui;
-    public bool hasBoughtGun, hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront, hasBoughtFuelUpgrade;
-  
-    
+    public VuilniswagenCapaciteit vuilniswagenCapaciteit;
+    public Button refuelButton;
+    private bool[] weaponPurchased;
+    public bool gunGot;
+
     // Start is called before the first frame update
     void Start()
     {
-        distance = player.maxDis;
+        weaponPurchased = new bool[shopItemSO.Length];
         speed = boost.thrust;
-
+        refuelButton.onClick.AddListener(Refuel);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         CheckCanBuy();
         CoinsUI();
-        loadPanel();
+        LoadPanel();
     }
+
     public void CoinsUI()
     {
-        coinUI.text = "Galaxy Tokens::" + cash.geld.ToString();
+        coinUI.text = "Galaxy Tokens: " + cash.geld.ToString();
     }
-    public void loadPanel()
+
+    public void LoadPanel()
     {
         for (int i = 0; i < shopItemSO.Length; i++)
         {
@@ -51,6 +53,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].priceText.text = "Price: " + shopItemSO[i].cost.ToString();
         }
     }
+
     public void CheckCanBuy()
     {
         for (int i = 0; i < shopItemSO.Length; i++)
@@ -63,49 +66,96 @@ public class ShopManager : MonoBehaviour
             {
                 myPurchaseBtns[i].interactable = false;
             }
-
         }
     }
+
     public void PurchaseItem(int btnNo)
     {
-        if (cash.geld >= shopItemSO[btnNo].cost)
+        if (btnNo >= 0 && btnNo < shopItemSO.Length)
         {
-            cash.geld = cash.geld - shopItemSO[btnNo].cost;
-            coinUI.text = "Money: " + cash.geld.ToString();
-            CheckCanBuy();
-            ui.UpdateUI();
+            if (cash.geld >= shopItemSO[btnNo].cost)
+            {
+                cash.geld -= shopItemSO[btnNo].cost;
+                coinUI.text = "Galaxy Tokens: " + cash.geld.ToString();
+                CheckCanBuy();
+                ui.UpdateUI();
+                myPurchaseBtns[btnNo].interactable = false;
 
-            myPurchaseBtns[btnNo].interactable = false;
-        }
-        if (btnNo == 0) // boosters
-        {
-            speed = 600f;
-        }
-        else if (btnNo == 1) // lasergun
-        {
-            TeleportGun.bought = true;
-            lasergun.SetActive(true);
-            Debug.Log("GotGun");
-        }
-        else if (btnNo == 2) // rope
-        {
-            ropeDistance.maxDis = 30;
-        }
-        else if (btnNo == 3) // truckBack
-        {
-            truckBackm1.SetActive(false);
-            truckBackm2.SetActive(true);
-        }
-        else if (btnNo == 4) // truckfront
-        {
-            spaceshipMark1.SetActive(false);
-            spaceshipMark2.SetActive(true);
-        }
-        else if (btnNo == 5) // betterframe
-        {
-           
+                MarkWeaponPurchased(btnNo);
+
+                WeaponSwitch weaponSwitch = FindObjectOfType<WeaponSwitch>();
+                weaponSwitch.MarkWeaponPurchased(btnNo);
+
+                ActivateItem(btnNo);
+            }
         }
     }
 
-}
+    private void MarkWeaponPurchased(int weaponIndex)
+    {
+        weaponPurchased[weaponIndex] = true;
+    }
 
+    private void ActivateItem(int btnNo)
+    {
+        switch (btnNo)
+        {
+            case 0: // Boosters
+                speed = 600f;
+                break;
+            case 1: // Rope
+                ropeDistance.maxDis = 30;
+                break;
+            case 2: // gun
+                gunGot = true;
+                WeaponSwitch weaponSwitch = FindObjectOfType<WeaponSwitch>();
+                weaponSwitch.MarkWeaponPurchased(btnNo);
+                break;
+            case 3: // Lasergun
+                teleportGun.bought = true;
+                teleportGun.weaponEquiped = true;
+                lasergun.SetActive(true);
+                Debug.Log("GotGun");
+                break;
+
+            case 4: // TruckFront
+                spaceshipMark1.SetActive(false);
+                spaceshipMark2.SetActive(true);
+                break;
+            case 5:// TruckBack
+                truckBackm1.SetActive(false);
+                truckBackm2.SetActive(true);
+                vuilniswagenCapaciteit.maxCapacitySpaceShip = 10;
+                break;
+            case 6: //FuelUpgrade
+                spaceShip.GetComponent<SpaceShipMovement>().maxEngineFuel = 400;
+
+                break;
+            case 7: // medkit
+                int medKidCost = 50;
+                if (cash.geld >= medKidCost)
+                {
+                    cash.geld -= medKidCost;
+                    coinUI.text = "Galaxy Tokens: " + cash.geld.ToString();
+                    playerInSpace.GetComponent<PlayerHealth>().health += 50;
+                }
+                break;
+
+        }
+    }
+    public void Refuel()
+    {
+        int refuelCost = 200;
+        if (cash.geld >= refuelCost)
+        {
+            cash.geld -= refuelCost;
+            coinUI.text = "Galaxy Tokens: " + cash.geld.ToString();
+            spaceShip.GetComponent<SpaceShipMovement>().currentEngineFuel = spaceShip.GetComponent<SpaceShipMovement>().maxEngineFuel;
+        }
+        else
+        {
+            
+            Debug.Log("No Money");
+        }
+    }
+}    

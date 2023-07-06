@@ -112,13 +112,13 @@ public class Data : MonoBehaviour
         _inspace = _controllerSwitch.doesPlayerSpaceExist;
         _ingrav = _controllerSwitch.inTrigger;
         
-        hasBought = shopManager.hasBoughtGun;
-        hasBoughtTeleportGun = shopManager.TeleportGun.bought;
-        hasBoughtBoosters = shopManager.hasBoughtBoosters;
-        hasBoughtFuelUpgrade = shopManager.hasBoughtFuelUpgrade;
-        hasBoughtRope = shopManager.hasBoughtRope;
-        hasBoughtTruckBack =shopManager.hasBoughtTruckBack;
-        hasBoughtTruckFront = shopManager.hasBoughtTruckFront;
+        //hasBought = shopManager.hasBoughtGun;
+        //hasBoughtTeleportGun = shopManager.TeleportGun.bought;
+        //hasBoughtBoosters = shopManager.hasBoughtBoosters;
+        //hasBoughtFuelUpgrade = shopManager.hasBoughtFuelUpgrade;
+        //hasBoughtRope = shopManager.hasBoughtRope;
+        //hasBoughtTruckBack =shopManager.hasBoughtTruckBack;
+        //hasBoughtTruckFront = shopManager.hasBoughtTruckFront;
 
         fuel = spaceShip.GetComponent<SpaceShipMovement>().currentEngineFuel;
 

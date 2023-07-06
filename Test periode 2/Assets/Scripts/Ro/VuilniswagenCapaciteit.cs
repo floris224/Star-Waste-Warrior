@@ -17,6 +17,7 @@ public class VuilniswagenCapaciteit : MonoBehaviour
     void Start()
     {
         pickUpPrikker = GetComponent<PickupPricker>();
+        
         playerInventory = pickUpPrikker.capaciteitList;
         currentCapacitySpaceShip = spaceshipSlots.Count;
         maxCapacitySpaceShip = 5;
@@ -75,6 +76,7 @@ public class VuilniswagenCapaciteit : MonoBehaviour
         {
             spaceshipSlots.Add(totalMoney);
             pickUpPrikker.capaciteitList.Clear();
+            
         }
     }
 

@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,10 @@ public class Road : MonoBehaviour
     public bool isMoving;
     public float timer;
     public float moveToWardsSpeed;
+    public float rotationSmoothness;
+    public quaternion quaternionIdentity;
     
+
     public GameObject playerInGrav;
     public GameObject player;
 
@@ -47,10 +51,9 @@ public class Road : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (isMoving)
         {
-
             float step = moveToWardsSpeed * Time.deltaTime;
             spaceship.transform.position = Vector3.MoveTowards(spaceship.transform.position, spaceshipGoToPosition.transform.position, step);
 
@@ -58,22 +61,19 @@ public class Road : MonoBehaviour
             {
                 Quaternion targetRotation = Quaternion.LookRotation(spaceshipGoToPosition.transform.position - spaceship.transform.position, Vector3.up);
 
-                spaceship.transform.rotation = targetRotation;
+                spaceship.transform.rotation = Quaternion.Slerp(spaceship.transform.rotation, targetRotation * quaternionIdentity, Time.deltaTime * rotationSmoothness);
+
                 isMoving = false;
-                
             }
-           
+
+
+
+
+
+
 
         }
-
-        
-        
-
-
-
-
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("SpaceShip"))

@@ -103,27 +103,24 @@ public class SpaceShipMovement : MonoBehaviour
 
     public void MovementShipManager()
     {
-        // move forwards backwards
-        
+        // move forwards and backwards
         float movement = Move();
         Vector3 moveForce = new Vector3(0, 0, -movement);
         rb.AddRelativeForce(moveForce * thrust * Time.deltaTime);
 
         if (Mathf.Approximately(movement, 0f) == false)
         {
-            //rotation
+            // rotation
             float rotate = Rotation();
-            Vector3 rotateStrenght = new Vector3(0, rotate, 0);
-            rb.AddTorque(rotateStrenght * rotationSpeed * Time.deltaTime);
-            
+            Vector3 rotateStrenght = new Vector3(0, rotate * rotationSmoothness, 0);
+            Quaternion deltaRotation = Quaternion.Euler(rotateStrenght * rotationSpeed * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * deltaRotation);
         }
 
-
-        //Up Down
+        // Up Down
         float upDown = UpDown();
-        Vector3 UpDownStrenght = new Vector3(0, -upDown, 0);
-        rb.AddForce(UpDownStrenght * thrust * Time.deltaTime);
-
+        Vector3 upDownForce = new Vector3(0, -upDown, 0);
+        rb.AddForce(upDownForce * thrust * Time.deltaTime);
 
         EngineFuel();
     }
