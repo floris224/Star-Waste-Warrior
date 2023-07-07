@@ -14,6 +14,7 @@ public class SaveLoadData
     public int playerMoney;
     public bool _inship, _inspace, _ingrav, hasBought, hasBoughtTeleportGun, hasBoughtFuelUpgrade, hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
 
+    
     public SaveLoadData(Data data)
     {
         _inship = data._inship;

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    public Camera playerCam;
+    public GameObject playerGrav;
     public GameObject panelShop;
     public GameObject panelShopMenu;
     private DefaultActionMap actionMap;
@@ -16,7 +18,7 @@ public class MenuManager : MonoBehaviour
     public PickupPricker ui;
     public PaymentManager paymentManager;
     public Button payMent;
-
+    public bool shopMenuOpen = false;
 
 
 
@@ -43,17 +45,22 @@ public class MenuManager : MonoBehaviour
     {
         if (interact.triggered)
         {
-            if(Physics.Raycast(camInGrav.transform.position, camInGrav.transform.forward, out hit, 2f))
+            if (!shopMenuOpen)
             {
-                if(hit.transform.tag == "ShopKeeper")
+                if (Physics.Raycast(camInGrav.transform.position, camInGrav.transform.forward, out hit, 2f))
                 {
-                    gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                    Debug.Log("ShopKeeper");
-                    
-                    ShopManager();
+                    if (hit.transform.tag == "ShopKeeper")
+                    {
+                        playerGrav.GetComponent<MovementinGrav>().enabled = false;
+                        playerCam.GetComponent<Look>().enabled = false;
+                        Debug.Log("ShopKeeper");
 
+                        ShopManager();
+
+                    }
                 }
             }
+           
         }
         
     }
@@ -69,6 +76,7 @@ public class MenuManager : MonoBehaviour
     public void ShopManager()
     {
         panelShopMenu.SetActive(true);
+        shopMenuOpen = true;
     }
 
     public void Leave()
@@ -79,7 +87,9 @@ public class MenuManager : MonoBehaviour
     public void Exit()
     {
         panelShopMenu.SetActive(false);
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        playerGrav.GetComponent<MovementinGrav>().enabled = true;
+        playerCam.GetComponent<Look>().enabled = true;
+        shopMenuOpen = false;
     }
 
 

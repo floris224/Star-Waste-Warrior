@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    public Transform camPlacement;
+    public Camera truckCam;
     public GameObject spaceshipMark1, spaceshipMark2;
     public TeleportGun teleportGun;
     public GameObject gun, lasergun, truckBackm2, truckBackm1, spaceShip;
@@ -22,13 +24,13 @@ public class ShopManager : MonoBehaviour
     public VuilniswagenCapaciteit vuilniswagenCapaciteit;
     public Button refuelButton;
     public WeaponSwitch weaponSwitch;
-    private bool[] weaponPurchased;
+    public bool _inship, _inspace, _ingrav, hasBoughtTeleportGun, hasBoughtFuelUpgrade;
+    public bool hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
     public bool gunGot;
 
     // Start is called before the first frame update
     void Start()
     {
-        weaponPurchased = new bool[shopItemSO.Length];
         speed = boost.thrust;
         refuelButton.onClick.AddListener(Refuel);
     }
@@ -87,10 +89,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private void MarkWeaponPurchased(int weaponIndex)
-    {
-        weaponPurchased[weaponIndex] = true;
-    }
+   
 
     private void ActivateItem(int btnNo)
     {
@@ -106,8 +105,10 @@ public class ShopManager : MonoBehaviour
                 gunGot = true;
                 weaponSwitch.weapons.Add(gun);
                 
+                
                 break;
             case 3: // Lasergun
+                hasBoughtTeleportGun = true;
                 teleportGun.bought = true;
                 weaponSwitch.weapons.Add(lasergun);
                 Debug.Log("Bought");
@@ -115,19 +116,25 @@ public class ShopManager : MonoBehaviour
                 break;
 
             case 4: // TruckFront
+                hasBoughtTruckFront = true;
                 spaceshipMark1.SetActive(false);
                 spaceshipMark2.SetActive(true);
                 break;
             case 5:// TruckBack
+
+                truckCam.transform.position = camPlacement.transform.position;
+                hasBoughtTruckBack = true;
                 truckBackm1.SetActive(false);
                 truckBackm2.SetActive(true);
                 vuilniswagenCapaciteit.maxCapacitySpaceShip = 10;
                 break;
             case 6: //FuelUpgrade
+                hasBoughtFuelUpgrade = true;
                 spaceShip.GetComponent<SpaceShipMovement>().maxEngineFuel = 400;
 
                 break;
             case 7: // medkit
+                
                 int medKidCost = 50;
                 if (cash.geld >= medKidCost)
                 {

@@ -418,15 +418,6 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
             ""id"": ""a6684955-070c-4a88-9d2e-926924f7dae3"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""3b8c70d5-fba6-4fc3-a544-a9c405863ed7"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""42044c63-f2c8-49e6-bf7d-31ce8de4b072"",
@@ -443,6 +434,24 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ForwardsBackwards"",
+                    ""type"": ""Button"",
+                    ""id"": ""8da0e27e-d5d6-4981-a9e2-de8935fedca7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left/Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""982d9a3b-b806-4951-9e32-a157e60ad439"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -469,57 +478,68 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""527ca4cc-3603-4f31-86d9-6a7f22dd2431"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""aded660c-dd93-4a89-b7e7-7e7996301e02"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""ForwardsBackwards"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""e0b76a94-c8e7-4ab5-9e7c-6817cb47f071"",
+                    ""name"": ""negative"",
+                    ""id"": ""a14a8c23-4995-4add-bbc2-612d9068d005"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""ForwardsBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""912a6e6a-72ad-4c47-9337-98b088ed1bc0"",
+                    ""name"": ""positive"",
+                    ""id"": ""08afb26a-2621-4819-82e3-9f48762e1324"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""ForwardsBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""34b1303e-1027-4140-a3c4-2f896c0a2a13"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""59eae201-ae25-4808-9d4f-024cb79471d0"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left/Right"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""10bf6b0a-b8bd-4d94-a48a-b3379961eead"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Left/Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""0d4df66b-0378-4c00-ab9b-a4bef7220336"",
+                    ""name"": ""positive"",
+                    ""id"": ""af0e7813-3f61-4127-826b-8e1c0097970c"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""Left/Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -545,9 +565,10 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         m_PlayerSpace_Boost = m_PlayerSpace.FindAction("Boost", throwIfNotFound: true);
         // PlayerInForcefield
         m_PlayerInForcefield = asset.FindActionMap("PlayerInForcefield", throwIfNotFound: true);
-        m_PlayerInForcefield_Move = m_PlayerInForcefield.FindAction("Move", throwIfNotFound: true);
         m_PlayerInForcefield_Interact = m_PlayerInForcefield.FindAction("Interact", throwIfNotFound: true);
         m_PlayerInForcefield_FirstPlayerCam = m_PlayerInForcefield.FindAction("FirstPlayerCam", throwIfNotFound: true);
+        m_PlayerInForcefield_ForwardsBackwards = m_PlayerInForcefield.FindAction("ForwardsBackwards", throwIfNotFound: true);
+        m_PlayerInForcefield_LeftRight = m_PlayerInForcefield.FindAction("Left/Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -773,16 +794,18 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     // PlayerInForcefield
     private readonly InputActionMap m_PlayerInForcefield;
     private List<IPlayerInForcefieldActions> m_PlayerInForcefieldActionsCallbackInterfaces = new List<IPlayerInForcefieldActions>();
-    private readonly InputAction m_PlayerInForcefield_Move;
     private readonly InputAction m_PlayerInForcefield_Interact;
     private readonly InputAction m_PlayerInForcefield_FirstPlayerCam;
+    private readonly InputAction m_PlayerInForcefield_ForwardsBackwards;
+    private readonly InputAction m_PlayerInForcefield_LeftRight;
     public struct PlayerInForcefieldActions
     {
         private @DefaultActionMap m_Wrapper;
         public PlayerInForcefieldActions(@DefaultActionMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerInForcefield_Move;
         public InputAction @Interact => m_Wrapper.m_PlayerInForcefield_Interact;
         public InputAction @FirstPlayerCam => m_Wrapper.m_PlayerInForcefield_FirstPlayerCam;
+        public InputAction @ForwardsBackwards => m_Wrapper.m_PlayerInForcefield_ForwardsBackwards;
+        public InputAction @LeftRight => m_Wrapper.m_PlayerInForcefield_LeftRight;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInForcefield; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -792,28 +815,34 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerInForcefieldActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerInForcefieldActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
             @FirstPlayerCam.started += instance.OnFirstPlayerCam;
             @FirstPlayerCam.performed += instance.OnFirstPlayerCam;
             @FirstPlayerCam.canceled += instance.OnFirstPlayerCam;
+            @ForwardsBackwards.started += instance.OnForwardsBackwards;
+            @ForwardsBackwards.performed += instance.OnForwardsBackwards;
+            @ForwardsBackwards.canceled += instance.OnForwardsBackwards;
+            @LeftRight.started += instance.OnLeftRight;
+            @LeftRight.performed += instance.OnLeftRight;
+            @LeftRight.canceled += instance.OnLeftRight;
         }
 
         private void UnregisterCallbacks(IPlayerInForcefieldActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
             @FirstPlayerCam.started -= instance.OnFirstPlayerCam;
             @FirstPlayerCam.performed -= instance.OnFirstPlayerCam;
             @FirstPlayerCam.canceled -= instance.OnFirstPlayerCam;
+            @ForwardsBackwards.started -= instance.OnForwardsBackwards;
+            @ForwardsBackwards.performed -= instance.OnForwardsBackwards;
+            @ForwardsBackwards.canceled -= instance.OnForwardsBackwards;
+            @LeftRight.started -= instance.OnLeftRight;
+            @LeftRight.performed -= instance.OnLeftRight;
+            @LeftRight.canceled -= instance.OnLeftRight;
         }
 
         public void RemoveCallbacks(IPlayerInForcefieldActions instance)
@@ -850,8 +879,9 @@ public partial class @DefaultActionMap: IInputActionCollection2, IDisposable
     }
     public interface IPlayerInForcefieldActions
     {
-        void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnFirstPlayerCam(InputAction.CallbackContext context);
+        void OnForwardsBackwards(InputAction.CallbackContext context);
+        void OnLeftRight(InputAction.CallbackContext context);
     }
 }

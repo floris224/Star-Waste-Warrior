@@ -1,13 +1,14 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Unity.Mathematics;
+using UnityEngine.EventSystems;
 
 public class MovementinGrav : MonoBehaviour
 {
     public float speed;
     private Rigidbody rb;
     private DefaultActionMap actionMap;
-    private InputAction move;
+    private InputAction movementZ, movementX;
     private InputAction mouseAction;
     public Transform camRotation;
     public AudioSource footstep;
@@ -21,13 +22,16 @@ public class MovementinGrav : MonoBehaviour
 
     void OnEnable()
     {
-        move = actionMap.PlayerInForcefield.Move;
-        move.Enable();
+         movementX= actionMap.PlayerInForcefield.LeftRight;
+         movementZ= actionMap.PlayerInForcefield.ForwardsBackwards;
+         movementX.Enable();
+         movementZ.Enable();
     }
 
     void OnDisable()
     {
-        move.Disable();
+        movementZ.Disable();
+        movementX.Disable();
     }
 
 
@@ -47,28 +51,36 @@ public class MovementinGrav : MonoBehaviour
             footstep.Stop();
             footstepPlaying = false;
         }
-        // movement
-        Vector2 moveValue = Move();
-        Vector3 forward = camRotation.forward;
-        Vector3 right = camRotation.right;
-        forward.y = 0f;
-        right.y = 0f;
-        Vector3 movement = (right.normalized * moveValue.x + forward.normalized * moveValue.y);
-        rb.velocity = movement * speed * Time.deltaTime;
+        Vector3 cameraForward = camRotation.rotation * Vector3.forward;
+        cameraForward.y = 0f;
+
+        float forwards = ForwardsBackwards();
+        Vector3 moveForce = cameraForward * -forwards;
+        
+
+        float leftRight = LeftRight();
+        moveForce += camRotation.right * leftRight;
+        rb.velocity = moveForce.normalized * speed;
+
+        
     }
 
     public void ResetPosition()
     {
-        transform.position = spawnPoint.position;
+        gameObject.transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
     }
 
 
 
 
-    Vector2 Move()
+    public float LeftRight()
     {
-        return move.ReadValue<Vector2>();
+        return movementX.ReadValue<float>();
     }
     
+    public float ForwardsBackwards()
+    {
+        return movementZ.ReadValue<float>();
+    }
 }

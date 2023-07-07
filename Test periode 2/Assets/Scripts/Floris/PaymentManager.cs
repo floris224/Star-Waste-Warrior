@@ -29,7 +29,7 @@ public class PaymentManager : MonoBehaviour
     }
     public void Update()
     {
-        if (playerHealth.health == 0 || spaceShipMovement.currentEngineFuel == 0)
+        if (playerHealth.health == 0 || spaceShipMovement.currentEngineFuel == 0 || playerInGrav.GetComponent<MovementinGrav>().transform.position.y < -10)
         {
             ticketPanel.SetActive(true);
             gameOverPanel.SetActive(true);
@@ -47,6 +47,7 @@ public class PaymentManager : MonoBehaviour
     {
         int paymentAmount = 0;
         int minimumMoney = -1000;
+        int fineAmount = 500;
 
         if (playerHealth.health == 0)
         {
@@ -77,6 +78,21 @@ public class PaymentManager : MonoBehaviour
             }
            
            
+        }
+        else if (playerInGrav.activeSelf == true)
+        {
+           
+            if (money.geld >= minimumMoney)
+            {
+                money.geld -= fineAmount;
+                playerInGrav.GetComponent<MovementinGrav>().ResetPosition();
+            }
+            else
+            {
+                GameOver();
+                Time.timeScale = 0f;
+                return;
+            }
         }
 
         if (money.geld >= minimumMoney && spaceShipMovement.currentEngineFuel == 0)

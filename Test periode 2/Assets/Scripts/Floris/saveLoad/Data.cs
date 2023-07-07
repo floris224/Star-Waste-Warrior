@@ -62,6 +62,8 @@ public class Data : MonoBehaviour
             hasBoughtTruckBack = data.hasBoughtTruckBack;
             hasBoughtTruckFront = data.hasBoughtTruckFront;
 
+            
+
             inshipLoc[0] = data.shipPos1;
             inshipLoc[1] = data.shipPos2;
             inshipLoc[2] = data.shipPos3;
@@ -111,14 +113,14 @@ public class Data : MonoBehaviour
         _inship = _controllerSwitch.inShip;
         _inspace = _controllerSwitch.doesPlayerSpaceExist;
         _ingrav = _controllerSwitch.inTrigger;
-        
-        //hasBought = shopManager.hasBoughtGun;
-        //hasBoughtTeleportGun = shopManager.TeleportGun.bought;
-        //hasBoughtBoosters = shopManager.hasBoughtBoosters;
-        //hasBoughtFuelUpgrade = shopManager.hasBoughtFuelUpgrade;
-        //hasBoughtRope = shopManager.hasBoughtRope;
-        //hasBoughtTruckBack =shopManager.hasBoughtTruckBack;
-        //hasBoughtTruckFront = shopManager.hasBoughtTruckFront;
+
+        hasBought = shopManager.gunGot;
+        hasBoughtTeleportGun = shopManager.hasBoughtTeleportGun;
+        hasBoughtBoosters = shopManager.hasBoughtBoosters;
+        hasBoughtFuelUpgrade = shopManager.hasBoughtFuelUpgrade;
+       
+        hasBoughtTruckBack =shopManager.hasBoughtTruckBack;
+        hasBoughtTruckFront = shopManager.hasBoughtTruckFront;
 
         fuel = spaceShip.GetComponent<SpaceShipMovement>().currentEngineFuel;
 

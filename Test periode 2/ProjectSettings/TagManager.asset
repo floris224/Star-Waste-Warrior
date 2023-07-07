@@ -28,6 +28,7 @@ TagManager:
   - Scrapper
   - ExitSpaceStation
   - UFO
+  - PlayerInGrav
   layers:
   - Default
   - TransparentFX
