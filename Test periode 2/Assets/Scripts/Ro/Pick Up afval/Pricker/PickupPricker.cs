@@ -80,17 +80,18 @@ public class PickupPricker : MonoBehaviour
         {
             if (grabpoint.CompareTag("Enemy") && (Time.time > timeStampHit))
             {
-                if (grabpoint.CompareTag("UFO"))
-                {
-                    ufoHit.Play();
-                    grabpoint.gameObject.GetComponent<UFO>().ufoHealth -= damage;
-                }
-                else
-                {
-                    grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
-                    grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
-                    alienHit.Play();
-                }
+                
+                
+                grabpoint.gameObject.GetComponent<Alien>().ahealth -= damage;
+                grabpoint.gameObject.GetComponent<Alien>().particleHit.Emit(6);
+                alienHit.Play();
+                
+                timeStampHit = Time.time + hitcooldown;
+            }
+            if (grabpoint.CompareTag("UFO") && (Time.time > timeStampHit))
+            {
+                grabpoint.gameObject.GetComponent<UFO>().ufoHealth -= damage;
+                ufoHit.Play();
                 timeStampHit = Time.time + hitcooldown;
             }
         }

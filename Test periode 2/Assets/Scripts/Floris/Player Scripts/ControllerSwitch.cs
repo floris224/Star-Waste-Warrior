@@ -15,6 +15,7 @@ public class ControllerSwitch : MonoBehaviour
     public AudioSource stepInOut;
     public RaycastHit hit;
     public Transform spawnPointGrav;
+    public Transform spawnPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +52,7 @@ public class ControllerSwitch : MonoBehaviour
                         healthPanel.SetActive(false);
                         spaceShipCam.enabled = false;
                         playerGrav.SetActive(true);
+                        playerGrav.transform.position = spawnPointGrav.transform.position;
                         playerGravCam.enabled = true;
                         playerGrav.GetComponent<MovementinGrav>().enabled = true;
                         spaceShip.GetComponent<SpaceShipMovement>().enabled = false;

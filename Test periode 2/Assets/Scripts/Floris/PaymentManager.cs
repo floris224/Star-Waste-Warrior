@@ -97,7 +97,7 @@ public class PaymentManager : MonoBehaviour
 
         if (money.geld >= minimumMoney && spaceShipMovement.currentEngineFuel == 0)
         {
-            spaceShipMovement.currentEngineFuel += paymentAmount;
+            spaceShipMovement.currentEngineFuel += 150;
             money.geld -= paymentAmount;
             spaceShipMovement.canMove = true;
             spaceShipMovement.ResetPosition();

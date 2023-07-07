@@ -11,6 +11,7 @@ public class Raycast : MonoBehaviour
     public PickupPricker ui;
     public string[] tags;
     public GameObject f;
+    public GameObject victoryPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,17 @@ public class Raycast : MonoBehaviour
         
         if (Physics.Raycast(transform.position, transform.forward, out hit, 5))
         {
+            if (hit.collider.tag == "Victory")
+            {
+                if (quest.questcomplete == 5)
+                {
+                    if (Input.GetKeyDown("f"))
+                    {
+                        victoryPanel.SetActive(true);
+                        Time.timeScale = 0;
+                    }
+                }
+            }
             for (int i = 0; i < tags.Length; i++)
             {
                 if (hit.collider.tag == tags[i])

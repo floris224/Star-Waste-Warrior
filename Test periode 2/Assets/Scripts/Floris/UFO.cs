@@ -17,7 +17,7 @@ public class UFO : MonoBehaviour
     public float ufoHealth;
     public RaycastHit hit;
     public float range;
-    public ParticleSystem ufoExplosion;
+    public GameObject ufoExplosion;
     private VuilniswagenCapaciteit capaciteit;
     private List<int> spaceshipSlots;
 
@@ -93,8 +93,10 @@ public class UFO : MonoBehaviour
     {
         if (ufoHealth <= 1)
         {
-            ufoExplosion.Play();
+            
+            Instantiate(ufoExplosion, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
+            
         }
     }
 }
