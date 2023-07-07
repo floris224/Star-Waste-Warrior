@@ -9,17 +9,19 @@ public class Quest : MonoBehaviour
     public bool questininv, queststarted;
     public string ininv;
     public GameObject quest, okay, bye;
-    public TMP_Text npcSays;
+    public TMP_Text npcSays, questCount, inventoryCoutn, galaxyTokens, shopMoney;
     public string[] items; // save
     public GameObject player, cam;
+    public Money money;
+    public PickupPricker pickuppricker;
     // Start is called before the first frame update
     void Start()
     {
-        items[0] = "Item1";
-        items[1] = "Item2";
-        items[2] = "Item3";
-        items[3] = "Item4";
-        items[4] = "Core";
+        items[0] = "Nokia";
+        items[1] = "Chips";
+        items[2] = "Red core";
+        items[3] = "Blue core";
+        items[4] = "Yellow core";
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class Quest : MonoBehaviour
         player.GetComponent<MovementinGrav>().enabled = false;
         cam.GetComponent<Look>().enabled = false;
         quest.SetActive(true);
-        npcSays.text = ("Search for these Items: Item1, Item2, Item3, Item4, Core");
+        npcSays.text = ("Search for items that have yellow sparks");
         queststarted = true;
     }
     public void EndQuest()
@@ -90,5 +92,13 @@ public class Quest : MonoBehaviour
     {
         player.GetComponent<MovementinGrav>().enabled = true;
         cam.GetComponent<Look>().enabled = true;
+    }
+
+    public void UpdateUI()
+    {
+        questCount.text = "Quest: " + questcomplete + "/ 5";
+        inventoryCoutn.text = "Inventory: " + pickuppricker.capaciteit + "/5";
+        galaxyTokens.text = "Money: " + money.geld;
+        
     }
 }

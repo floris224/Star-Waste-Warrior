@@ -70,7 +70,7 @@ public class WeaponSwitch : MonoBehaviour
             }
             else if (gun != null)
             {
-                gun.enabled = false;
+                gun.hasBought = true;
                 gun.hasEquipped = false;
             }
         
@@ -83,7 +83,7 @@ public class WeaponSwitch : MonoBehaviour
             }
             if (gun != null)
             {
-                gun.enabled = false;
+                gun.hasBought = true;
                 gun.hasEquipped = false;
             }
         

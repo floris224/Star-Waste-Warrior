@@ -14,12 +14,16 @@ public class InTriggerSpaceStation : MonoBehaviour
     {
        
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.gameObject.transform.CompareTag("SpaceShip"))
         {
             controlSwitch.inTriggerSpaceStation = true;
             
+        }
+        else
+        {
+            controlSwitch.inTriggerSpaceStation = false;
         }
     }
 }

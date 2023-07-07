@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6134146299435069567}
   - component: {fileID: 7101901847938842586}
   - component: {fileID: 5002357152158141200}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blikje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4254486353963721301}
   - component: {fileID: 4728185026529814519}
   - component: {fileID: 7350212104809244648}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: blikje outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

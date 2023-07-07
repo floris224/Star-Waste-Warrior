@@ -102,7 +102,7 @@ public class ControllerSwitch : MonoBehaviour
             inTrigger = false;
         }
     }
-    // Update is called once per frame
+    
     public void SwitchController()
     {
         stepInOut.Play();
@@ -134,16 +134,16 @@ public class ControllerSwitch : MonoBehaviour
                     fuelPanel.SetActive(true);
                     healthPanel.SetActive(false);
                     timeStamp = Time.time + 3f;
-                    inShip = true;
-                    spaceShipCam.enabled = true;
-                    playerSpace.SetActive(false);
-                    playerSpaceCam.enabled = false;
-                    doesPlayerSpaceExist = false;
+                    inShip = false; // Update the inShip variable to false
+                    spaceShipCam.enabled = false;
+                    playerSpace.SetActive(true);
+                    playerSpaceCam.enabled = true;
+                    doesPlayerSpaceExist = true;
                     playerGrav.SetActive(false);
                     playerGravCam.enabled = false;
                     playerGrav.GetComponent<MovementinGrav>().enabled = false;
-                    playerSpace.GetComponent<SpaceMovement>().enabled = false;
-                    spaceShip.GetComponent<SpaceShipMovement>().enabled = true;
+                    playerSpace.GetComponent<SpaceMovement>().enabled = true;
+                    spaceShip.GetComponent<SpaceShipMovement>().enabled = false;
                 }
             }
         }

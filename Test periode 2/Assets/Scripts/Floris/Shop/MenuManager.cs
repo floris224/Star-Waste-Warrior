@@ -92,6 +92,11 @@ public class MenuManager : MonoBehaviour
         shopMenuOpen = false;
     }
 
+    public void Talk()
+    {
+        shopMenuOpen = false;
+    }
+
 
     private float interactInput()
     {

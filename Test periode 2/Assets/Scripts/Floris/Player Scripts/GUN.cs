@@ -7,7 +7,7 @@ using static Unity.VisualScripting.Member;
 public class GUN : MonoBehaviour
 {
     public  RaycastHit hit;
-    public GameObject shotPoint;
+    public GameObject shotPoint, gunSound;
     public float gunDamage;
     public bool hasBought, hasEquipped;
     public ParticleSystem muzzleFlash;
@@ -26,40 +26,41 @@ public class GUN : MonoBehaviour
             Shoot(100f);
             muzzleFlash.Play();
             Debug.Log("shot");
+            gunSound.GetComponent<AudioSource>().Play();
 
         }
     }
     void Shoot(float range)
     {
-        
-        if(hasBought == true)
+
+        if (Physics.Raycast(shotPoint.transform.position, shotPoint.transform.forward, out hit, range))
         {
-            if (Physics.Raycast(shotPoint.transform.position, shotPoint.transform.forward, out hit, range))
-            {
 
-                Alien enemy = hit.rigidbody.GetComponent<Alien>();
+           
+
+            if (hit.transform.CompareTag("UFO"))
+            {
                 UFO ufo = hit.rigidbody.GetComponent<UFO>();
-                
-                if( enemy != null)
-                {
-                    enemy.ahealth -= gunDamage;
-                }
-
-                if(ufo != null)
-                {
-                    ufo.ufoHealth -= gunDamage;
-                }
-
-
-
-
+                ufo.ufoHealth -= gunDamage;
             }
-            else
+            else if (hit.transform.CompareTag("Enemy"))
             {
-                Debug.Log("Miss");
+                Alien enemy = hit.rigidbody.GetComponent<Alien>();
+                enemy.ahealth -= gunDamage;
             }
+           
+
+
+
+
         }
-        
+        else
+        {
+            Debug.Log("Miss");
+        }
+
+
+
     }
    
 }

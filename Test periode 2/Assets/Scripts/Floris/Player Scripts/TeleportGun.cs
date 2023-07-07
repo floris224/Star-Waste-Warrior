@@ -43,30 +43,29 @@ public class TeleportGun : MonoBehaviour
         }
 
 
-        if (bought == true && weaponEquiped == true)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (currentCapacity <= maxCapacityInventory)
-                {
-                    GameObject bullet = Instantiate(bulletPrefab, shotPoint.transform.position, shotPoint.transform.rotation);
-                }
-                else if (currentCapacity >= maxCapacityInventory)
-                {
-                    totalMoneyInventory();
-                    trashCapacity.spaceshipSlots.Add(totalMoney);
-                    inventory.Clear();
-                    currentCapacity = 0;
-                   
 
-                    if (currentCapacitySpaceShip >= maxCapacitySpaceship)
-                    {
-                        currentCapacitySpaceShip = maxCapacitySpaceship;
-                        Debug.Log("SpaceShip Full");
-                    }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (currentCapacity <= maxCapacityInventory)
+            {
+                GameObject bullet = Instantiate(bulletPrefab, shotPoint.transform.position, shotPoint.transform.rotation);
+            }
+            else if (currentCapacity >= maxCapacityInventory)
+            {
+                totalMoneyInventory();
+                trashCapacity.spaceshipSlots.Add(totalMoney);
+                inventory.Clear();
+                currentCapacity = 0;
+
+
+                if (currentCapacitySpaceShip >= maxCapacitySpaceship)
+                {
+                    currentCapacitySpaceShip = maxCapacitySpaceship;
+                    Debug.Log("SpaceShip Full");
                 }
             }
         }
+
     }
   
     public bool tagsMatch(string tag)

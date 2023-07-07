@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4679867752115410661}
   - component: {fileID: 8432798300386361877}
   - component: {fileID: 4933833040979974998}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 4packblikjesOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6620084817328576367}
   - component: {fileID: 1272328607950757965}
   - component: {fileID: 2012084442841228224}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 4packblikjes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7834687378830996575}
   - component: {fileID: 6563360099429661690}
   - component: {fileID: 9003058998901657392}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RadioactiveBarrelSmooth (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

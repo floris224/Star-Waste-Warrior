@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5276838315043562284}
   - component: {fileID: 26198378294326670}
   - component: {fileID: 2873861254940892148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Koelkast
   m_TagString: TrashLarge
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 9210360706087198980}
   - component: {fileID: 7578219301667838939}
   - component: {fileID: 3493032423956425329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KoelkastOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3443851105340390188}
   - component: {fileID: 1757775773649433737}
   - component: {fileID: 4575701791042797635}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Melkfixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

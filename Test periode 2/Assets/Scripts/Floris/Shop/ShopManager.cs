@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class ShopManager : MonoBehaviour
 {
@@ -27,10 +28,16 @@ public class ShopManager : MonoBehaviour
     public bool _inship, _inspace, _ingrav, hasBoughtTeleportGun, hasBoughtFuelUpgrade;
     public bool hasBoughtBoosters, hasBoughtRope, hasBoughtTruckBack, hasBoughtTruckFront;
     public bool gunGot;
+    public GameObject sfx;
+    public Animator animator;
+    public GameObject shopEnter;
+    public float timeStamp;
+    public int random;
 
     // Start is called before the first frame update
     void Start()
     {
+        random = 100;
         speed = boost.thrust;
         refuelButton.onClick.AddListener(Refuel);
     }
@@ -38,6 +45,16 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > timeStamp)
+        {
+            random = Random.Range(1, 100);
+            timeStamp = Time.time + 15;
+        }
+        if (random <= 15)
+        {
+            animator.SetTrigger("Dance");
+            random = 100;
+        }
         CheckCanBuy();
         CoinsUI();
         LoadPanel();
@@ -84,12 +101,15 @@ public class ShopManager : MonoBehaviour
                 ui.UpdateUI();
                 myPurchaseBtns[btnNo].interactable = false;
                 ActivateItem(btnNo);
+                sfx.GetComponent<AudioSource>().Play();
+                animator.SetTrigger("Buy");
                
             }
         }
     }
 
-   
+  
+
 
     private void ActivateItem(int btnNo)
     {
@@ -103,6 +123,7 @@ public class ShopManager : MonoBehaviour
                 break;
             case 2: // gun
                 gunGot = true;
+                gun.GetComponent<GUN>().enabled = true;
                 weaponSwitch.weapons.Add(gun);
                 
                 

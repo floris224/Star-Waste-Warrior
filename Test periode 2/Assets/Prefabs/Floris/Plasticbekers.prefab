@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4873388315002476978}
   - component: {fileID: 7193533046956555446}
   - component: {fileID: 1215023283386654457}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plasticbekers
   m_TagString: TrashSmall
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 2036794066079259650}
   - component: {fileID: 1592171663258378398}
   - component: {fileID: 1452243362309332526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlasticbekersOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

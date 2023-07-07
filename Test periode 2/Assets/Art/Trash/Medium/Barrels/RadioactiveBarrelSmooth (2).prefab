@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2226632718931630386}
   - component: {fileID: 797171269150673389}
   - component: {fileID: 6228883674635789381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RadioactiveBarrelSmooth (2)
   m_TagString: TrashMedium
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1807130500769045420}
   - component: {fileID: 4163859599486665195}
   - component: {fileID: 1914208966819105708}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RadioactiveBarrelSmoothoutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

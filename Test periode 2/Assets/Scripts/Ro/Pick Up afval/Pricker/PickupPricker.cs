@@ -19,7 +19,7 @@ public class PickupPricker : MonoBehaviour
     public float attackCooldown, hitcooldown;
     public int maxCapacity, currentCapacity;
     public List<int> capaciteitList;
-    public TextMeshProUGUI questCount, inventoryCoutn, galaxyTokens, shopMoney;
+    public TMP_Text questCount, inventoryCoutn, galaxyTokens, shopMoney;
     public Quest quest;
     public Money money;
     public AudioSource alienHit;

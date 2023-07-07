@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5144774642281135575}
   - component: {fileID: 7954896573565049179}
   - component: {fileID: 5942870159806408707}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WaterflesjeDirty
   m_TagString: TrashSmall
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 3806299337248158429}
   - component: {fileID: 1774006347267027852}
   - component: {fileID: 1105894627645180833}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WaterflesjeDirty Outline'
   m_TagString: Untagged
   m_Icon: {fileID: 0}

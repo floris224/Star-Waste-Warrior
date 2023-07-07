@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 2099389225522889128}
   - component: {fileID: 5131772394910632880}
   - component: {fileID: 4890148397491915676}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RadioactiveBarrelOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
