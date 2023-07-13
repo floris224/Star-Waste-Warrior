@@ -54,7 +54,7 @@ public class UFO : MonoBehaviour
                 Debug.DrawRay(laserPoint.transform.position, -laserPoint.transform.up, Color.red);
                 if (Physics.Raycast(laserPoint.transform.position, -laserPoint.transform.up, out hit, 200))
                 {
-                    Debug.Log(hit.transform.name);
+                  
 
                     if (hit.transform.tag == "SpaceShip")
                     {

@@ -16,7 +16,9 @@ public class VuilniswagenCapaciteit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pickUpPrikker = GetComponent<PickupPricker>();
+
+   
+       // pickUpPrikker = GetComponent<PickupPricker>();
         
         playerInventory = pickUpPrikker.capaciteitList;
         currentCapacitySpaceShip = spaceshipSlots.Count;
